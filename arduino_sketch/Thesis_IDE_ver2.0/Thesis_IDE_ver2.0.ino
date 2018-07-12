@@ -22,7 +22,7 @@ ESP8266WiFiMulti WiFiMulti ;
 #define SAMPL_INTV 10
 #define NUMB_ELEMS_PACKET 100
 #define dataRate 9
-#define lowAcc 0.5
+#define lowAcc 0.55
 #define highAcc 2.77
 #define highGyro 254.5
 
