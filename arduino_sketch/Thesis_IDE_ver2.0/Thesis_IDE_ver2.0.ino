@@ -23,7 +23,7 @@ ESP8266WiFiMulti WiFiMulti ;
 #define NUMB_ELEMS_PACKET 100
 #define dataRate 9
 #define lowAcc 0.55
-#define highAcc 2.77
+#define highAcc 2.75
 #define highGyro 254.5
 
 Timer t;
