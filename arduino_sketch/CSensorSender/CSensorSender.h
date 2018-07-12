@@ -24,7 +24,7 @@ typedef enum
 {
   READY = 0,
   SENDING,
-  ERROR
+  SENDING_ERROR
 } senderState_t;
 
 typedef enum

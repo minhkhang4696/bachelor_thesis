@@ -1,18 +1,39 @@
 #include "CSensorSender.h"
 
+#define DEBUG_PRINT	1
+
+static inline void debugPrint(String inputString)
+{
+#if DEBUG_PRINT
+	Serial.println(inputString);
+#endif
+}
+
 void clientConnectedHandler(void * arg, AsyncClient * aClient)
 {
-	
+	debugPrint("Connected");
+	String sentString = ((CSensorSender *) arg)->getSentString();
+	aClient->write(sentString.c_str());
 }
 
 void clientDisconnectedHandler(void * arg, AsyncClient * aClient)
 {
-	
+	debugPrint("Disconnected");
+	senderState_t senderState = ((CSensorSender *) arg)->getSenderState();
+	if (senderState == SENDING)
+	{
+		((CSensorSender *) arg)->setSenderState(READY);
+	}
 }
 
 void clientErrorHandler(void * arg, AsyncClient * aClient, unsigned char error)
 {
-	
+	debugPrint("Error");
+	senderState_t senderState = ((CSensorSender *) arg)->getSenderState();
+	if (senderState == SENDING)
+	{
+		((CSensorSender *) arg)->setSenderState(SENDING_ERROR);
+	}
 }
 
 void CSensorSender::populateSentString()
@@ -61,7 +82,8 @@ senderErrorCode_t CSensorSender::queueSensorData(sensorData_t& sensorDataInput)
         mNoOfSamples++;
         returnSenderErrorCode = SENDER_ERROR_OK;
     }
-    else if (mSenderState == READY) {
+    else if (mSenderState == READY) 
+	{
         // Update the state
         mSenderState = SENDING;
         // Since this is a normal behavior
@@ -70,11 +92,10 @@ senderErrorCode_t CSensorSender::queueSensorData(sensorData_t& sensorDataInput)
         mNoOfSamples = 0;
         Serial.print(mSentString);
         //Do the sending here
-
-        //Hack
-        mSenderState = READY;
+		mClient.connect(mIPString.c_str(), mPort);
     }
-    else {
+    else 
+	{
         returnSenderErrorCode = SENDER_ERROR_NOT_READY;
     }
     return returnSenderErrorCode;
