@@ -1,58 +1,53 @@
 #include "CSensorSender.h"
 
-#define DEBUG_PRINT	1
+#define DEBUG_PRINT 1
 
 static inline void debugPrint(String inputString)
 {
 #if DEBUG_PRINT
-	Serial.println(inputString);
+    Serial.println(inputString);
 #endif
 }
 
-void clientConnectedHandler(void * arg, AsyncClient * aClient)
+void clientConnectedHandler(void* arg, AsyncClient* aClient)
 {
-	debugPrint("Connected");
-	String sentString = ((CSensorSender *) arg)->getSentString();
-	aClient->write(sentString.c_str());
-	((CSensorSender *) arg)->setIndicatorLed(LOW);
+    debugPrint("Connected");
+    String sentString = ((CSensorSender*)arg)->getSentString();
+    aClient->write(sentString.c_str());
+    ((CSensorSender*)arg)->setIndicatorLed(LOW);
 }
 
-void clientDisconnectedHandler(void * arg, AsyncClient * aClient)
+void clientDisconnectedHandler(void* arg, AsyncClient* aClient)
 {
-	debugPrint("Disconnected");
-	senderState_t senderState = ((CSensorSender *) arg)->getSenderState();
-	if ((senderState == SENDING) || (senderState ==  SENDING_ERROR))
-	{
-		((CSensorSender *) arg)->setSenderState(READY);
-	}
-	((CSensorSender *) arg)->setIndicatorLed(HIGH);
+    debugPrint("Disconnected");
+    senderState_t senderState = ((CSensorSender*)arg)->getSenderState();
+    if ((senderState == SENDING) || (senderState == SENDING_ERROR)) {
+        ((CSensorSender*)arg)->setSenderState(READY);
+    }
+    ((CSensorSender*)arg)->setIndicatorLed(HIGH);
 }
 
-void clientErrorHandler(void * arg, AsyncClient * aClient, unsigned char error)
+void clientErrorHandler(void* arg, AsyncClient* aClient, unsigned char error)
 {
-	debugPrint("Error");
-	senderState_t senderState = ((CSensorSender *) arg)->getSenderState();
-	if (senderState == SENDING)
-	{
-		((CSensorSender *) arg)->setSenderState(SENDING_ERROR);
-	}
-	((CSensorSender *) arg)->setIndicatorLed(HIGH);
+    debugPrint("Error");
+    senderState_t senderState = ((CSensorSender*)arg)->getSenderState();
+    if (senderState == SENDING) {
+        ((CSensorSender*)arg)->setSenderState(SENDING_ERROR);
+    }
+    ((CSensorSender*)arg)->setIndicatorLed(HIGH);
 }
 
 void CSensorSender::populateSentString()
 {
     mSentString = "";
-    for (int i = 0; i < mNoOfSamples; i++) 
-	{
+    for (int i = 0; i < mNoOfSamples; i++) {
         mSentString += String(mSensorData[i].normAccel) + "," + String(mSensorData[i].normGyro);
-        if (i < mNoOfSamples - 1) 
-		{
+        if (i < mNoOfSamples - 1) {
             mSentString += ",";
         }
-		else
-		{
-			mSentString += "\n";
-		}
+        else {
+            mSentString += "\n";
+        }
     }
 }
 
@@ -70,13 +65,13 @@ CSensorSender::CSensorSender(String IPString, int16_t port, uint16_t noOfSamples
     mNoOfSamples = 0;
     // Initialize the state to READY
     mSenderState = READY;
-	mLedIndicatorPin = ledIndicatorPin;
-	pinMode(ledIndicatorPin, OUTPUT);
-	digitalWrite(ledIndicatorPin, HIGH);
-	// Initialize the ASyncClient
-	mClient.onConnect(clientConnectedHandler, this);
-	mClient.onError(clientErrorHandler, this);
-	mClient.onDisconnect(clientDisconnectedHandler, this);
+    mLedIndicatorPin = ledIndicatorPin;
+    pinMode(ledIndicatorPin, OUTPUT);
+    digitalWrite(ledIndicatorPin, HIGH);
+    // Initialize the ASyncClient
+    mClient.onConnect(clientConnectedHandler, this);
+    mClient.onError(clientErrorHandler, this);
+    mClient.onDisconnect(clientDisconnectedHandler, this);
 }
 
 senderErrorCode_t CSensorSender::queueSensorData(sensorData_t& sensorDataInput)
@@ -88,8 +83,7 @@ senderErrorCode_t CSensorSender::queueSensorData(sensorData_t& sensorDataInput)
         mNoOfSamples++;
         returnSenderErrorCode = SENDER_ERROR_OK;
     }
-    else if (mSenderState == READY) 
-	{
+    else if (mSenderState == READY) {
         // Update the state
         mSenderState = SENDING;
         // Since this is a normal behavior
@@ -98,10 +92,9 @@ senderErrorCode_t CSensorSender::queueSensorData(sensorData_t& sensorDataInput)
         mNoOfSamples = 0;
         debugPrint(mSentString);
         //Do the sending here
-		mClient.connect(mIPString.c_str(), mPort);
+        mClient.connect(mIPString.c_str(), mPort);
     }
-    else 
-	{
+    else {
         returnSenderErrorCode = SENDER_ERROR_NOT_READY;
     }
     return returnSenderErrorCode;
@@ -116,20 +109,20 @@ CSensorSender::~CSensorSender()
 
 String CSensorSender::getSentString()
 {
-	return mSentString;
+    return mSentString;
 }
 
 senderState_t CSensorSender::getSenderState()
 {
-	return mSenderState;
+    return mSenderState;
 }
 
 void CSensorSender::setSenderState(senderState_t senderState)
 {
-	mSenderState = senderState;
+    mSenderState = senderState;
 }
 
-void CSensorSender::setIndicatorLed (uint8_t ledState)
+void CSensorSender::setIndicatorLed(uint8_t ledState)
 {
-	digitalWrite(mLedIndicatorPin, ledState);
+    digitalWrite(mLedIndicatorPin, ledState);
 }
