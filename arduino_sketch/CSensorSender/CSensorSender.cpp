@@ -14,16 +14,18 @@ void clientConnectedHandler(void * arg, AsyncClient * aClient)
 	debugPrint("Connected");
 	String sentString = ((CSensorSender *) arg)->getSentString();
 	aClient->write(sentString.c_str());
+	((CSensorSender *) arg)->setIndicatorLed(LOW);
 }
 
 void clientDisconnectedHandler(void * arg, AsyncClient * aClient)
 {
 	debugPrint("Disconnected");
 	senderState_t senderState = ((CSensorSender *) arg)->getSenderState();
-	if (senderState == SENDING)
+	if ((senderState == SENDING) || (senderState ==  SENDING_ERROR))
 	{
 		((CSensorSender *) arg)->setSenderState(READY);
 	}
+	((CSensorSender *) arg)->setIndicatorLed(HIGH);
 }
 
 void clientErrorHandler(void * arg, AsyncClient * aClient, unsigned char error)
@@ -34,6 +36,7 @@ void clientErrorHandler(void * arg, AsyncClient * aClient, unsigned char error)
 	{
 		((CSensorSender *) arg)->setSenderState(SENDING_ERROR);
 	}
+	((CSensorSender *) arg)->setIndicatorLed(HIGH);
 }
 
 void CSensorSender::populateSentString()
@@ -54,7 +57,7 @@ void CSensorSender::populateSentString()
 }
 
 // Constructor
-CSensorSender::CSensorSender(String IPString, int16_t port, uint16_t noOfSamplesPerPacket)
+CSensorSender::CSensorSender(String IPString, int16_t port, uint16_t noOfSamplesPerPacket, int ledIndicatorPin)
 {
     // Load the arguments onto the attributes
     mIPString = IPString;
@@ -67,6 +70,9 @@ CSensorSender::CSensorSender(String IPString, int16_t port, uint16_t noOfSamples
     mNoOfSamples = 0;
     // Initialize the state to READY
     mSenderState = READY;
+	mLedIndicatorPin = ledIndicatorPin;
+	pinMode(ledIndicatorPin, OUTPUT);
+	digitalWrite(ledIndicatorPin, HIGH);
 	// Initialize the ASyncClient
 	mClient.onConnect(clientConnectedHandler, this);
 	mClient.onError(clientErrorHandler, this);
@@ -90,7 +96,7 @@ senderErrorCode_t CSensorSender::queueSensorData(sensorData_t& sensorDataInput)
         returnSenderErrorCode = SENDER_ERROR_OK;
         populateSentString();
         mNoOfSamples = 0;
-        Serial.print(mSentString);
+        debugPrint(mSentString);
         //Do the sending here
 		mClient.connect(mIPString.c_str(), mPort);
     }
@@ -121,4 +127,9 @@ senderState_t CSensorSender::getSenderState()
 void CSensorSender::setSenderState(senderState_t senderState)
 {
 	mSenderState = senderState;
+}
+
+void CSensorSender::setIndicatorLed (uint8_t ledState)
+{
+	digitalWrite(mLedIndicatorPin, ledState);
 }

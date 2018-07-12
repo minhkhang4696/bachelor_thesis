@@ -49,13 +49,15 @@ class CSensorSender
     uint16_t mNoOfSamples;
     // Async TCP client for sending data
     AsyncClient mClient;
+	// led indicator pin
+	int mLedIndicatorPin;
     
     void populateSentString();
 	void disconnectedHandler(void * arg, AsyncClient * aClient);
 	void errorHandler(void * arg, AsyncClient * aClient, uint8_t error);
   public:
     // Constructor
-    CSensorSender(String IPString, int16_t port, uint16_t noOfSamplesPerPacket);
+    CSensorSender(String IPString, int16_t port, uint16_t noOfSamplesPerPacket, int ledIndicatorPin);
     senderErrorCode_t queueSensorData(sensorData_t& sensorDataInput);
 	// Get + set function
 	String getSentString();
@@ -63,6 +65,8 @@ class CSensorSender
 	void setSenderState(senderState_t senderState);
     // Destructor, clean up the allocated memory here
     ~CSensorSender();
+	//Set indicator led
+	void setIndicatorLed (uint8_t ledState);
 };
 
 #endif
