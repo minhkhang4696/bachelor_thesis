@@ -1,0 +1,13 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: uw-ethesis.aux
+The style file: IEEEtran.bst
+Database file #1: uw-ethesis.bib
+-- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
+-- http://www.michaelshell.org/tex/ieeetran/bibtex/
+-- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Name 2 in "J. Y. Hwang and J. M. Kang, and H. C. Kim" has a comma at the end for entry static1
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "J. A. Stevens, P. S. Corso, E. A. Finkelstein, T. R. Miller" for entry cost_fatal
+while executing---line 2403 of file IEEEtran.bst
+
+Done.
+(There were 2 error messages)

@@ -10,6 +10,7 @@
 #include "ESP8266WiFiMulti.h"
 #include "ESP.h"
 #include "Time.h"
+#include <CSensorSender.h>
 
 
 ESP8266WiFiMulti WiFiMulti ;
@@ -19,16 +20,19 @@ ESP8266WiFiMulti WiFiMulti ;
 #define OUTPUT_READABLE_ACCELGYRO
 //#define SERIAL_DEBUG
 #define BUZZER 13
-#define SAMPL_INTV 10
-#define NUMB_ELEMS_PACKET 100
+#define CONN_INTERVAL     (1000)
+#define NUMB_ELEMS_PACKET (100)
+#define SAMPL_INTV        (CONN_INTERVAL/NUMB_ELEMS_PACKET)
 #define dataRate 9
-#define lowAcc 0.55
+#define lowAcc 0.26
 #define highAcc 2.75
 #define highGyro 254.5
 
 Timer t;
 const uint16_t port = 8000;
-const char * host = "192.168.137.1"; // ip or dns
+String host = "192.168.137.1"; // ip or dns
+
+CSensorSender mySender(host, port, NUMB_ELEMS_PACKET, 2);
 
 // Use WiFiClient class to create TCP connections
 AsyncClient client;   
@@ -74,7 +78,6 @@ void alert(){
     firstCond = false;
     secCond = false;
     thirdCond = false;
-//      digitalWrite(BUZZER, HIGH);
 }
 
 void init_IMU() {
@@ -127,48 +130,18 @@ void Init_Wifi()
       delay(500);
 }
 
-
-void myHandlerConnect(void * arg, AsyncClient * aClient)
-{
-  if (packetSend!="")
-  {
-    client.write(packetSend.c_str());
-    Serial.println("Connected");
-    digitalWrite(2, LOW);
-    packetSend="";
-  }
-}
-
-void myHandlerError(void * arg, AsyncClient * aClient, uint8_t error)
-{
-  Serial.print("Error: ");
-  Serial.println(error);
-  digitalWrite(2, HIGH);
-}
-
-void myHandlerDisconnect(void * arg, AsyncClient * aClient)
-{
-  Serial.println("Disconnected");
-  digitalWrite(2, HIGH);
-}
-
 void setup(){
   //initialize pin mode
-  pinMode(2, OUTPUT);
-  digitalWrite(2, HIGH);
   pinMode(BUZZER, OUTPUT);
   Serial.begin(115200);
   Wire.begin();
   init_IMU();
+  
   Init_Wifi();
-  client.onConnect(myHandlerConnect, NULL);
-  client.onError(myHandlerError, NULL);
-  client.onDisconnect(myHandlerDisconnect, NULL);
-  delay(1000);
-  client.connect(host,port);
 }
 
 void loop() {
+    sensorData_t currentSensorData;
     ESP.wdtFeed();
     if ((millis()-t_time)>SAMPL_INTV)
     { 
@@ -186,7 +159,7 @@ void loop() {
         if (normAcc < lowAcc)
         {
           firstCond = true;
-          t.after(1000,alert);
+          t.after(500,alert);
         }
         if (firstCond == true && normAcc > highAcc)
         {
@@ -196,39 +169,11 @@ void loop() {
         {
           thirdCond =true;
         }
-        //add sensor datas into the packet
-        packet += String(normAcc) + "," + String(normGyro) + ",";
-        i++;
         t_time=millis();
-    }   
-    if(i>=NUMB_ELEMS_PACKET)
-    {
-      //copy current packet into send packet
-      packetSend = packet;
-      packetSend = packetSend.substring(0, packetSend.length()-1);
-      packetSend += "\n";
-      //connect to server when the data send is available
-      if(!client.connected() && !client.connecting())
-      {
-        client.connect(host,port);
-      }
-      else
-      {
-        if (client.canSend())
-        {
-            client.write(packetSend.c_str());
-            Serial.println("send data");
-        }
-        else
-        {
-          Serial.println("Can't send");
-        }
-        //packetSend="";
-      }
-      packet="";
-      i = 0;
+        currentSensorData.normAccel = normAcc;
+        currentSensorData.normGyro = normGyro;
+        mySender.queueSensorData(currentSensorData);
     }
     t.update();
-    
 }
 

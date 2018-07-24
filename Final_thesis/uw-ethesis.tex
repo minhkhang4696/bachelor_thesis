@@ -1,0 +1,461 @@
+\documentclass[letterpaper,12pt,titlepage,oneside,final]{book}
+
+% For PDF, suitable for double-sided printing, change the PrintVersion variable below
+% to "true" and use this \documentclass line instead of the one above:
+%\documentclass[letterpaper,12pt,titlepage,openright,twoside,final]{book}
+
+% Some LaTeX commands I define for my own nomenclature.
+% If you have to, it's better to change nomenclature once here than in a 
+% million places throughout your thesis!
+\newcommand{\package}[1]{\textbf{#1}} % package names in bold text
+\newcommand{\cmmd}[1]{\textbackslash\texttt{#1}} % command name in tt font 
+\newcommand{\href}[1]{#1} % does nothing, but defines the command so the
+% print-optimized version will ignore \href tags (redefined by hyperref pkg).
+%\newcommand{\texorpdfstring}[2]{#1} % does nothing, but defines the command
+% Anything defined here may be redefined by packages added below...
+
+% This package allows if-then-else control structures.
+\usepackage{ifthen}
+\newboolean{PrintVersion}
+\setboolean{PrintVersion}{false} 
+% CHANGE THIS VALUE TO "true" as necessary, to improve printed results for hard copies
+% by overriding some options of the hyperref package below.
+
+%\usepackage{nomencl} % For a nomenclature (optional; available from ctan.org)
+\usepackage{amsmath,amssymb,amstext} % Lots of math symbols and environments
+\usepackage[pdftex]{graphicx} % For including graphics N.B. pdftex graphics driver 
+\usepackage[acronym,automake]{glossaries}
+\usepackage{siunitx}
+\usepackage{multirow}
+\usepackage{setspace}
+\usepackage[paper=a4paper,margin=1in]{geometry}
+\usepackage{tikz}
+
+%here declear the acronym
+\newacronym{who}{WHO}{World Health Organization}
+\newacronym{ncoa}{NCOA}{the National Council of Aging}
+\newacronym{mems}{MEMS}{Micro-Electro-Mechanical}
+\newacronym{imu}{IMU}{Inertia Measurement Unit}
+\newacronym{adc}{ADC}{analog-to-digital}
+\newacronym{lsb}{LSB}{Least Significant Bit}
+\newacronym{ssf}{SSF}{Sensitivity Scale Factor}
+\newacronym{mcu}{MCU}{Micro-Controller Unit}
+\newacronym{iot}{IoT}{Internet-of-Things}
+
+
+\makeglossaries
+% Hyperlinks make it very easy to navigate an electronic document.
+% In addition, this is where you should specify the thesis title
+% and author as they appear in the properties of the PDF document.
+% Use the "hyperref" package 
+% N.B. HYPERREF MUST BE THE LAST PACKAGE LOADED; ADD ADDITIONAL PKGS ABOVE
+\usepackage[pdftex,letterpaper=true,pagebackref=false]{hyperref} % with basic options
+% N.B. pagebackref=true provides links back from the References to the body text. This can cause trouble for printing.
+\hypersetup{
+	plainpages=false,       % needed if Roman numbers in frontpages
+	pdfpagelabels=true,     % adds page number as label in Acrobat's page count
+	bookmarks=true,         % show bookmarks bar?
+	unicode=false,          % non-Latin characters in Acrobat’s bookmarks
+	pdftoolbar=true,        % show Acrobat’s toolbar?
+	pdfmenubar=true,        % show Acrobat’s menu?
+	pdffitwindow=false,     % window fit to page when opened
+	pdfstartview={FitH},    % fits the width of the page to the window
+	pdftitle={uWaterloo\ LaTeX\ Thesis\ Template},    % title: CHANGE THIS TEXT!
+	%    pdfauthor={Author},    % author: CHANGE THIS TEXT! and uncomment this line
+	%    pdfsubject={Subject},  % subject: CHANGE THIS TEXT! and uncomment this line
+	%    pdfkeywords={keyword1} {key2} {key3}, % list of keywords, and uncomment this line if desired
+	pdfnewwindow=true,      % links in new window
+	colorlinks=true,        % false: boxed links; true: colored links
+	linkcolor=black,         % color of internal links
+	citecolor=black,        % color of links to bibliography
+	filecolor=magenta,      % color of file links
+	urlcolor=cyan           % color of external links
+}
+\ifthenelse{\boolean{PrintVersion}}{   % for improved print quality, change some hyperref options
+	\hypersetup{	% override some previously defined hyperref options
+		%    colorlinks,%
+		citecolor=black,%
+		filecolor=black,%
+		linkcolor=black,%
+		urlcolor=black}
+}{} % end of ifthenelse (no else)
+
+% Setting up the page margins...
+% uWaterloo thesis requirements specify a minimum of 1 inch (72pt) margin at the
+% top, bottom, and outside page edges and a 1.125 in. (81pt) gutter
+% margin (on binding side). While this is not an issue for electronic
+% viewing, a PDF may be printed, and so we have the same page layout for
+% both printed and electronic versions, we leave the gutter margin in.
+% Set margins to minimum permitted by uWaterloo thesis regulations:
+\setlength{\marginparwidth}{0pt} % width of margin notes
+% N.B. If margin notes are used, you must adjust \textwidth, \marginparwidth
+% and \marginparsep so that the space left between the margin notes and page
+% edge is less than 15 mm (0.6 in.)
+\setlength{\marginparsep}{0pt} % width of space between body text and margin notes
+\setlength{\evensidemargin}{0.125in} % Adds 1/8 in. to binding side of all 
+% even-numbered pages when the "twoside" printing option is selected
+\setlength{\oddsidemargin}{0.125in} % Adds 1/8 in. to the left of all pages
+% when "oneside" printing is selected, and to the left of all odd-numbered
+% pages when "twoside" printing is selected
+\setlength{\textwidth}{6.375in} % assuming US letter paper (8.5 in. x 11 in.) and 
+% side margins as above
+\raggedbottom
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+% The following statement specifies the amount of space between
+% paragraphs. Other reasonable specifications are \bigskipamount and \smallskipamount.
+\setlength{\parskip}{\medskipamount}
+
+% The following statement controls the line spacing.  The default
+% spacing corresponds to good typographic conventions and only slight
+% changes (e.g., perhaps "1.2"), if any, should be made.
+\renewcommand{\baselinestretch}{1} % this is the default line space setting
+
+% By default, each chapter will start on a recto (right-hand side)
+% page.  We also force each section of the front pages to start on 
+% a recto page by inserting \cleardoublepage commands.
+% In many cases, this will require that the verso page be
+% blank and, while it should be counted, a page number should not be
+% printed.  The following statements ensure a page number is not
+% printed on an otherwise blank verso page.
+\let\origdoublepage\cleardoublepage
+\newcommand{\clearemptydoublepage}{%
+	\clearpage{\pagestyle{empty}\origdoublepage}}
+\let\cleardoublepage\clearemptydoublepage
+%======================================================================5
+%   L O G I C A L    D O C U M E N T -- the content of your thesis
+%======================================================================
+\begin{document}
+%delete chapter 
+\makeatletter
+\def\@makechapterhead#1{%
+	{\parindent \z@ \raggedright \normalfont
+		\ifnum \c@secnumdepth >\m@ne
+		\huge\bfseries \thechapter.\ % <-- Chapter # (without "Chapter")
+		\fi
+		\interlinepenalty\@M
+		#1\par\nobreak% <------------------ Chapter title
+		\vskip 10\p@% <------------------ Space between chapter title and first paragraph
+}}
+% For a large document, it is a good idea to divide your thesis
+% into several files, each one containing one chapter.
+% To illustrate this idea, the "front pages" (i.e., title page,
+% declaration, borrowers' page, abstract, acknowledgements,
+% dedication,   of contents, list of tables, list of figures,
+% nomenclature) are contained within the file "uw-ethesis-frontpgs.tex" which is
+% included into the document by the following statement.
+%----------------------------------------------------------------------
+% FRONT MATERIAL
+%----------------------------------------------------------------------
+\input{uw-ethesis-frontpgs} 
+\printglossaries
+\setstretch{1.5}
+%----------------------------------------------------------------------
+% MAIN BODY
+%----------------------------------------------------------------------
+% Because this is a short document, and to reduce the number of files
+% needed for this template, the chapters are not separate
+% documents as suggested above, but you get the idea. If they were
+% separate documents, they would each start with the \chapter command, i.e, 
+% do not contain \documentclass or \begin{document} and \end{document} commands.
+%======================================================================
+\chapter{Introduction}
+%======================================================================
+
+%----------------------------------------------------------------------
+\section{Introduction to Fall}
+%---------------------------------------------------------------------
+Nowadays, fall is becoming a dangerous issue which mostly cause the injuries and even leads to disability or fatal death on human, especially the elderly. According to Hwang \textit{et.at.} \cite{static1}, in the United State, one-third to one-half of elderly people over 65 years old fall at least one time each year  and two-third of them will do so again within the next 6 months. Every 11 seconds, there is an elderly person is treated in the hospital's emergency area due to fall-related injuries and every 19 minutes, one faller die \cite{fall_die}. It is also reported that one out every 200 falls results in a hip fracture on people with age among 65 and 69 and increase to one out of 10 for those aged 85 and more \cite{hip_fracture}. The most profound effect of falling is the loss of functioning associated with the dependency of the elderly for the rest of their life. Besides, a great amount time and money have been spent on the medical treatments for the falls. Approximately \$179 million were used as direct medical costs for treating fatal falls and \$19 billion for non-fatal fall injuries within 2000 \cite{cost_fatal}.
+
+\section{Definition of a Fall}
+Before starting a research about falls, it is necessary to understand about the meaning of the term \textit{falls}. According to \gls{who}, a fall is defined as an event which results in a person coming to rest inadvertently on the ground or floor or other lower level with or without loss of consciousness or injury \cite{who}. 
+
+\section{Cause of a Fall}
+
+\subsection{Intrinsic risk factors}
+
+\subsection{Extrinsic risk factors}
+
+\section{Consequence of Falls}
+
+\section{Challenge in Detecting Falls and Motivation for This Thesis}
+
+\section{Objectives}
+
+\section{Overview of Thesis Works}
+
+\section{Thesis Organization}
+
+%======================================================================
+\chapter{Literature Review}
+
+\section{Existing Commercial Devices}
+
+\section{Existing Products from Other Research Groups}
+
+
+\chapter{Statement of Problem and Methodology}
+
+\section{Problem}
+
+\section{Methodology}
+
+\subsection{Position of sensor}
+
+\subsection{Fall detection algorithm}
+
+\section{Algorithm}
+
+\chapter{Sytem overview}
+
+\section{System Components}
+
+\subsection{Hardware Components}
+
+\subsubsection{Sensor}
+
+\subsubsection{Microcontroller}
+
+\subsubsection{Wireless Module}
+
+\subsection{Software}
+
+\subsubsection{Embeddded Software on Sensor Node}
+
+\subsubsection{Communication System}
+
+\subsubsection{Data Acquisition Software}
+
+\subsubsection{Data Analysis Software}
+
+\subsection{System Intergration}
+
+\chapter{Experimental and Procedure}
+
+\section{Data Collection}
+
+\section{Data Analysis}
+
+\section{Experiment on Real Subjects to Evaluate the Performance of The Network}
+
+\chapter{Results and Discussion}
+
+\section{Results Assessment}
+
+\section{Comparing the performance with existing works}
+
+\chapter{Conclusion and Future Works}
+
+\section{Summary}
+
+\section{Limitations}
+
+\section{Future works}
+%======================================================================
+
+
+\appendix
+% Add a title page before the appendices and a line in the Table of Contents
+\addcontentsline{toc}{chapter}{APPENDICES}
+%======================================================================
+\chapter{C/C++ Code for Reading Data from Sensor}
+\begin{verbatim}
+#include "Arduino.h"
+#include "MPU6050.h"
+#include "Wire.h"
+#include "WiFiClient.h"
+#include "ESP8266WiFiMulti.h"
+
+ESP8266WiFiMulti WiFiMulti ;
+#if I2CDEV_IMPLEMENTATION == I2CDEV_ARDUINO_WIRE
+#include "Wire.h"
+#endif
+
+MPU6050 accelgyro;
+//MPU6050 accelgyro(0x69); // <-- use for AD0 high
+
+int16_t ax, ay, az;
+int16_t gx, gy, gz;
+float rotX, rotY, rotZ,normAcc;
+float gyroX, gyroY, gyroZ, normGyro;
+#define OUTPUT_READABLE_ACCELGYRO
+
+#define LED_PIN 2
+bool blinkState = false;
+
+void Print_IMU()
+{
+#ifdef SERIAL_DEBUG
+	Serial.println("Accelerometer:");
+	Serial.print(rotX);
+	Serial.print("\t");
+	Serial.print(rotY);
+	Serial.print("\t");
+	Serial.println(rotZ);
+	Serial.println("Gyroscope: ");
+	Serial.print(gyroX);
+	Serial.print("\t");
+	Serial.print(gyroY);
+	Serial.print("\t");
+	Serial.println(gyroZ);
+	#endif
+	Serial.print(normAcc);
+	Serial.print(" ");
+	Serial.println(normGyro);
+}
+
+void init_IMU() {
+	// join I2C bus (I2Cdev library doesn't do this automatically)
+	Wire.begin();
+	Serial.begin(115200);
+	
+	// initialize device
+	Serial.println("Initializing I2C devices...");
+	accelgyro.initialize();
+	
+	// verify connection
+	Serial.println("Testing device connections...");
+	Serial.println(accelgyro.testConnection() ? "MPU6050 connection successful" 
+	: "MPU6050 connection failed");
+	
+	// use the code below to change accel/gyro offset values
+	
+	Serial.println("Updating internal sensor offsets...");
+	//reading current sensor's offset
+	Serial.print("\n");
+	accelgyro.setXGyroOffset(55);
+	accelgyro.setYGyroOffset(-28);
+	accelgyro.setZGyroOffset(-2);
+	accelgyro.setXAccelOffset(-2581);
+	accelgyro.setYAccelOffset(-3937);
+	accelgyro.setZAccelOffset(1199);
+}
+
+
+void Init_Wifi()
+{
+	// Initialize Wifi_connection
+	WiFiMulti.addAP("Connectify-me", "hazeduh5");
+	Serial.println();
+	Serial.println();
+	Serial.print("Wait for WiFi... ");
+	while(WiFiMulti.run() != WL_CONNECTED) {
+	Serial.print(".");
+	delay(500);
+	}
+	Serial.println("");
+	Serial.println("WiFi connected");
+	Serial.println("IP address: ");
+	Serial.println(WiFi.localIP());
+	delay(500);
+}
+
+void sendData()
+{
+	const uint16_t port = 8000;
+	const char * host = "192.168.85.1"; // ip or dns
+	
+	// Use WiFiClient class to create TCP connections
+	WiFiClient client;
+	
+	if (!client.connect(host, port)) {
+	Serial.println("connection failed");
+	client.stop();
+	return;
+	}
+	client.print(normAcc);
+	//	    client.print(" , ");
+	//        client.println(normGyro);
+	//Serial.println("closing connection");
+	client.stop();
+}
+
+void setup(){
+	Serial.begin(115200);
+	Wire.begin();
+	init_IMU();
+	delay(10);
+	Init_Wifi();
+}
+void loop() {
+	accelgyro.getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
+	rotX = ax / 16384.0;
+	rotY = ay / 16384.0;
+	rotZ = az /16384.0;
+	normAcc = sqrt(rotX*rotX + rotY*rotY + rotZ*rotZ);
+	gyroX = gx /131;
+	gyroY = gy /131;
+	gyroZ = gz /131;
+	normGyro = sqrt(gyroX*gyroX + gyroY*gyroY + gyroZ*gyroZ);
+	Print_IMU();
+	sendData();
+}
+\end{verbatim}%
+
+\chapter{Python Code for Data Acquisition Program}
+\begin{verbatim}
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
+from drawnow import *
+import socketserver
+
+accel = []
+gyro = []
+plt.ion() #tell the matplotlib that we want to draw live data
+def makeFig():
+plt.subplot(2,1,1)
+plt.plot(accel, 'r', label= 'Normalized Acceleration')
+plt.legend(loc='upper left')
+plt.ylim(0,5)
+plt.subplot(2,1,2)
+plt.plot(gyro, 'b', label = 'Normalized Angular Velocity')
+plt.legend(loc='upper left')
+plt.savefig('testplot.png')
+
+class myTCPServer(socketserver.StreamRequestHandler):
+def handle(self):
+data = self.rfile.readline()
+dataArray = data.decode().split(',')
+normAcc = float(dataArray[0])
+normGyro = float(dataArray[1])
+accel.append(normAcc)
+gyro.append(normGyro)
+if len(accel) > 100:
+accel.pop(0)
+if len(gyro) > 100:
+gyro.pop(0)
+drawnow(makeFig)
+#create TCP server
+serv = socketserver.TCPServer(("",8000),myTCPServer)
+serv.serve_forever()
+\end{verbatim}%
+%----------------------------------------------------------------------
+% END MATERIAL
+%----------------------------------------------------------------------
+
+% B I B L I O G R A P H Y
+% -----------------------
+
+% The following statement selects the style to use for references.  It controls the sort order of the entries in the bibliography and also the formatting for the in-text labels.
+
+% This specifies the location of the file containing the bibliographic information.  
+% It assumes you're using BibTeX (if not, why not?).
+\cleardoublepage % This is needed if the book class is used, to place the anchor in the correct page,
+                 % because the bibliography will start on its own page.
+                 % Use \clearpage instead if the document class uses the "oneside" argument
+\phantomsection  % With hyperref package, enables hyperlinking from the table of contents to bibliography             
+% The following statement causes the title "References" to be used for the bibliography section:
+\renewcommand*{\bibname}{References}
+
+% Add the References to the Table of Contents
+\addcontentsline{toc}{chapter}{\textbf{References}}
+\bibliographystyle{IEEEtran}
+\bibliography{uw-ethesis}
+% Tip 5: You can create multiple .bib files to organize your references. 
+% Just list them all in the \bibliogaphy command, separated by commas (no spaces).
+
+% The following statement causes the specified references to be added to the bibliography% even if they were not 
+% cited in the text. The asterisk is a wildcard that causes all entries in the bibliographic database to be included (optional).
+
+
+\end{document}

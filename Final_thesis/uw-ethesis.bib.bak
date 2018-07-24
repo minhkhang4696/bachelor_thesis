@@ -1,0 +1,180 @@
+% Encoding: UTF-8
+
+@InBook{handbook,
+  chapter   = {24},
+  pages     = {450},
+  title     = {Handbook of Research on ICTs for Human-Centered Healthcare and Social Care Services},
+  publisher = {Medical Information Science Reference},
+  year      = {2013},
+  author    = {Maria Manuela Cruz-Cunha and Isabel Maria Miranda and Patricia Goncalves},
+  volume    = {2},
+}
+
+@Article{main_quoc,
+  author  = {Quoc T. Huynh and Uyen D. Nguyen and Lucia B. Irazabal and Nazanin Ghassemian and Binh Q. Tran},
+  title   = {Optimization of an Accelerometer and Gyroscope-Based Fall Detection Algorithm},
+  journal = {Journal of Sensor},
+  year    = {2015},
+  number  = {452078},
+}
+
+@Misc{who,
+  author = {{World Health Organiztion}},
+  title  = {Falls},
+  url    = {http://www.who.int/en/news-room/fact-sheets/detail/falls},
+}
+
+@Article{static1,
+  author  = {J. Y. Hwang and J. M. Kang, and H. C. Kim},
+  title   = {Development of novel algorithm and real-time monitoring ambulatory system using bluetooth module for fall detection in the elderly},
+  journal = {Proceedings of the 26th Annual International Conference of the IEEE Engineering in Medicine and Biology Society (IEMBS ’04)},
+  year    = {September 2004},
+  volume  = {1},
+  pages   = {2204-2207},
+}
+
+@Misc{fall_die,
+  author  = {{Nation Council of Aging}},
+  title   = {Falls Prevention Facts},
+  url     = {https://www.ncoa.org/news/resources-for-reporters/get-the-facts/falls-prevention-facts/},
+  urldate = {2010-09-30},
+}
+
+@Article{cause_of_fall,
+  author  = {Fumio Eto},
+  title   = {Causes of Falls in the Elderly},
+  journal = {Japan Medical Association Journal},
+  year    = {2001},
+  volume  = {44},
+  number  = {7},
+  pages   = {299-305},
+}
+
+@InBook{bibli_book,
+  chapter   = {1},
+  pages     = {5},
+  title     = {Falls in the Elderly},
+  publisher = {Edward Arnold},
+  year      = {1993},
+  author    = {Joanna H. Downtow},
+}
+
+@Article{death_fall,
+  author  = {Rubenstein LZ},
+  title   = {{Falls in older people: epidemiology, risk factors and strategies for prevention}},
+  journal = {Age Ageing},
+  year    = {2006},
+  pages   = {ii37-ii41},
+}
+
+@Article{death_in_USA,
+  author  = {J. A. Stevens and G. Ryan and M. Kresnow},
+  title   = {{Fatalities and Injuries from Falls Among Older Adults — United States, from 1993 to 2003 and from 2001 to 2005}},
+  journal = {Journal of the American Medical Association},
+  year    = {2007},
+  pages   = {32-33},
+}
+
+@Article{death_in_canada,
+  author  = {{Division of Aging and Seniors, PHAC. Canada}},
+  title   = {Report on senior's fall in Canada. Ontario, Division of Aging and Seniors},
+  journal = {Public Health Agency of Canada},
+  year    = {2005},
+}
+
+@Article{SVM,
+  author  = {T. Zhang and J. Wang and L. Xu and P. Liu},
+  title   = {{Fall detection by wearable sensor and one-class SVM algorithm}},
+  journal = {Intelligent Computing in Signal Processing and Pattern Recognition: International Conference on Intelligent Computing, ICIC 2006 Kunming, China},
+  year    = {August 16–19, 2006},
+  volume  = {345},
+}
+
+@Article{markov,
+  author  = {P. Jayachandran and T. F. Abdelzaher and J. A. Stankovic and R. K. Ganti},
+  title   = {SATIRE: a sofware architecture for smart attire},
+  journal = {Proceedings of the 4th International Conference on Mobile Systems, Applications and Services (MobiSys ’06)},
+  year    = {June 2016},
+  pages   = {110-123},
+}
+
+@Conference{li,
+  author    = {Qiang Li and John A. Stankovic and Mark Hanson and Adam Barth and John Lach},
+  title     = {Accurate, Fast Fall Detection Using Gyroscopes and Accelerometer-Derived Posture Information},
+  booktitle = {Wearable and Implantable Body Sensor Networks},
+  year      = {2009},
+  address   = {Berkeley, CA, USA},
+  month     = jun,
+}
+
+@MastersThesis{binh,
+  author = {Jonathan Tomkun and Binh Nguyen},
+  title  = {{Design of a Fall Detection and Prevention System for the Elderly}},
+  school = {McMaster University Hamilton, Ontario, Canada},
+  year   = {2010},
+  type   = {Bachelor Thesis},
+}
+
+@Article{yang,
+  author  = {Yang, B. and Lee, Y. and Lin, C.},
+  title   = {{On Developing a Real-Time Fall Detecting and Protecting System using Mobile Device}},
+  journal = {Proceedings of the International Conference on Fall Prevention and Protection, Tokyo, Japan},
+  year    = {2013},
+  pages   = {151-156},
+}
+
+@Misc{accprinciple,
+  author = {Majid Dadafshar},
+  title  = {Accelerometer and Gyroscopes Sensors: Operation, Sensing, and Applications},
+  url    = {https://www.maximintegrated.com/en/app-notes/index.mvp/id/5830},
+}
+
+@Misc{adxl,
+  title = {{SparkFun Triple Axis Accelerometer Breakout - ADXL345}},
+  url   = {https://www.sparkfun.com/products/9836},
+}
+
+@Misc{galaxy,
+  title = {{Samsung Galaxy S2 i9100}},
+  url   = {https://www.gsmarena.com/samsung_i9100_galaxy_s_ii-3621.php},
+}
+
+@Misc{mpu,
+  title = {{MPU-6050 Accelerometer + Gyro}},
+  url   = {https://playground.arduino.cc/Main/MPU-6050},
+}
+
+@Misc{rpl,
+  title = {{Gyro Breakout Board - LPR530AL}},
+  url   = {https://www.sparkfun.com/products/retired/9990},
+}
+
+@Misc{d1sche,
+  title = {Testing MPU6050 before embarking on project},
+  key   = {MPU6050},
+  url   = {https://wifienabler.com/tag/mpu6050/},
+}
+
+@Misc{i2c,
+  title = {{I2C Bus, Interface and Protocol}},
+  url   = {http://i2c.info/},
+}
+
+@Misc{itg3200,
+  title = {{SparkFun Triple-Axis Digital-Output Gyro Breakout - ITG-3200}},
+  url   = {https://www.exp-tech.de/sensoren/gyroskop/5564/sparkfun-triple-axis-digital-output-gyro-breakout-itg-3200},
+}
+
+@Misc{gyrodef,
+  title = {Inertial Sensors},
+  url   = {http://www.kostasalexis.com/inertial-sensors.html},
+}
+
+@Misc{hip_fracture,
+  title = {10 Shocking Statistics About Elderly Falls},
+  month = aug,
+  year  = {201},
+  url   = {https://www.shellpoint.org/blog/2012/08/13/10-shocking-statistics-about-elderly-falls/},
+}
+
+@Comment{jabref-meta: databaseType:bibtex;}

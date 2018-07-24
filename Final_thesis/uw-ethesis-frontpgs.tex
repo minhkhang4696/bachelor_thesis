@@ -1,0 +1,215 @@
+% T I T L E   P A G E
+% -------------------
+% Last updated May 24, 2011, by Stephen Carr, IST-Client Services
+% The title page is counted as page `i' but we need to suppress the
+% page number.  We also don't want any headers or footers.
+\pagestyle{empty}
+\pagenumbering{roman}
+
+% The contents of the title page are specified in the "titlepage"
+% environment.	
+\begin{titlepage}
+		% Side by side figure
+		\begin{figure}
+			\begin{minipage}[c]{0.4\linewidth}
+			\includegraphics[scale=0.20]{FRAUAS}
+			\end{minipage}
+			\hfil
+				\begin{minipage}[c]{0.2\linewidth}
+				\includegraphics[scale=0.3]{VGU}
+			\end{minipage}	
+		\end{figure}
+     	%Text front page
+        \begin{center}
+        \normalsize
+        	Frankfurt University of Applied Science\\
+        	Faculty 2: Computer Science and Engineering\\
+        	\vspace*{0.1cm}
+        	Vietnamese - German University\\
+        	Department of Electrical Engineering and Infomation Technology
+        
+        \vspace*{2.3cm}
+        \Large
+        {\bf DESIGN AND IMPLENTATION OF A WIRELESS FALL DETECTION NETWORK PROTOTYPE USING MEMS SENSORS}
+
+        \vspace*{0.5cm}
+
+        \normalsize
+        by \\
+
+        \vspace*{0.5cm}
+
+        \Large
+        Ho Ngoc Khang Minh \\
+      	\normalsize
+      	\vspace{0.2cm}
+		Matriculation No.: 1148602
+		
+        \vspace*{1.5cm}
+        \large
+       	First Supervisor: Prof. Dr.-Ing. Kira Kastell \\
+       	Second Supervisor: Dipl. -Ing Mohammad Reza Mansooji \\
+       	\vspace{1.7cm}
+        \normalsize
+        Submitted in partial fulfillment of the requirements\\
+        for the degree of Bachelor Engineering in study program\\
+        Electrical Engineering \& Information Technology,\\
+        Vietnamese - German University
+
+        \vspace*{3.0cm}
+		
+        Frankfurt am Main, Germany 2018 \\
+	
+        
+        \end{center}
+\end{titlepage}
+
+% The rest of the front pages should contain no headers and be numbered using Roman numerals starting with `ii'
+\pagestyle{plain}
+\setcounter{page}{2}
+\cleardoublepage
+\begin{center}
+\LARGE
+{\bf Design and Implementation of a Wireless Fall Detection Network prototype using MEMS sensors}
+\end{center}
+\vspace{3cm}
+\hspace{7.5cm}
+Approved by\\
+
+\vspace{2cm}
+
+\hspace{7cm}
+\begin{tikzpicture}[yscale=0.5]
+\draw [line width=0mm,   black] (0,-5) -- (8,-5);
+\end{tikzpicture}
+
+\hspace{7cm}
+Prof. Dr.-Ing Kira Kastell, First Supervisor\\
+
+\vspace{2cm}
+
+\hspace{7cm}
+\begin{tikzpicture}[yscale=0.5]
+\draw [line width=0mm,   black] (0,-5) -- (8,-5);
+\end{tikzpicture}
+
+\hspace{7cm}
+Dipl.-Ing Mohammad Reza Mansooji
+
+\cleardoublepage % Ends the current page and causes all figures and tables that have so far appeared in the input to be printed.
+% In a two-sided printing style, it also makes the next page a right-hand (odd-numbered) page, producing a blank page if necessary.
+ 
+
+
+% D E C L A R A T I O N   P A G E
+% -------------------------------
+  % The following is the sample Delaration Page as provided by the GSO
+  % December 13th, 2006.  It is designed for an electronic thesis.
+  
+  {
+  	\begin{center}
+  		\Large
+  		\bf Disclamer
+  	\end{center}
+  	{
+  		\setstretch{1.5}
+  		\par
+  		I hereby declare that this thesis is a product of my own work, unless otherwise
+  		referenced. I also declare that all opinions, results, conclusions and recommendations are
+  		my own and may not represent the policies or opinions of Vietnamese - German University and Frankfurt University of Applied Science. \par
+  	}
+  	\vspace{3cm}
+  	\hspace{11cm}
+  	Ho Ngoc Khang Minh
+  	\cleardoublepage
+  }	
+
+\cleardoublepage
+
+\pagestyle{plain}
+\setcounter{page}{3}
+
+\cleardoublepage % Ends the current page and causes all figures and tables that have so far appeared in the input to be printed.
+% In a two-sided printing style, it also makes the next page a right-hand (odd-numbered) page, producing a blank page if necessary.
+
+\begin{center}
+\vspace*{\fill}
+\copyright 2018 by Ngoc Khang Minh, Ho. All right reserved.
+\vspace*{\fill}
+\end{center}
+
+
+
+\cleardoublepage
+%\newpage
+
+% A B S T R A C T
+% ---------------
+\begin{center}\textbf{Abstract}\end{center}
+{
+	\setstretch{1.5}
+	\par
+	Falling is becoming a serious problem to elderly people with the age of over 65, often causing unpredictable injuries such as hip fractures, head traumas, etc. More seriously, falls may lead to disability or even death on the victim if assistances from caregivers are not received in time. From this situation, there is a need for a wireless communication network which can automatically detect the fall and send an alarm to the caregivers if there is no safe signal from the victim within 10 minutes. There have been several algorithms such as detection of body orientation after a fall, image processing to detect the fall or applying machine learning techniques (Support Vector Machine (SVM), Markov model) in classifying between falling and other activities of daily living (ADL). However, these complex techniques require a huge amount of computations which can result in the system being overloaded or heavily delayed.\par
+	Addressing this problem calls for less computation-intensive techniques while retaining the accuracy and robustness of the system. One such approach is the combination of data from both accelerometer and gyroscope. The focus of this thesis is developing a wireless fall detection network which can combines the data from above sensors to detect falls and distinguish them from fall-like activities. A comparison on the performance of this network with other existing works is also included to evaluate the robustness of the system.\par
+	\vspace{1cm}
+	\textit{\textbf{Keywords:} elderly people, fall detection, accelerometer, gyroscope,  wireless communication network}
+}
+\cleardoublepage
+%\newpage
+
+% A C K N O W L E D G E M E N T S
+% -------------------------------
+\begin{center}\textbf{Acknowledgements}\end{center}
+{
+	\setstretch{1.5}
+	\par
+	I would like to express my sincere appreciation to Prof. Dr.-Ing. Kira Kastell, Vice President of Frankfurt University of Applied Science (FRA-UAS) for supervising, supporting and encouraging me during the time I conduct my senior project and final thesis. Also, I would like to thank Mr. Dipl.-Ing Mansooji - communication lab engineer at FRA-UAS, Dr. Vo Bich Hien - lecturer and Mr. Duong Huynh Bao - former control lab engineer at Vietnamese German University for guiding me on technical and programming aspect. I also would like to thank my family for their supports during my bachelor degree time. This project will not be completed without their grateful guidances and supports. Thanks to their encouragements, I can improve myself, not only on the fundamental background in my major, but also necessary skills for my future career. I would like to mention all of my seniors and classmates who have helped me through this thesis.\par
+	\vspace{1cm}
+}
+\cleardoublepage
+
+%\newpage
+
+% D E D I C A T I O N
+% -------------------
+%\newpage
+
+% T A B L E   O F   C O N T E N T S
+% ---------------------------------
+\renewcommand\contentsname{Table of Contents}
+\tableofcontents
+\cleardoublepage
+\phantomsection
+%\newpage
+
+% L I S T   O F   T A B L E S
+% ---------------------------
+\addcontentsline{toc}{chapter}{List of Tables}
+\listoftables
+\cleardoublepage
+\phantomsection		% allows hyperref to link to the correct page
+%\newpage
+
+% L I S T   O F   F I G U R E S
+% -----------------------------
+\addcontentsline{toc}{chapter}{List of Figures}
+\listoffigures
+\cleardoublepage
+\phantomsection		% allows hyperref to link to the correct page
+%\newpage
+
+%Acronym section%
+
+% L I S T   O F   S Y M B O L S
+% -----------------------------
+% To include a Nomenclature section
+% \addcontentsline{toc}{chapter}{\textbf{Nomenclature}}
+% \renewcommand{\nomname}{Nomenclature}
+% \printglossary
+% \cleardoublepage
+% \phantomsection % allows hyperref to link to the correct page
+% \newpage
+
+% Change page numbering back to Arabic numerals
+\pagenumbering{arabic}
+

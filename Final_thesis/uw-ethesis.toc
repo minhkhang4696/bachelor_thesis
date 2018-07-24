@@ -1,0 +1,49 @@
+\contentsline {chapter}{List of Tables}{viii}{section*.2}
+\contentsline {chapter}{List of Figures}{ix}{section*.4}
+\contentsline {chapter}{\numberline {1}Introduction}{2}{chapter.1}
+\contentsline {section}{\numberline {1.1}Introduction to Fall}{2}{section.1.1}
+\contentsline {section}{\numberline {1.2}Definition of a Fall}{2}{section.1.2}
+\contentsline {section}{\numberline {1.3}Cause of a Fall}{3}{section.1.3}
+\contentsline {subsection}{\numberline {1.3.1}Intrinsic risk factors}{3}{subsection.1.3.1}
+\contentsline {subsection}{\numberline {1.3.2}Extrinsic risk factors}{3}{subsection.1.3.2}
+\contentsline {section}{\numberline {1.4}Consequence of Falls}{3}{section.1.4}
+\contentsline {section}{\numberline {1.5}Challenge in Detecting Falls and Motivation for This Thesis}{3}{section.1.5}
+\contentsline {section}{\numberline {1.6}Objectives}{3}{section.1.6}
+\contentsline {section}{\numberline {1.7}Overview of Thesis Works}{3}{section.1.7}
+\contentsline {section}{\numberline {1.8}Thesis Organization}{3}{section.1.8}
+\contentsline {chapter}{\numberline {2}Literature Review}{4}{chapter.2}
+\contentsline {section}{\numberline {2.1}Existing Commercial Devices}{4}{section.2.1}
+\contentsline {section}{\numberline {2.2}Existing Products from Other Research Groups}{4}{section.2.2}
+\contentsline {chapter}{\numberline {3}Statement of Problem and Methodology}{5}{chapter.3}
+\contentsline {section}{\numberline {3.1}Problem}{5}{section.3.1}
+\contentsline {section}{\numberline {3.2}Methodology}{5}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Position of sensor}{5}{subsection.3.2.1}
+\contentsline {subsection}{\numberline {3.2.2}Fall detection algorithm}{5}{subsection.3.2.2}
+\contentsline {section}{\numberline {3.3}Algorithm}{5}{section.3.3}
+\contentsline {chapter}{\numberline {4}Sytem overview}{6}{chapter.4}
+\contentsline {section}{\numberline {4.1}System Components}{6}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Hardware Components}{6}{subsection.4.1.1}
+\contentsline {subsubsection}{\numberline {4.1.1.1}Sensor}{6}{subsubsection.4.1.1.1}
+\contentsline {subsubsection}{\numberline {4.1.1.2}Microcontroller}{6}{subsubsection.4.1.1.2}
+\contentsline {subsubsection}{\numberline {4.1.1.3}Wireless Module}{6}{subsubsection.4.1.1.3}
+\contentsline {subsection}{\numberline {4.1.2}Software}{6}{subsection.4.1.2}
+\contentsline {subsubsection}{\numberline {4.1.2.1}Embeddded Software on Sensor Node}{6}{subsubsection.4.1.2.1}
+\contentsline {subsubsection}{\numberline {4.1.2.2}Communication System}{6}{subsubsection.4.1.2.2}
+\contentsline {subsubsection}{\numberline {4.1.2.3}Data Acquisition Software}{6}{subsubsection.4.1.2.3}
+\contentsline {subsubsection}{\numberline {4.1.2.4}Data Analysis Software}{6}{subsubsection.4.1.2.4}
+\contentsline {subsection}{\numberline {4.1.3}System Intergration}{6}{subsection.4.1.3}
+\contentsline {chapter}{\numberline {5}Experimental and Procedure}{7}{chapter.5}
+\contentsline {section}{\numberline {5.1}Data Collection}{7}{section.5.1}
+\contentsline {section}{\numberline {5.2}Data Analysis}{7}{section.5.2}
+\contentsline {section}{\numberline {5.3}Experiment on Real Subjects to Evaluate the Performance of The Network}{7}{section.5.3}
+\contentsline {chapter}{\numberline {6}Results and Discussion}{8}{chapter.6}
+\contentsline {section}{\numberline {6.1}Results Assessment}{8}{section.6.1}
+\contentsline {section}{\numberline {6.2}Comparing the performance with existing works}{8}{section.6.2}
+\contentsline {chapter}{\numberline {7}Conclusion and Future Works}{9}{chapter.7}
+\contentsline {section}{\numberline {7.1}Summary}{9}{section.7.1}
+\contentsline {section}{\numberline {7.2}Limitations}{9}{section.7.2}
+\contentsline {section}{\numberline {7.3}Future works}{9}{section.7.3}
+\contentsline {chapter}{APPENDICES}{9}{section.7.3}
+\contentsline {chapter}{\numberline {A}C/C++ Code for Reading Data from Sensor}{10}{appendix.A}
+\contentsline {chapter}{\numberline {B}Python Code for Data Acquisition Program}{15}{appendix.B}
+\contentsline {chapter}{\textbf {References}}{17}{section*.9}

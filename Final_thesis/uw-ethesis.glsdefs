@@ -1,0 +1,30 @@
+\ifglsentryexists{who}{}%
+{%
+\gls@defglossaryentry{who}%
+{%
+name={WHO},%
+sort={WHO},%
+type={acronym},%
+first={World Health Organization\glsspace (WHO)},%
+firstplural={World Health Organizations\glsspace (WHOs)},%
+text={WHO},%
+plural={WHOs},%
+description={World Health Organization},%
+descriptionplural={World Health Organization\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={World Health Organization},%
+longplural={World Health Organizations},%
+short={WHO},%
+shortplural={WHOs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
