@@ -229,4 +229,11 @@
   pages   = {362–6},
 }
 
+@Article{ca,
+  author  = {Kapoor WN, Karpf M, Wieand S, Peterson JR, Levey GS Wishwa N. Kapoor, Michael Karpf, Sam Wieand, Jacqueline R. Peterson, Gerald S. Levey},
+  title   = {A prospective evaluation and follow-up of patients with syncope},
+  journal = {New England Journal of Medical},
+  year    = {1983},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

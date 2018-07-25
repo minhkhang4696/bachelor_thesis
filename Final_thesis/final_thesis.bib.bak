@@ -23,4 +23,11 @@
   url   = {https://www.shellpoint.org/blog/2012/08/13/10-shocking-statistics-about-elderly-falls/},
 }
 
+@InProceedings{cognitive_1,
+  author    = {Prudham D, Evans JG.},
+  title     = {Factors associated with falls in the elderly: a community study.},
+  booktitle = {Age Ageing},
+  year      = {1981},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
