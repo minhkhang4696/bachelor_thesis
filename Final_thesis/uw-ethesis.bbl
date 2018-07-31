@@ -28,12 +28,6 @@ J.~Y. Hwang, J.~M. Kang, and H.~C. Kim, ``Development of novel algorithm and
   International Conference of the IEEE Engineering in Medicine and Biology
   Society (IEMBS ’04)}, vol.~1, pp. 2204--2207, September 2004.
 
-\bibitem{fall_die}
-\BIBentryALTinterwordspacing
-{Nation Council of Aging}, ``Falls prevention facts.'' [Online]. Available:
-  \url{https://www.ncoa.org/news/resources-for-reporters/get-the-facts/falls-prevention-facts/}
-\BIBentrySTDinterwordspacing
-
 \bibitem{hip_fracture}
 \BIBentryALTinterwordspacing
 ``10 shocking statistics about elderly falls,'' Aug. 201. [Online]. Available:
@@ -78,9 +72,16 @@ K.~R. Davies~AJ, ``Falls presenting to the accident and emergency department:
   types of presentation and risk factor profile,'' \emph{Age Aging}, vol.~25,
   p. 362–6, 1996.
 
-\bibitem{cardio_2}
-W.~S. P. J. L. G. W. N. K. M. K. S. W. J. R. P. G. S.~L. Kapoor~WN, Karpf~M,
-  ``A prospective evaluation and follow-up of patients with syncope,''
-  \emph{New England Journal of Medical}, 1983.
+\bibitem{ncoa}
+\BIBentryALTinterwordspacing
+{Nation Council of Aging}, ``Falls prevention facts.'' [Online]. Available:
+  \url{https://www.ncoa.org/news/resources-for-reporters/get-the-facts/falls-prevention-facts/}
+\BIBentrySTDinterwordspacing
+
+\bibitem{medicinenet_fracture}
+\BIBentryALTinterwordspacing
+MedicineNet.com, ``Falls and fractures in seniors,'' 2004. [Online]. Available:
+  \url{https://www.medicinenet.com/script/main/art.asp?articlekey=7774}
+\BIBentrySTDinterwordspacing
 
 \end{thebibliography}
