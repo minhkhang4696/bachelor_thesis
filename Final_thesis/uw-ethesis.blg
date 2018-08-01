@@ -2,7 +2,6 @@ This is BibTeX, Version 0.99dThe top-level auxiliary file: uw-ethesis.aux
 The style file: IEEEtran.bst
 Database file #1: uw-ethesis.bib
 Warning--I didn't find a database entry for "fall_die"
-Warning--I didn't find a database entry for "cardio_2"
 -- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
@@ -17,6 +16,30 @@ Too many commas in name 1 of "Poonam K. Pardasaney, Mary D. Slavin, Robert C. Wa
 while executing---line 2403 of file IEEEtran.bst
 Too many commas in name 1 of "Poonam K. Pardasaney, Mary D. Slavin, Robert C. Wagenaar, Nancy K. Latham, Pengsheng Ni, Alan M. Jette" for entry postural_2
 while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Juan J. Carrero, Dinanda J. de Jager, Marion Verduijn, Pietro Ravani, Johan De Meester, James G. Heaf, Patrik Finne, Andries J. Hoitsma, Julio Pascual, Faiçal Jarraya, Anna V. Reisaete, Frederic Collart, Friedo W. Dekker, Kitty J. Jager" for entry cardio_2
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Juan J. Carrero, Dinanda J. de Jager, Marion Verduijn, Pietro Ravani, Johan De Meester, James G. Heaf, Patrik Finne, Andries J. Hoitsma, Julio Pascual, Faiçal Jarraya, Anna V. Reisaete, Frederic Collart, Friedo W. Dekker, Kitty J. Jager" for entry cardio_2
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Juan J. Carrero, Dinanda J. de Jager, Marion Verduijn, Pietro Ravani, Johan De Meester, James G. Heaf, Patrik Finne, Andries J. Hoitsma, Julio Pascual, Faiçal Jarraya, Anna V. Reisaete, Frederic Collart, Friedo W. Dekker, Kitty J. Jager" for entry cardio_2
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Juan J. Carrero, Dinanda J. de Jager, Marion Verduijn, Pietro Ravani, Johan De Meester, James G. Heaf, Patrik Finne, Andries J. Hoitsma, Julio Pascual, Faiçal Jarraya, Anna V. Reisaete, Frederic Collart, Friedo W. Dekker, Kitty J. Jager" for entry cardio_2
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Juan J. Carrero, Dinanda J. de Jager, Marion Verduijn, Pietro Ravani, Johan De Meester, James G. Heaf, Patrik Finne, Andries J. Hoitsma, Julio Pascual, Faiçal Jarraya, Anna V. Reisaete, Frederic Collart, Friedo W. Dekker, Kitty J. Jager" for entry cardio_2
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Juan J. Carrero, Dinanda J. de Jager, Marion Verduijn, Pietro Ravani, Johan De Meester, James G. Heaf, Patrik Finne, Andries J. Hoitsma, Julio Pascual, Faiçal Jarraya, Anna V. Reisaete, Frederic Collart, Friedo W. Dekker, Kitty J. Jager" for entry cardio_2
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Juan J. Carrero, Dinanda J. de Jager, Marion Verduijn, Pietro Ravani, Johan De Meester, James G. Heaf, Patrik Finne, Andries J. Hoitsma, Julio Pascual, Faiçal Jarraya, Anna V. Reisaete, Frederic Collart, Friedo W. Dekker, Kitty J. Jager" for entry cardio_2
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Juan J. Carrero, Dinanda J. de Jager, Marion Verduijn, Pietro Ravani, Johan De Meester, James G. Heaf, Patrik Finne, Andries J. Hoitsma, Julio Pascual, Faiçal Jarraya, Anna V. Reisaete, Frederic Collart, Friedo W. Dekker, Kitty J. Jager" for entry cardio_2
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Juan J. Carrero, Dinanda J. de Jager, Marion Verduijn, Pietro Ravani, Johan De Meester, James G. Heaf, Patrik Finne, Andries J. Hoitsma, Julio Pascual, Faiçal Jarraya, Anna V. Reisaete, Frederic Collart, Friedo W. Dekker, Kitty J. Jager" for entry cardio_2
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Juan J. Carrero, Dinanda J. de Jager, Marion Verduijn, Pietro Ravani, Johan De Meester, James G. Heaf, Patrik Finne, Andries J. Hoitsma, Julio Pascual, Faiçal Jarraya, Anna V. Reisaete, Frederic Collart, Friedo W. Dekker, Kitty J. Jager" for entry cardio_2
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Juan J. Carrero, Dinanda J. de Jager, Marion Verduijn, Pietro Ravani, Johan De Meester, James G. Heaf, Patrik Finne, Andries J. Hoitsma, Julio Pascual, Faiçal Jarraya, Anna V. Reisaete, Frederic Collart, Friedo W. Dekker, Kitty J. Jager" for entry cardio_2
+while executing---line 2403 of file IEEEtran.bst
+Warning--empty year in cardio_2
+Warning--empty journal in other_consequence_1
 
 Done.
-(There were 5 error messages)
+(There were 16 error messages)
