@@ -28,6 +28,12 @@ J.~Y. Hwang, J.~M. Kang, and H.~C. Kim, ``Development of novel algorithm and
   International Conference of the IEEE Engineering in Medicine and Biology
   Society (IEMBS ’04)}, vol.~1, pp. 2204--2207, September 2004.
 
+\bibitem{ncoa}
+\BIBentryALTinterwordspacing
+{Nation Council of Aging}, ``Falls prevention facts.'' [Online]. Available:
+  \url{https://www.ncoa.org/news/resources-for-reporters/get-the-facts/falls-prevention-facts/}
+\BIBentrySTDinterwordspacing
+
 \bibitem{hip_fracture}
 \BIBentryALTinterwordspacing
 ``10 shocking statistics about elderly falls,'' Aug. 201. [Online]. Available:
@@ -78,17 +84,16 @@ M.~V. P. R. J. D. M. J. G. H. P. F. A. J. H. J. P. F. J. A. V. R. F. C. F. W.
   noncardiovascular mortality among men and women starting dialysis,''
   \emph{Clinical Journal of the American Society of Nephrology}.
 
-\bibitem{ncoa}
-\BIBentryALTinterwordspacing
-{Nation Council of Aging}, ``Falls prevention facts.'' [Online]. Available:
-  \url{https://www.ncoa.org/news/resources-for-reporters/get-the-facts/falls-prevention-facts/}
-\BIBentrySTDinterwordspacing
-
 \bibitem{medicinenet_fracture}
 \BIBentryALTinterwordspacing
 MedicineNet.com, ``Falls and fractures in seniors,'' 2004. [Online]. Available:
   \url{https://www.medicinenet.com/script/main/art.asp?articlekey=7774}
 \BIBentrySTDinterwordspacing
+
+\bibitem{head_injury_1}
+M.~M. M.~W. Rep, ``Nonfatal fall-related traumatic brain injury among older
+  adults—california, 1996–1999,'' \emph{Morbidity and Mortality Weekly
+  Report}, 2003.
 
 \bibitem{death_in_USA}
 J.~A. Stevens, G.~Ryan, and M.~Kresnow, ``{Fatalities and Injuries from Falls

@@ -249,10 +249,20 @@
   journal = {Clinical Journal of the American Society of Nephrology},
 }
 
-@Article{o,
+@Article{other_consequence_1,
   author = {{Consumer Safety Unit}},
   title  = {Home and Leisure Accident Research},
   year   = {1988},
+}
+
+@Article{head_injury_1,
+  author  = {MMWR Morb Mortal Wkly Rep},
+  title   = {Nonfatal fall-related traumatic brain injury among older adults—California, 1996–1999},
+  journal = {Morbidity and Mortality Weekly Report},
+  year    = {2003},
+}
+
+@Misc{,
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}
