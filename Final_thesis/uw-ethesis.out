@@ -16,33 +16,32 @@
 \BOOKMARK [0][-]{chapter.3}{Statement of Problem and Methodology}{}% 16
 \BOOKMARK [1][-]{section.3.1}{Problem}{chapter.3}% 17
 \BOOKMARK [1][-]{section.3.2}{Methodology}{chapter.3}% 18
-\BOOKMARK [2][-]{subsection.3.2.1}{Position of sensor}{section.3.2}% 19
-\BOOKMARK [2][-]{subsection.3.2.2}{Fall detection algorithm}{section.3.2}% 20
-\BOOKMARK [1][-]{section.3.3}{Algorithm}{chapter.3}% 21
-\BOOKMARK [0][-]{chapter.4}{Sytem overview}{}% 22
-\BOOKMARK [1][-]{section.4.1}{System Components}{chapter.4}% 23
-\BOOKMARK [2][-]{subsection.4.1.1}{Hardware Components}{section.4.1}% 24
-\BOOKMARK [3][-]{subsubsection.4.1.1.1}{Sensor}{subsection.4.1.1}% 25
-\BOOKMARK [3][-]{subsubsection.4.1.1.2}{Microcontroller}{subsection.4.1.1}% 26
-\BOOKMARK [3][-]{subsubsection.4.1.1.3}{Wireless Module}{subsection.4.1.1}% 27
-\BOOKMARK [2][-]{subsection.4.1.2}{Software}{section.4.1}% 28
-\BOOKMARK [3][-]{subsubsection.4.1.2.1}{Embeddded Software on Sensor Node}{subsection.4.1.2}% 29
-\BOOKMARK [3][-]{subsubsection.4.1.2.2}{Communication System}{subsection.4.1.2}% 30
-\BOOKMARK [3][-]{subsubsection.4.1.2.3}{Data Acquisition Software}{subsection.4.1.2}% 31
-\BOOKMARK [3][-]{subsubsection.4.1.2.4}{Data Analysis Software}{subsection.4.1.2}% 32
-\BOOKMARK [2][-]{subsection.4.1.3}{System Intergration}{section.4.1}% 33
-\BOOKMARK [0][-]{chapter.5}{Experimental and Procedure}{}% 34
-\BOOKMARK [1][-]{section.5.1}{Data Collection}{chapter.5}% 35
-\BOOKMARK [1][-]{section.5.2}{Data Analysis}{chapter.5}% 36
-\BOOKMARK [1][-]{section.5.3}{Experiment on Real Subjects to Evaluate the Performance of The Network}{chapter.5}% 37
-\BOOKMARK [0][-]{chapter.6}{Results and Discussion}{}% 38
-\BOOKMARK [1][-]{section.6.1}{Results Assessment}{chapter.6}% 39
-\BOOKMARK [1][-]{section.6.2}{Comparing the performance with existing works}{chapter.6}% 40
-\BOOKMARK [0][-]{chapter.7}{Conclusion and Future Works}{}% 41
-\BOOKMARK [1][-]{section.7.1}{Summary}{chapter.7}% 42
-\BOOKMARK [1][-]{section.7.2}{Limitations}{chapter.7}% 43
-\BOOKMARK [1][-]{section.7.3}{Future works}{chapter.7}% 44
-\BOOKMARK [0][-]{section.7.3}{APPENDICES}{}% 45
-\BOOKMARK [0][-]{appendix.A}{C/C++ Code for Reading Data from Sensor}{}% 46
-\BOOKMARK [0][-]{appendix.B}{Python Code for Data Acquisition Program}{}% 47
-\BOOKMARK [0][-]{section*.9}{References}{}% 48
+\BOOKMARK [1][-]{section.3.3}{Position of sensor}{chapter.3}% 19
+\BOOKMARK [1][-]{section.3.4}{Algorithm}{chapter.3}% 20
+\BOOKMARK [0][-]{chapter.4}{Sytem overview}{}% 21
+\BOOKMARK [1][-]{section.4.1}{System Components}{chapter.4}% 22
+\BOOKMARK [2][-]{subsection.4.1.1}{Hardware Components}{section.4.1}% 23
+\BOOKMARK [3][-]{subsubsection.4.1.1.1}{Sensor}{subsection.4.1.1}% 24
+\BOOKMARK [3][-]{subsubsection.4.1.1.2}{Microcontroller}{subsection.4.1.1}% 25
+\BOOKMARK [3][-]{subsubsection.4.1.1.3}{Wireless Module}{subsection.4.1.1}% 26
+\BOOKMARK [2][-]{subsection.4.1.2}{Software}{section.4.1}% 27
+\BOOKMARK [3][-]{subsubsection.4.1.2.1}{Embeddded Software on Sensor Node}{subsection.4.1.2}% 28
+\BOOKMARK [3][-]{subsubsection.4.1.2.2}{Communication System}{subsection.4.1.2}% 29
+\BOOKMARK [3][-]{subsubsection.4.1.2.3}{Data Acquisition Software}{subsection.4.1.2}% 30
+\BOOKMARK [3][-]{subsubsection.4.1.2.4}{Data Analysis Software}{subsection.4.1.2}% 31
+\BOOKMARK [2][-]{subsection.4.1.3}{System Intergration}{section.4.1}% 32
+\BOOKMARK [0][-]{chapter.5}{Experimental and Procedure}{}% 33
+\BOOKMARK [1][-]{section.5.1}{Data Collection}{chapter.5}% 34
+\BOOKMARK [1][-]{section.5.2}{Data Analysis}{chapter.5}% 35
+\BOOKMARK [1][-]{section.5.3}{Experiment on Real Subjects to Evaluate the Performance of The Network}{chapter.5}% 36
+\BOOKMARK [0][-]{chapter.6}{Results and Discussion}{}% 37
+\BOOKMARK [1][-]{section.6.1}{Results Assessment}{chapter.6}% 38
+\BOOKMARK [1][-]{section.6.2}{Comparing the performance with existing works}{chapter.6}% 39
+\BOOKMARK [0][-]{chapter.7}{Conclusion and Future Works}{}% 40
+\BOOKMARK [1][-]{section.7.1}{Summary}{chapter.7}% 41
+\BOOKMARK [1][-]{section.7.2}{Limitations}{chapter.7}% 42
+\BOOKMARK [1][-]{section.7.3}{Future works}{chapter.7}% 43
+\BOOKMARK [0][-]{section.7.3}{APPENDICES}{}% 44
+\BOOKMARK [0][-]{appendix.A}{C/C++ Code for Reading Data from Sensor}{}% 45
+\BOOKMARK [0][-]{appendix.B}{Python Code for Data Acquisition Program}{}% 46
+\BOOKMARK [0][-]{section*.9}{References}{}% 47

@@ -247,7 +247,7 @@ Another device on the market is myHalo\texttrademark from MobileHelp\texttradema
 \end{figure}
 
 \section{Existing Products from Other Research Groups}
-Beside many commercial fall detection devices being available on the market, there are still many products from different research groups surrounding the fall detection topic. A group of Qiang Li and colleagues have used TEMPO (Technology-Enabled Medical Precision Observation) 3.0 sensor node for their project. This sensor node contains one tri-axial accelerometer and one tri-axial gyroscope and controlled by an TI MSP430F1611 microcontroller. This group proposed an algorithm which combines the data from both accelerometer and gyroscope to reduce both false positive and false negative detection and improving the fall detection accuracy. This system is low computational requirements and real-time response. The authors stated that their method has difficulties in differentiating jumping into bed and falling against wall with a seated posture. 
+Beside many commercial fall detection devices being available on the market, there are still many products from different research groups surrounding the fall detection topic. A group of Qiang Li and colleagues have used TEMPO (Technology-Enabled Medical Precision Observation) 3.0 sensor node for their project \cite{li}. This sensor node contains one tri-axial accelerometer and one tri-axial gyroscope and controlled by an TI MSP430F1611 microcontroller. This group proposed an algorithm which combines the data from both accelerometer and gyroscope to reduce both false positive and false negative detection and improving the fall detection accuracy. This system is low computational requirements and real-time response. The authors stated that their method has difficulties in differentiating jumping into bed and falling against wall with a seated posture. 
 
  \begin{figure}[h!]
 	\centering
@@ -255,7 +255,7 @@ Beside many commercial fall detection devices being available on the market, the
 	\caption{TEMPO 3.0 sensor node}
 \end{figure}
 
-Binh Nguyen and Jonathan Tomkun designed and created a fall detection system for the elderly as a wearable monitoring device which can distinguish between fall and non-fall events. This device can link wirelessly with a pre-programmed laptop computer or Bluetooth-compitable mobile phone. Upon detecting a fall, the device communicates wirelessly with the laptop or cellphone to call 911 or issued emergency contacts. This device can also detect abnormal tilt and warns the user to correct their posture to minimize the risk of falling. In addition to visual LED to alert the fall, there are also audio and tacticle alert options for people with hearing or seeing disabilities. Regarding the performance of system, some actions have not been distinguished by one of four proposed algorithm to be falls or non-falls. 
+Binh Nguyen and Jonathan Tomkun designed and created a fall detection system for the elderly as a wearable monitoring device which can distinguish between fall and non-fall events  \cite{binh}. This device can link wirelessly with a pre-programmed laptop computer or Bluetooth-compitable mobile phone. Upon detecting a fall, the device communicates wirelessly with the laptop or cellphone to call 911 or issued emergency contacts. This device can also detect abnormal tilt and warns the user to correct their posture to minimize the risk of falling. In addition to visual LED to alert the fall, there are also audio and tacticle alert options for people with hearing or seeing disabilities. Regarding the performance of system, some actions have not been distinguished by one of four proposed algorithm to be falls or non-falls. 
 
  \begin{figure}[h!]
 	\centering
@@ -266,12 +266,10 @@ Binh Nguyen and Jonathan Tomkun designed and created a fall detection system for
 \chapter{Statement of Problem and Methodology}
 
 \section{Problem}
-
+Nowadays, there have been various research groups studying on the academic area about fall detection on human. The majority of them focus on designing a new algorithm to successfully distinguish between fall and fall-like activities. From the first time, most of research groups used the algorithm mainly based on the data from only one accelerometer such as \cite{only_accel_1}\cite{only_accel_2}\cite{only_accel_3}. However, focusing only on the data from the accelerometer can result in many false positives as other activities such as sitting, running and jumping which may also cause large peak accelerations. After that, there are other algorithms rely on the detection of body orientation after the fall such as \cite{body_orientation_1}\cite{body_orientation_2}. The main drawback of these strategies is that the fall can be confused by activities with similar postures such as sleeping, reclining, etc. It is also less effective when a person's fall posture is not horizontal. Then, there are some groups have nominated such complex algorithms that used Support Vector Machine (SVM)\cite{SVM} and Markov model \cite{markov} to detect the fall. These techniques requires huge amount of computational resource which cause the delay on system which effect the robustness and accuracy of the system. 	
 \section{Methodology}
-
-\subsection{Position of sensor}
-
-\subsection{Fall detection algorithm}
+From the disadvantages of prior works as mentioned above, this project proposes using an algorithm which combines data from one accelerometer and one gyroscope to detect the fall. The data from the accelerometer provides valuable information regarding body inertial change due to impact, while the gyroscope's data provides information about the body's rotational velocity during a fall event. This method helps improving the accuracy of falling detection system with a
+\section{Position of sensor}
 
 \section{Algorithm}
 

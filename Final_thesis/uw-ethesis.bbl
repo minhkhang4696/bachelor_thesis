@@ -104,4 +104,54 @@ J.~A. Stevens, G.~Ryan, and M.~Kresnow, ``{Fatalities and Injuries from Falls
 \bibitem{other_consequence_1}
 {Consumer Safety Unit}, ``Home and leisure accident research,'' 1988.
 
+\bibitem{li}
+Q.~Li, J.~A. Stankovic, M.~Hanson, A.~Barth, and J.~Lach, ``Accurate, fast fall
+  detection using gyroscopes and accelerometer-derived posture information,''
+  in \emph{Wearable and Implantable Body Sensor Networks}, Berkeley, CA, USA,
+  Jun. 2009.
+
+\bibitem{binh}
+J.~Tomkun and B.~Nguyen, ``{Design of a Fall Detection and Prevention System
+  for the Elderly},'' Bachelor Thesis, McMaster University Hamilton, Ontario,
+  Canada, 2010.
+
+\bibitem{only_accel_1}
+A.~W. W.~X. Weihao~Qu, Feng~Lin, ``Evaluation of a low-complexity fall
+  detection algorithm on wearable sensor towards falls and fall-alike
+  activities,'' \emph{Gait Posture}, Aug. 2008.
+
+\bibitem{only_accel_2}
+A.~Bourke, J.~O'Brien, and G.~ÓLaighin, ``Evaluation of a threshold-based
+  tri-axial accelerometer,'' vol.~26, pp. 194--199, 01 2006.
+
+\bibitem{only_accel_3}
+N.~H.~L. Dean M.~Karantonis, ``Implementation of a real-time human movement
+  classifier using a triaxial accelerometer for ambulatory monitoring,''
+  \emph{IEEE TRANSACTIONS ON INFORMATION TECHNOLOGY IN BIOMEDICINE}, vol.~10,
+  no.~1, Jan. 2006.
+
+\bibitem{body_orientation_1}
+L.~H. Nair and Ragimol, ``Ahrs based body orientation estimation for real time
+  fall detection,'' in \emph{2017 International Conference on Innovations in
+  Information, Embedded and Communication Systems (ICIIECS)}, March 2017, pp.
+  1--4.
+
+\bibitem{body_orientation_2}
+D.~C. J. L. R.~B. Jay~Chen, Karric~Kwong, ``Wearable sensors for reliable fall
+  detection,'' in \emph{Proceedings of the 2005 IEEE}.\hskip 1em plus 0.5em
+  minus 0.4em\relax Shanghai, China: Engineering in Medicine and Biology 27th
+  Annual Conference, Sep. 2005.
+
+\bibitem{SVM}
+T.~Zhang, J.~Wang, L.~Xu, and P.~Liu, ``{Fall detection by wearable sensor and
+  one-class SVM algorithm},'' \emph{Intelligent Computing in Signal Processing
+  and Pattern Recognition: International Conference on Intelligent Computing,
+  ICIC 2006 Kunming, China}, vol. 345, August 16–19, 2006.
+
+\bibitem{markov}
+P.~Jayachandran, T.~F. Abdelzaher, J.~A. Stankovic, and R.~K. Ganti, ``Satire:
+  a sofware architecture for smart attire,'' \emph{Proceedings of the 4th
+  International Conference on Mobile Systems, Applications and Services
+  (MobiSys ’06)}, pp. 110--123, June 2016.
+
 \end{thebibliography}

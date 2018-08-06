@@ -39,6 +39,13 @@ Too many commas in name 1 of "Juan J. Carrero, Dinanda J. de Jager, Marion Verdu
 while executing---line 2403 of file IEEEtran.bst
 Warning--empty year in cardio_2
 Warning--empty journal in other_consequence_1
+Too many commas in name 1 of "Weihao Qu, Feng Lin, Aosen Wang, Wenyao Xu" for entry only_accel_1
+while executing---line 2403 of file IEEEtran.bst
+Warning--empty journal in only_accel_2
+Too many commas in name 1 of "Jay Chen, Karric Kwong, Dennis Chang, Jerry Luk, Ruzena Bajcsy" for entry body_orientation_2
+while executing---line 2403 of file IEEEtran.bst
+Too many commas in name 1 of "Jay Chen, Karric Kwong, Dennis Chang, Jerry Luk, Ruzena Bajcsy" for entry body_orientation_2
+while executing---line 2403 of file IEEEtran.bst
 
 Done.
-(There were 16 error messages)
+(There were 19 error messages)
