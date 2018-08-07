@@ -154,4 +154,21 @@ P.~Jayachandran, T.~F. Abdelzaher, J.~A. Stankovic, and R.~K. Ganti, ``Satire:
   International Conference on Mobile Systems, Applications and Services
   (MobiSys ’06)}, pp. 110--123, June 2016.
 
+\bibitem{main_quoc}
+Q.~T. Huynh, U.~D. Nguyen, L.~B. Irazabal, N.~Ghassemian, and B.~Q. Tran,
+  ``Optimization of an accelerometer and gyroscope-based fall detection
+  algorithm,'' \emph{Journal of Sensor}, no. 452078, 2015.
+
+\bibitem{window_1}
+M.~I.~Y. Alwathiqbellah~Ibrahim, ``Simple fall criteria for mems sensors: Data
+  analysis and sensor concept,'' \emph{Sensor}, vol.~14, no.~7, p.
+  12149–12173, 2014.
+
+\bibitem{window_2}
+M.~M. M.~S. Mihail~Popescu, Benjapon~Hotrabhavananda, ``V ampir- an automatic
+  fall detection system u sing a vertical pir sensor array,'' in
+  \emph{Proceedings of the 6th International Conference on Pervasive Computing
+  Technologies for Healthcare}, San Diago, California, USA, May 2012, pp.
+  163--166.
+
 \end{thebibliography}

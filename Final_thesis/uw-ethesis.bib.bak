@@ -314,4 +314,24 @@
   publisher = {Engineering in Medicine and Biology 27th Annual Conference},
 }
 
+@Article{window_1,
+  author  = {Alwathiqbellah Ibrahim, Mohammad I. Younis},
+  title   = {Simple Fall Criteria for MEMS Sensors: Data Analysis and Sensor Concept},
+  journal = {Sensor},
+  year    = {2014},
+  volume  = {14},
+  number  = {7},
+  pages   = {12149–12173},
+}
+
+@InProceedings{,
+  author    = {Mihail Popescu, Benjapon Hotrabhavananda, Michael Moore, Marjorie Skubic},
+  title     = {V AMPIR- An Automatic Fall Detection System U sing a Vertical PIR Sensor Array},
+  booktitle = {Proceedings of the 6th International Conference on Pervasive Computing Technologies for Healthcare},
+  year      = {2012},
+  pages     = {163-166},
+  address   = {San Diago, California, USA},
+  month     = may,
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

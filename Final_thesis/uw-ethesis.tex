@@ -166,7 +166,7 @@
 %----------------------------------------------------------------------
 \section{Introduction to Fall}
 %---------------------------------------------------------------------
-Nowadays, fall is becoming a dangerous issue which mostly cause the injuries and even leads to disability or fatal death on human, especially the elderly. According to Hwang \textit{et.at.} \cite{static1}, in the United State, one-third to one-half of elderly people over 65 years old fall at least one time each year  and two-third of them will do so again within the next 6 months. Every 11 seconds, there is an elderly person is treated in the hospital's emergency area due to fall-related injuries and every 19 minutes, one faller die \cite{ncoa}. It is also reported that one out every 200 falls results in a hip fracture on people with age among 65 and 69 and increase to one out of 10 for those aged 85 and more \cite{hip_fracture}. The most profound effect of falling is the loss of functioning associated with the dependency of the elderly for the rest of their life. Besides, a great amount time and money have been spent on the medical treatments for the falls. Approximately \$179 million were used as direct medical costs for treating fatal falls and \$19 billion for non-fatal fall injuries within 2000 \cite{cost_fatal}.
+Nowadays, fall is becoming a dangerous issue which mostly causes the injuries and even leads to disability or fatal death on human, especially the elderly. According to Hwang \textit{et.at.} \cite{static1}, in the United State, one-third to one-half of elderly people over 65 years old fall at least one time each year  and two-third of them will do so again within the next 6 months. Every 11 seconds, there is an elderly person is treated in the hospital's emergency area due to fall-related injuries and every 19 minutes, one faller die \cite{ncoa}. It is also reported that one out every 200 falls results in a hip fracture on people with age among 65 and 69 and increase to one out of 10 for those aged 85 and more \cite{hip_fracture}. The most profound effect of falling is the loss of functioning associated with the dependency of the elderly for the rest of their life. Besides, a great amount time and money have been spent on the medical treatments for the falls. Approximately \$179 million were used as direct medical costs for treating fatal falls and \$19 billion for non-fatal fall injuries within 2000 \cite{cost_fatal}.
 
 \section{Definition of a Fall}
 Before starting a research about falls, it is necessary to understand about the meaning of the term \textit{falls}. According to \gls{who}, a fall is defined as an event which results in a person coming to rest inadvertently on the ground or floor or other lower level with or without loss of consciousness or injury \cite{who}. 
@@ -266,14 +266,66 @@ Binh Nguyen and Jonathan Tomkun designed and created a fall detection system for
 \chapter{Statement of Problem and Methodology}
 
 \section{Problem}
-Nowadays, there have been various research groups studying on the academic area about fall detection on human. The majority of them focus on designing a new algorithm to successfully distinguish between fall and fall-like activities. From the first time, most of research groups used the algorithm mainly based on the data from only one accelerometer such as \cite{only_accel_1}\cite{only_accel_2}\cite{only_accel_3}. However, focusing only on the data from the accelerometer can result in many false positives as other activities such as sitting, running and jumping which may also cause large peak accelerations. After that, there are other algorithms rely on the detection of body orientation after the fall such as \cite{body_orientation_1}\cite{body_orientation_2}. The main drawback of these strategies is that the fall can be confused by activities with similar postures such as sleeping, reclining, etc. It is also less effective when a person's fall posture is not horizontal. Then, there are some groups have nominated such complex algorithms that used Support Vector Machine (SVM)\cite{SVM} and Markov model \cite{markov} to detect the fall. These techniques requires huge amount of computational resource which cause the delay on system which effect the robustness and accuracy of the system. 	
+Nowadays, there have been various research groups studying on the academic area about fall detection on human. The majority of them focus on designing a new algorithm to successfully distinguish between fall and fall-like activities. From the first time, most of research groups used the algorithm mainly based on the data from only one accelerometer such as \cite{only_accel_1}\cite{only_accel_2}\cite{only_accel_3}. However, focusing only on the data from the accelerometer can result in many false positives as other activities such as sitting, running and jumping which may also cause large peak accelerations. After that, there are other algorithms rely on the detection of body orientation after the fall such as \cite{body_orientation_1}\cite{body_orientation_2}. The main drawback of these strategies is that the fall can be confused by activities with similar postures such as sleeping, reclining, etc. It is also less effective when a person's fall posture is not horizontal. Then, there are some groups have nominated such complex algorithms that used Support Vector Machine (SVM)\cite{SVM} and Markov model \cite{markov} to detect the fall. These techniques requires huge amount of computational resources which cause the delay on system which effect the robustness and accuracy of the system. 	
 \section{Methodology}
-From the disadvantages of prior works as mentioned above, this project proposes using an algorithm which combines data from one accelerometer and one gyroscope to detect the fall. The data from the accelerometer provides valuable information regarding body inertial change due to impact, while the gyroscope's data provides information about the body's rotational velocity during a fall event. This method helps improving the accuracy of falling detection system with a
-\section{Position of sensor}
+From the disadvantages of prior works as mentioned above, this project proposes using an algorithm which combines data from one accelerometer and one gyroscope to detect the fall. The data from accelerometer provides valuable information regarding body inertial change due to impact, while the gyroscope's data provides information about the body's rotational velocity during a fall event. This method helps improving the accuracy of falling detection system without the need of complex computations.  
+\subsection{Algorithm}
+This algorithm is nominated by Quoc T. Huynh \textit{et al.} \cite{main_quoc}, which used data from both accelerometer and gyroscope sensors with predefined critical thresholds, to detect a fall with maximum sensitivity and specificity. There are two parameters used to analyze in this algorithm are normalized acceleration and normalized angular velocity. \par
 
-\section{Algorithm}
+Normalized acceleration is the total sum acceleration vector, named $\boldsymbol{Acc_{norm}}$ containing both static and dynamic acceleration components in different directions. This parameter is calculated with the formula below 
 
-\chapter{Sytem overview}
+\begin{equation}
+\boldsymbol{Acc_{norm}}=\sqrt{(A_x)^2+(A_y)^2+(A_z)^2}
+\end{equation}
+where $A_x$, $A_y$ and $A_z$ represent the acceleration of three directions $\textit{x, y, z}$. \par 
+Normalized angular velocity is the total sum angular velocity vector, named $\boldsymbol{\omega_{norm}}$, containing the rotational velocity components in different direction. This parameter is calculated with the formula below
+
+\begin{equation}
+\boldsymbol{\omega_{norm}}=\sqrt{(\omega_{x})^2+(\omega_{y})^2+(\omega_{z})^2}
+\end{equation}
+where $\omega_x$, $\omega_y$ and $\omega_z$ represent the angular velocity of three directions \textit{x, y, z}.
+
+When stay in stationary condition, the body of user gives the acceleration magnitude of a constant at +1g and angular velocity at $0^{o}/s$. When user falls, there is a rapid change in body's acceleration while angular velocity produces a variety of signals in the fall direction. To detect the fall, the acceleration and angular velocity are compared with critical thresholds. These thresholds are defined as follows by Quoc T. Huynh \textit{et al.} \par 
+\vspace{1cm}
+{\addtolength{\leftskip}{2cm}
+(a) \textit{Lower fall threshold(LFT)}: local minima for the Acc
+resultant of each recorded activity are referred to
+as the signal lower peak values (LPVs). The $LFT_{acc}$
+for the acceleration signals is set at the level of the
+smallest magnitude lower fall peak (LFP) recorded.\par
+}
+\cleardoublepage
+{\addtolength{\leftskip}{2cm}
+	(b) \textit{Upper Fall Threshold(UFT)}: local maxima for the Acc and $\omega$
+	resultant of each recorded activity are referred to as
+	the signal upper peak values ($UPV_{s}$). The UFT for
+	each of the acceleration ($UFT_{acc}$) and the angular
+	velocity ($UFT_{gyro}$) signals are set at the level of the
+	lowest upper fall peak (UFP) recorded for the $\boldsymbol{Acc}$
+	and $\boldsymbol{\omega}$, respectively. The $UFT_{acc}$ is related to the peak
+	impact force experienced by the body segment during
+	the impact phase of the fall.\par
+}
+
+When a fall happens, the normalized acceleration first falls below the $LFT_{Acc}$ threshold
+which indicates the start of a fall event. In the next 0.5 seconds, usually called fall windows,
+data from both accelerometer and gyroscope are compared to $UFT_{Acc}$ and $UFT_{Gyro}$. The fall windows was obtained from the literature \cite{window_1}\cite{window_2}. If
+the magnitude of both parameters exceed the two upper thresholds, a fall is detected.
+However, if only one of these conditions is not satisfied, there is no fall detection. Quoc T.
+Huynh et al. \cite{main_quoc} have proven, with practical experiments on real subjects, that the three
+conditions above just happen simultaneously only with a fall but not other activities like
+standing, running, jumping of sitting up. Figure 3.1 summarizes the main steps of this
+algorithm.
+\begin{figure*}
+	\centering
+	\includegraphics[scale=0.8]{algorithm_diagram}
+	\caption{Fall detection algorithm}
+\end{figure*}
+\cleardoublepage
+\subsection{Position of sensor}
+Until now, there have been a lot of works on developing new algorithms for the falls detection system, with the help of advance techniques in machine learning and computational areas. However, these researches still lack a study that determines the best sensor placement on the patient's body. When the most optimized place is found, fall detection device can be better designed to archive more accuracy. \par 
+Bao \textit{et al.} has used five accelerometers and asked 20 volunteers, with the ages between 17 and 48, to wear these sensors on different parts of bodies including hip, wrist, ankle, arm and thick. The final results show that thigh is the most suitable place for attaching sensor on patient's body which result in 
+\chapter{System overview}
 
 \section{System Components}
 
