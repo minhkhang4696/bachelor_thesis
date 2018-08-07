@@ -324,7 +324,7 @@
   pages   = {12149–12173},
 }
 
-@InProceedings{,
+@InProceedings{window_2,
   author    = {Mihail Popescu, Benjapon Hotrabhavananda, Michael Moore, Marjorie Skubic},
   title     = {V AMPIR- An Automatic Fall Detection System U sing a Vertical PIR Sensor Array},
   booktitle = {Proceedings of the 6th International Conference on Pervasive Computing Technologies for Healthcare},
@@ -332,6 +332,34 @@
   pages     = {163-166},
   address   = {San Diago, California, USA},
   month     = may,
+}
+
+@InProceedings{sensor_position_1,
+  author    = {Ling Bao, Stephen S. Intille},
+  title     = {Activity Recognition from User-Annotated Acceleration Data},
+  booktitle = {International Conference on Pervasive Computing},
+  year      = {2004},
+  volume    = {3001},
+  pages     = {1-17},
+  publisher = {Springer, Berlin, Heidelberg},
+}
+
+@InBook{sensor_position_2,
+  chapter   = {Comparison of low-complexity fall detection algorithms for body attached accelerometers},
+  pages     = {285-291},
+  title     = {Gait and Posture 28},
+  publisher = {Elseview},
+  year      = {2008},
+  author    = {Maarit Kangas,Antti Konttila,Per Lindgren,Ilkka Winblad,Timo Jämsä},
+}
+
+@Unknown{sensor_position_3,
+  author = {Ntanasis, Periklis and Pippa, Evangelia and Ozdemir, Ahmet Turan and Barshan, Billur and Megalooikonomou, Vasileios},
+  title  = {Investigation of Sensor Placement for Accurate Fall Detection},
+  month  = {06},
+  year   = {2017},
+  isbn   = {978-3-319-58876-6},
+  pages  = {225-232},
 }
 
 @Comment{jabref-meta: databaseType:bibtex;}

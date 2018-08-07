@@ -353,7 +353,7 @@
   author    = {Maarit Kangas,Antti Konttila,Per Lindgren,Ilkka Winblad,Timo Jämsä},
 }
 
-@Unknown{sensor_position_3,
+@Unknown{unknow,
   author = {Ntanasis, Periklis and Pippa, Evangelia and Ozdemir, Ahmet Turan and Barshan, Billur and Megalooikonomou, Vasileios},
   title  = {Investigation of Sensor Placement for Accurate Fall Detection},
   month  = {06},
