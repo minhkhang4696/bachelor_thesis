@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  7 AUG 2018 15:28
+This is pdfTeX, Version 3.14159265-2.6-1.40.18 (MiKTeX 2.9.6600 64-bit) (preloaded format=pdflatex 2018.3.8)  9 AUG 2018 11:53
 entering extended mode
 **./uw-ethesis.tex
 (uw-ethesis.tex
@@ -1156,7 +1156,17 @@ Package hyperref Info: Option `pdfmenubar' set `true' on input line 74.
 Package hyperref Info: Option `pdffitwindow' set `false' on input line 74.
 Package hyperref Info: Option `pdfnewwindow' set `true' on input line 74.
 Package hyperref Info: Option `colorlinks' set `true' on input line 74.
-(uw-ethesis.aux)
+(uw-ethesis.aux
+
+LaTeX Warning: Label `table:1' multiply defined.
+
+
+LaTeX Warning: Label `table:1' multiply defined.
+
+
+LaTeX Warning: Label `table:1' multiply defined.
+
+)
 \openout1 = `uw-ethesis.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 129.
@@ -1278,12 +1288,12 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 129.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 (uw-ethesis-frontpgs.tex
-<FRAUAS.png, id=193, 546.04pt x 228.855pt>
+<FRAUAS.png, id=177, 546.04pt x 228.855pt>
 File: FRAUAS.png Graphic file (type png)
 <use FRAUAS.png>
 Package pdftex.def Info: FRAUAS.png  used on input line 15.
 (pdftex.def)             Requested size: 109.20605pt x 45.77019pt.
-<VGU.png, id=194, 493.3632pt x 246.6816pt>
+<VGU.png, id=178, 493.3632pt x 246.6816pt>
 File: VGU.png Graphic file (type png)
 <use VGU.png>
 Package pdftex.def Info: VGU.png  used on input line 19.
@@ -1388,7 +1398,7 @@ Chapter 1.
 
 ] [7]
 Chapter 2.
-<medical-guardian-fall-alert-system.jpg, id=376, 401.5pt x 185.69376pt>
+<medical-guardian-fall-alert-system.jpg, id=374, 401.5pt x 185.69376pt>
 File: medical-guardian-fall-alert-system.jpg Graphic file (type jpg)
 <use medical-guardian-fall-alert-system.jpg>
 Package pdftex.def Info: medical-guardian-fall-alert-system.jpg  used on input 
@@ -1398,18 +1408,18 @@ line 237.
 
 
  <./medical-guardian-fall-alert-system.jpg>]
-<mobile-help.png, id=381, 602.25pt x 412.54124pt>
+<mobile-help.png, id=379, 602.25pt x 412.54124pt>
 File: mobile-help.png Graphic file (type png)
 <use mobile-help.png>
 Package pdftex.def Info: mobile-help.png  used on input line 245.
 (pdftex.def)             Requested size: 301.12425pt x 206.27011pt.
  [9 <./mobile-help.png>]
-<tempo.png, id=390, 208.98074pt x 183.68625pt>
+<tempo.png, id=388, 208.98074pt x 183.68625pt>
 File: tempo.png Graphic file (type png)
 <use tempo.png>
 Package pdftex.def Info: tempo.png  used on input line 254.
 (pdftex.def)             Requested size: 208.98022pt x 183.68578pt.
-<binhnguyen_device.png, id=392, 272.217pt x 204.16275pt>
+<binhnguyen_device.png, id=390, 272.217pt x 204.16275pt>
 File: binhnguyen_device.png Graphic file (type png)
 <use binhnguyen_device.png>
 Package pdftex.def Info: binhnguyen_device.png  used on input line 262.
@@ -1420,58 +1430,91 @@ Chapter 3.
 
 
 ] [12]
-<algorithm_diagram.png, id=433, 275.52937pt x 605.26125pt>
+<algorithm_diagram.png, id=431, 275.52937pt x 605.26125pt>
 File: algorithm_diagram.png Graphic file (type png)
 <use algorithm_diagram.png>
-Package pdftex.def Info: algorithm_diagram.png  used on input line 321.
+Package pdftex.def Info: algorithm_diagram.png  used on input line 319.
 (pdftex.def)             Requested size: 220.42378pt x 484.20964pt.
- [13
-
-
-] [14 <./algorithm_diagram.png>] [15
-
-
-]
+ [13] [14 <./algorithm_diagram.png>]
 Chapter 4.
+<mpu6050.jpg, id=442, 367.3725pt x 481.8pt>
+File: mpu6050.jpg Graphic file (type jpg)
+<use mpu6050.jpg>
+Package pdftex.def Info: mpu6050.jpg  used on input line 332.
+(pdftex.def)             Requested size: 91.8429pt x 120.44969pt.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 335.
+
+("C:\Users\nkbd\AppData\Local\Programs\MiKTeX 2.9\tex\latex\base\ts1cmr.fd"
+File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+[15
+
+
+
+
+ <./mpu6050.jpg>]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
 [16
 
 
 ]
+<esp8266.png, id=455, 290.88675pt x 253.54726pt>
+File: esp8266.png Graphic file (type png)
+<use esp8266.png>
+Package pdftex.def Info: esp8266.png  used on input line 412.
+(pdftex.def)             Requested size: 145.44301pt x 126.7733pt.
+ [17 <./esp8266.png>]
+<functional_diagram.jpg, id=461, 442.0515pt x 213.1965pt>
+File: functional_diagram.jpg Graphic file (type jpg)
+<use functional_diagram.jpg>
+Package pdftex.def Info: functional_diagram.jpg  used on input line 418.
+(pdftex.def)             Requested size: 353.64168pt x 170.55742pt.
+<system_schematic.jpg, id=462, 1146.2825pt x 185.69376pt>
+File: system_schematic.jpg Graphic file (type jpg)
+<use system_schematic.jpg>
+Package pdftex.def Info: system_schematic.jpg  used on input line 428.
+(pdftex.def)             Requested size: 435.59187pt x 70.56435pt.
+ [18
+
+
+ <./functional_diagram.jpg>] [19 <./system_schematic.jpg>] [20]
 Chapter 5.
-[17
+[21
 
 
 ]
 Chapter 6.
-[18
+[22
 
 
 ]
 Chapter 7.
-[19
+[23
 
 
 ]
 Appendix A.
-[20
+[24
 
 
 ]
-Overfull \hbox (2.40399pt too wide) in paragraph at lines 513--513
+Overfull \hbox (2.40399pt too wide) in paragraph at lines 603--603
 []\OT1/cmtt/m/n/12 Serial.println(accelgyro.testConnection() ? "MPU6050 connect
 ion successful"[] 
  []
 
-[21] [22] [23] [24]
+[25] [26] [27] [28]
 Appendix B.
-[25
+[29
 
 
-] [26] (uw-ethesis.bbl
+] [30] (uw-ethesis.bbl
 Missing character: There is no â in font cmti12!
 Missing character: There is no € in font cmti12!
 Missing character: There is no ™ in font cmti12!
- [27
+ [31
 
 
 
@@ -1491,7 +1534,7 @@ Missing character: There is no € in font cmr12!
 Missing character: There is no ” in font cmr12!
 Missing character: There is no Ã in font cmr12!
 Missing character: There is no “ in font cmr12!
- [28]
+ [32]
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no “ in font cmr12!
@@ -1501,7 +1544,7 @@ Missing character: There is no ™ in font cmti12!
 Missing character: There is no â in font cmr12!
 Missing character: There is no € in font cmr12!
 Missing character: There is no “ in font cmr12!
- [29]) [30
+) [33
 runsystem(makeindex -s uw-ethesis.ist -t uw-ethesis.glg -o uw-ethesis.gls uw-et
 hesis.glo)...executed (allowed).
 
@@ -1509,41 +1552,46 @@ runsystem(makeindex -s uw-ethesis.ist -t uw-ethesis.alg -o uw-ethesis.acr uw-et
 hesis.acn)...executed (allowed).
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 581.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 581.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 671.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 671.
  (uw-ethesis.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 581.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 581.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 671.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 671.
 Package rerunfilecheck Info: File `uw-ethesis.out' has not changed.
-(rerunfilecheck)             Checksum: 1A176D36A731E7E925892E2E03F5561E;3243.
+(rerunfilecheck)             Checksum: 7CF9F8A7D6422B7A81AC7B9DB06208B3;2891.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
  ) 
 Here is how much of TeX's memory you used:
- 31334 strings out of 493303
- 616051 string characters out of 3130220
- 688661 words of memory out of 3000000
- 34285 multiletter control sequences out of 15000+200000
- 542928 words of font info for 67 fonts, out of 3000000 for 9000
+ 31383 strings out of 493303
+ 617215 string characters out of 3130220
+ 689675 words of memory out of 3000000
+ 34319 multiletter control sequences out of 15000+200000
+ 543942 words of font info for 70 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 55i,9n,67p,10384b,843s stack positions out of 5000i,500n,10000p,200000b,50000s
-<C:/Users/nkbd/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/
-cm/cmbx12.pfb><C:/Users/nkbd/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmbxti10.pfb><C:/Users/nkbd/AppData/Local/Programs/MiKTeX 2.9/fo
-nts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/nkbd/AppData/Local/Programs/M
-iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/nkbd/AppData/Loca
-l/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/nkbd/A
-ppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmib10.pfb><C:
-/Users/nkbd/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cmext
-ra/cmmib8.pfb><C:/Users/nkbd/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/publ
-ic/amsfonts/cm/cmr12.pfb><C:/Users/nkbd/AppData/Local/Programs/MiKTeX 2.9/fonts
-/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/nkbd/AppData/Local/Programs/MiKTe
-X 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/nkbd/AppData/Local/Prog
-rams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/nkbd/AppDat
-a/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users
-/nkbd/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt12.p
-fb>
-Output written on uw-ethesis.pdf (40 pages, 1201608 bytes).
+ 55i,11n,67p,10384b,843s stack positions out of 5000i,500n,10000p,200000b,50000s
+ <C:\Users\nkbd\AppData\Local\MiKTeX\2.9\fonts\pk\ljfour\jknappen\ec\dpi600\t
+crm1200.pk><C:/Users/nkbd/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/
+amsfonts/cm/cmbx12.pfb><C:/Users/nkbd/AppData/Local/Programs/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmbxti10.pfb><C:/Users/nkbd/AppData/Local/Programs/MiKT
+eX 2.9/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/nkbd/AppData/Local/P
+rograms/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/nkbd/App
+Data/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Use
+rs/nkbd/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmib1
+0.pfb><C:/Users/nkbd/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfo
+nts/cmextra/cmmib8.pfb><C:/Users/nkbd/AppData/Local/Programs/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmr12.pfb><C:/Users/nkbd/AppData/Local/Programs/MiKTeX 
+2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Users/nkbd/AppData/Local/Progr
+ams/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/nkbd/AppData/L
+ocal/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/nk
+bd/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+<C:/Users/nkbd/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm
+/cmtt12.pfb>
+Output written on uw-ethesis.pdf (43 pages, 1740209 bytes).
 PDF statistics:
- 598 PDF objects out of 1000 (max. 8388607)
- 131 named destinations out of 1000 (max. 500000)
- 424 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 617 PDF objects out of 1000 (max. 8388607)
+ 136 named destinations out of 1000 (max. 500000)
+ 412 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -267,10 +267,9 @@ Binh Nguyen and Jonathan Tomkun designed and created a fall detection system for
 
 \section{Problem}
 Nowadays, there have been various research groups studying on the academic area about fall detection on human. The majority of them focus on designing a new algorithm to successfully distinguish between fall and fall-like activities. From the first time, most of research groups used the algorithm mainly based on the data from only one accelerometer such as \cite{only_accel_1}\cite{only_accel_2}\cite{only_accel_3}. However, focusing only on the data from the accelerometer can result in many false positives as other activities such as sitting, running and jumping which may also cause large peak accelerations. After that, there are other algorithms rely on the detection of body orientation after the fall such as \cite{body_orientation_1}\cite{body_orientation_2}. The main drawback of these strategies is that the fall can be confused by activities with similar postures such as sleeping, reclining, etc. It is also less effective when a person's fall posture is not horizontal. Then, there are some groups have nominated such complex algorithms that used Support Vector Machine (SVM)\cite{SVM} and Markov model \cite{markov} to detect the fall. These techniques requires huge amount of computational resources which cause the delay on system which effect the robustness and accuracy of the system. 	
-\section{Methodology}
-From the disadvantages of prior works as mentioned above, this project proposes using an algorithm which combines data from one accelerometer and one gyroscope to detect the fall. The data from accelerometer provides valuable information regarding body inertial change due to impact, while the gyroscope's data provides information about the body's rotational velocity during a fall event. This method helps improving the accuracy of falling detection system without the need of complex computations.  
-\subsection{Algorithm}
-This algorithm is nominated by Quoc T. Huynh \textit{et al.} \cite{main_quoc}, which used data from both accelerometer and gyroscope sensors with predefined critical thresholds, to detect a fall with maximum sensitivity and specificity. There are two parameters used to analyze in this algorithm are normalized acceleration and normalized angular velocity. \par
+\section{Methodology and Algorithm}
+From the disadvantages of prior works as mentioned above, this project proposes using an algorithm which combines data from one accelerometer and one gyroscope to detect the fall. The data from accelerometer provides valuable information regarding body inertial change due to impact, while the gyroscope's data provides information about the body's rotational velocity during a fall event. This method helps improving the accuracy of falling detection system without the need of complex computations.  \par
+This algorithm is nominated by Quoc T. Huynh \textit{et al.} \cite{main_quoc}, which used data from both accelerometer and gyroscope sensors with predefined critical thresholds, to detect a fall with maximum sensitivity and specificity. Two parameters used to analyze in this algorithm are normalized acceleration and normalized angular velocity. \par
 
 Normalized acceleration is the total sum acceleration vector, named $\boldsymbol{Acc_{norm}}$ containing both static and dynamic acceleration components in different directions. This parameter is calculated with the formula below 
 
@@ -294,7 +293,6 @@ as the signal lower peak values (LPVs). The $LFT_{acc}$
 for the acceleration signals is set at the level of the
 smallest magnitude lower fall peak (LFP) recorded.\par
 }
-\cleardoublepage
 {\addtolength{\leftskip}{2cm}
 	(b) \textit{Upper Fall Threshold(UFT)}: local maxima for the Acc and $\omega$
 	resultant of each recorded activity are referred to as
@@ -322,33 +320,125 @@ algorithm.
 	\caption{Fall detection algorithm}
 \end{figure*}
 \cleardoublepage
-\subsection{Sensor Placement}
-Until now, there have been a lot of works on developing new algorithms for the falls detection system, with the help of advance techniques in machine learning and computational areas. However, these researches still lack a study that determines the best sensor placement on the patient's body. When the most optimized place is found, fall detection device can be better designed to archive more accuracy. \par 
-Bao \textit{et al.} \cite{sensor_position_1} has used five accelerometers and asked 20 volunteers, with the ages between 17 and 48, to wear these sensors on different parts of bodies including hip, wrist, ankle, arm and thick. The final results show that thigh and wrist is the most suitable place for attaching sensor on patient's body which result in 84\% overall success of the system. 
-However, in another research of Kangas \textit{et al.} \cite{sensor_position_2}, they have measured the performance of system with three sensors at different position on human body. The result is that waist sensor sensitivity varies from 76\% to 97\%, head sensor sensitivity is from 47\% to 98\% and finally, wrist sensor sensitivity varies from 37\% to 71\%. From this result, they concluded that fall detection using sensor worn at the waist or head is efficient, with the sensitivity of 97-98\% and specificity of 100\%. The research of Ntanasis \textit{et al.} \cite{sensor_position_3} on sensor location for wearable fall detection device, with five different classification techniques, has pointed out that waist and thigh sensor positive achieve the highest accuracy for all classifier and followed by chest and ankle.    
+
 \chapter{System overview}
 
-\section{System Components}
+\section{Hardware Components}
 
-\subsection{Hardware Components}
+\subsection{Sensor}
+Since the algorithm requires both information about acceleration and angular velocity, an \gls{imu} named MPU6050 from Invensense\textregistered, which contains one accelerometer and one gyroscope, has been chosen for its convenience. This sensor can also accepts inputs from an external 3-axis compass via I$^{2}$C sensor bus to provide a complete 9-axis MotionFusion$^{TM}$ output.
+ \begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.25]{mpu6050}
+	\caption{MPU-6050 by Invensense \cite{mpu}}
+\end{figure}\\
+The accelerometer inside MPU6050 board can measure the acceleration in four different programmable full-scale ranges ($\pm2g$, $\pm4g$, $\pm8g$ and $\pm16g$). An integrated 16-bit \gls{adc} supports simultaneous sampling of the accelerometer while requiring no external multiplexer. This accelerometer normally operates at a very small current of \SI{500}{\micro\ampere} with low power consumption. 
+According to the data-sheet given by Invensense\textregistered, the raw output of the accelerometer is displayed in form of LSB/g. Divided with an appropriate \gls{ssf}, we can obtain the acceleration in g - standard gravity unit, which is used in this project. Each full scale has its own SFF. Table 2.1 shows the different full-scales of the accelerometer and table 2.2 shows the \gls{ssf} for each scale.
+\cleardoublepage
+\begin{table}[h!]
+	\begin{center}
+		\begin{tabular}{ |c|c|c|c| } 
+			\hline
+			Scale & TYP & UNIT \\
+			\hline
+			\verb|AFS_SEL=0| & $\pm2$ & g \\ 
+			\verb|AFS_SEL=1|& $\pm4$ & g \\ 
+			\verb|AFS_SEL=2|& $\pm8$ & g \\
+			\verb|AFS_SEL=3|& $\pm16$ & g\\
+			\hline
+		\end{tabular}
+		\caption{Full-scale Range Table of Accelerometer}
+		\label{table:1}
+	\end{center}
+\end{table}
+\begin{table}[h!]
+	\begin{center}
+		\begin{tabular}{ |c|c|c|c| } 
+			\hline
+			Scale & Sensitivity Scale Factor & UNIT \\
+			\hline
+			\verb|AFS_SEL=0| & 16,384 & LSB/g \\ 
+			\verb|AFS_SEL=1|& 8,192 & LSB/g \\ 
+			\verb|AFS_SEL=2|& 4,096 & LSB/g \\
+			\verb|AFS_SEL=3|& 2,048 & LSB/g\\
+			\hline
+		\end{tabular}
+		\caption{Sensitivity Scale Factor Table of Accelerometer}
+		\label{table:1}
+	\end{center}
+\end{table}
+With \verb|AFS_SEL| being bits of the accelerometer configuration register of the sensor. These bits are used to select the full scale range of the accelerometer. \par 
 
-\subsubsection{Sensor}
+ The gyroscope integrated on the same board can measure the angular velocity at 4 programmable full-scale ranges ($\pm250^{o}/s$, $\pm500^{o}/s$, $\pm1000^{o}/s$ and $\pm2000^{o}/s$). This sensor has an external sync signal which supports image, video capturing and GPS synchronization. Its normal operating current is \SI{500}{\micro\ampere} which enables the reduction on power consumption. The raw output of the gyroscope is displayed in form of LSB/($^{o}/s$). Divided with an appropriate Sensitivity Scale Factor (\gls{ssf}), we can obtain the angular velocity with unit of ($^{o}/s$). Each full scale has its own SFF. Table 2.3 shows different full-scale of the gyroscope and table 2.4 shows the \gls{ssf} for each scale. 
+\begin{table}[h!]
+	\begin{center}
+		\begin{tabular}{ |c|c|c|c| } 
+			\hline
+			Scale & TYP & UNIT \\
+			\hline
+			\verb|FS_SEL=0| & $\pm250$ & $^{o}/s$\\ 
+			\verb|FS_SEL=1|& $\pm500$ & $^{o}/s$ \\ 
+			\verb|FS_SEL=2|& $\pm1000$ & $^{o}/s$ \\
+			\verb|FS_SEL=3|& $\pm2000$ & $^{o}/s$\\
+			\hline
+		\end{tabular}
+		\caption{Full-scale Range Table of Gyroscope}
+		\label{table:1}
+	\end{center}
+\end{table}
+\begin{table}[h!]
+	\begin{center}
+		\begin{tabular}{ |c|c|c|c| } 
+			\hline
+			Scale & Sensitivity Scale Factor & UNIT \\
+			\hline
+			\verb|FS_SEL=0| & 131 & LSB/($^{o}/s$) \\ 
+			\verb|FS_SEL=1|& 65.5 & LSB/($^{o}/s$) \\ 
+			\verb|FS_SEL=2|& 32.8 & LSB/($^{o}/s$) \\
+			\verb|FS_SEL=3|& 16.4 & LSB/($^{o}/s$)\\
+			\hline
+		\end{tabular}
+		\caption{Sensitivity Scale Factor Table of Gyroscope}
+		\label{table:1}
+	\end{center}
+\end{table}
+\newpage
+With \verb|FS_SEL| being bits of the gyroscope configuration register on the sensor. These bits are used to select the full scale range of gyroscope. \par 
+After getting acceleration and angular velocity in three different directions from two sensors, normalized acceleration and normalized angular velocity are calculated with formulas (3.1) and (3.2) and compared with thresholds to detect the fall. 
+\subsection{Microcontroller}
+To perform all data processing and communications, the ESP8266EX \gls{mcu} integrated with L106 32-bit RISC processor from Tensilica is chosen. This \gls{mcu} archives extra low power consumption and reaches a maximum clock speed up to 160 Mhz, which is specially designed for mobile and \gls{iot} applications. The ESP8266EX \gls{mcu} supports most of popular interfaces such as GPIO, UART, I$^{2}$C, ADC, PWM etc. to connect with external peripheral devices. The figure 4.3 shows the functional block diagram of ESP8266EX. \par 
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.5]{esp8266}
+	\caption{ESP8266 D1 Mini Board with an ESP8266EX MCU inside}
+\end{figure}
+\cleardoublepage
+\begin{figure}[h]
+	\centering
+	\includegraphics[scale=0.8]{functional_diagram}
+	\caption{Functional Block Diagram of ESP8266EX MCU}
+\end{figure}
+The ESP8266EX \gls{mcu} integrates memory units including one 50kB SRAM and one 16MB external SPI flash that are sufficient for most \gls{iot} applications. The SRAM size is less than 50kB when the \gls{mcu} is working under Station Mode or connecting to a router. All user programs are stored in the external SPI flash and non-volatile after switching off the power.
+\subsection{Wireless Module}
+ESP8266EX \gls{mcu} integrates a Wi-Fi module which is implemented TCP/IP protocol with the full 802.11 b/g/n WLAN MAC standard and Wi-Fi Direct specification. The ESP8266EX is designed with advance power management technologies. The low-power architecture operates in three modes: active mode, sleep mode and deep-sleep mode. ESP8266 consumes only\SI{20}{\micro\ampere} in deep-sleep mode and the standby power consumption below 1.0mW. These two features which make the ESP8266 Wi-Fi module fully compatible with mobile wireless applications that require low power dissipation. \par
+In this project, a standard TCP/IP protocol has been chosen because of its highly reliable connection and its ability to control data congestion. Additionally, this system also requires that the received data on the monitoring computer must be in the same order as the original one on sensor module. Therefore, TCP/IP is chosen because of its capability of ordering the received data and error recovery. Whenever there is an error on the connection, all the erroneous packets are retransmitted to the destination and rearranged in the correct order.\par 
+A brief description of the wireless communication system: there is a TCP server running on the monitoring computer and listening the requests from clients. The ESP8266 module (programmed in \textit{client mode}) continuously sends sensors' data to the server via a Wi-Fi connection. All data is captured by a Python program and plotted on a visual graph. The received data is also stored in a database to serve later data analysis and algorithm optimization. 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.38]{system_schematic}
+	\caption{Schematic of wireless communication system}
+\end{figure} 
+\section{Software}
 
-\subsubsection{Microcontroller}
+\subsection{Embeddded Software on Sensor Node}
+On the sensor node, the micro-controller board is programmed to read the data from sensors, calculate normalized parameters and send data to host computer. First, the microcontroller communicates with sensors, using I$^{2}$C protocol with the help of MPU6050 library provided by Invensense\textregistered, to set the clock source and full scale range for two sensors. It is also important to set the sensor board to wake-up mode in this step to make sure it working.  After successfully connecting, the frequency of these two sensors are set to 1kHz with \textit{setDLPFMode} function from the library. Normally, these sensors operate at the frequency of 8kHz, which means there are 8000 samples within one second, that is too much for the requirement of a fall detection system and usually causes congestion and lost data during the transmission from sensor node to the host computer. To avoid this problem, it is necessary to low down the internal sampling rate of two sensors. 
+Next, like other sensors, both gyroscope and accelerometer always have non-zero errors even when leveling and need to be calibrated with a set of offset values before being used. These offset are calculated by another program included in the MPU6050 library and set into appropriate sensor's registers with provided function from the library. See the appendix C for the register map of the MPU6050 sensor. \par
+After initializing the sensors, the sensor node establishes a wireless connection with the local network and host computer. While the host is not connected, the sensor node continuously calls for a connection and the led indicator on the micro-controller board keep brighting until receiving a success connection. After the connection is established, the sensor node 
+\subsection{Data Acquisition Software}
 
-\subsubsection{Wireless Module}
+\subsection{Data Analysis Software}
 
-\subsection{Software}
-
-\subsubsection{Embeddded Software on Sensor Node}
-
-\subsubsection{Communication System}
-
-\subsubsection{Data Acquisition Software}
-
-\subsubsection{Data Analysis Software}
-
-\subsection{System Intergration}
+\section{System Intergration}
 
 \chapter{Experimental and Procedure}
 

@@ -21,6 +21,12 @@
 \providecommand{\BIBdecl}{\relax}
 \BIBdecl
 
+\bibitem{mpu}
+\BIBentryALTinterwordspacing
+``{MPU-6050 Accelerometer + Gyro}.'' [Online]. Available:
+  \url{https://playground.arduino.cc/Main/MPU-6050}
+\BIBentrySTDinterwordspacing
+
 \bibitem{static1}
 J.~Y. Hwang, J.~M. Kang, and H.~C. Kim, ``Development of novel algorithm and
   real-time monitoring ambulatory system using bluetooth module for fall
@@ -170,22 +176,5 @@ M.~M. M.~S. Mihail~Popescu, Benjapon~Hotrabhavananda, ``V ampir- an automatic
   \emph{Proceedings of the 6th International Conference on Pervasive Computing
   Technologies for Healthcare}, San Diago, California, USA, May 2012, pp.
   163--166.
-
-\bibitem{sensor_position_1}
-S.~S.~I. Ling~Bao, ``Activity recognition from user-annotated acceleration
-  data,'' in \emph{International Conference on Pervasive Computing}, vol.
-  3001.\hskip 1em plus 0.5em minus 0.4em\relax Springer, Berlin, Heidelberg,
-  2004, pp. 1--17.
-
-\bibitem{sensor_position_2}
-P.~L. I. W. T.~J. Maarit~Kangas, Antti~Konttila, \emph{Gait and Posture
-  28}.\hskip 1em plus 0.5em minus 0.4em\relax Elseview, 2008, ch. Comparison of
-  low-complexity fall detection algorithms for body attached accelerometers,
-  pp. 285--291.
-
-\bibitem{sensor_position_3}
-P.~Ntanasis, E.~Pippa, A.~T. Ozdemir, B.~Barshan, and V.~Megalooikonomou,
-  ``Investigation of sensor placement for accurate fall detection,'' pp.
-  225--232, 06 2017.
 
 \end{thebibliography}

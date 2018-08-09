@@ -1,8 +1,6 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: uw-ethesis.aux
 The style file: IEEEtran.bst
 Database file #1: uw-ethesis.bib
-Warning--entry type for "sensor_position_3" isn't style-file defined
---line 356 of file uw-ethesis.bib
 -- IEEEtran.bst version 1.14 (2015/08/26) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
@@ -50,10 +48,6 @@ Too many commas in name 1 of "Jay Chen, Karric Kwong, Dennis Chang, Jerry Luk, R
 while executing---line 2403 of file IEEEtran.bst
 Too many commas in name 1 of "Mihail Popescu, Benjapon Hotrabhavananda, Michael Moore, Marjorie Skubic" for entry window_2
 while executing---line 2403 of file IEEEtran.bst
-Too many commas in name 1 of "Maarit Kangas,Antti Konttila,Per Lindgren,Ilkka Winblad,Timo Jämsä" for entry sensor_position_2
-while executing---line 2403 of file IEEEtran.bst
-Too many commas in name 1 of "Maarit Kangas,Antti Konttila,Per Lindgren,Ilkka Winblad,Timo Jämsä" for entry sensor_position_2
-while executing---line 2403 of file IEEEtran.bst
 
 Done.
-(There were 22 error messages)
+(There were 20 error messages)

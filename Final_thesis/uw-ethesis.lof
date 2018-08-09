@@ -7,6 +7,10 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Fall detection algorithm}}{14}{figure.3.1}
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces MPU-6050 by Invensense \cite {mpu}}}{15}{figure.4.1}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces ESP8266 D1 Mini Board with an ESP8266EX MCU inside}}{17}{figure.4.2}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Functional Block Diagram of ESP8266EX MCU}}{18}{figure.4.3}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Schematic of wireless communication system}}{19}{figure.4.4}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
