@@ -38,6 +38,8 @@
 \BOOKMARK [1][-]{section.7.2}{Limitations}{chapter.7}% 38
 \BOOKMARK [1][-]{section.7.3}{Future works}{chapter.7}% 39
 \BOOKMARK [0][-]{section.7.3}{APPENDICES}{}% 40
-\BOOKMARK [0][-]{appendix.A}{C/C++ Code for Reading Data from Sensor}{}% 41
-\BOOKMARK [0][-]{appendix.B}{Python Code for Data Acquisition Program}{}% 42
-\BOOKMARK [0][-]{section*.9}{References}{}% 43
+\BOOKMARK [0][-]{appendix.A}{C/C++ Code on the Sensor Node}{}% 41
+\BOOKMARK [0][-]{appendix.B}{Connection Handling Library}{}% 42
+\BOOKMARK [0][-]{appendix.C}{Register Map of MPU6050}{}% 43
+\BOOKMARK [0][-]{appendix.D}{Python Code for Data Acquisition Program}{}% 44
+\BOOKMARK [0][-]{section*.9}{References}{}% 45

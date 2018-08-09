@@ -16,6 +16,29 @@
 
 % This package allows if-then-else control structures.
 \usepackage{ifthen}
+\usepackage{listings}
+\usepackage{color}
+
+\definecolor{dkgreen}{rgb}{0,0.6,0}
+\definecolor{gray}{rgb}{0.5,0.5,0.5}
+\definecolor{mauve}{rgb}{0.58,0,0.82}
+
+\lstset{frame=tb,
+	language=Java,
+	aboveskip=3mm,
+	belowskip=3mm,
+	showstringspaces=false,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	numbers=none,
+	numberstyle=\tiny\color{gray},
+	keywordstyle=\color{blue},
+	commentstyle=\color{dkgreen},
+	stringstyle=\color{mauve},
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=3
+}
 \newboolean{PrintVersion}
 \setboolean{PrintVersion}{false} 
 % CHANGE THIS VALUE TO "true" as necessary, to improve printed results for hard copies
@@ -431,9 +454,37 @@ A brief description of the wireless communication system: there is a TCP server 
 \section{Software}
 
 \subsection{Embeddded Software on Sensor Node}
-On the sensor node, the micro-controller board is programmed to read the data from sensors, calculate normalized parameters and send data to host computer. First, the microcontroller communicates with sensors, using I$^{2}$C protocol with the help of MPU6050 library provided by Invensense\textregistered, to set the clock source and full scale range for two sensors. It is also important to set the sensor board to wake-up mode in this step to make sure it working.  After successfully connecting, the frequency of these two sensors are set to 1kHz with \textit{setDLPFMode} function from the library. Normally, these sensors operate at the frequency of 8kHz, which means there are 8000 samples within one second, that is too much for the requirement of a fall detection system and usually causes congestion and lost data during the transmission from sensor node to the host computer. To avoid this problem, it is necessary to low down the internal sampling rate of two sensors. 
+On the sensor node, the micro-controller board is programmed to read the data from sensors, calculate normalized parameters and send data to host computer. First, the microcontroller communicates with sensors, using I$^{2}$C protocol with the help of MPU6050 library provided by Invensense\textregistered, to set the clock source and full scale range for two sensors. It is also important to set the sensor board to wake-up mode in this step to make sure it working.  After successfully connecting, the frequency of these two sensors are set to 1kHz by configuring the digital low pass filter with the \textit{setDLPFMode} function from the library. Normally, these sensors operate at the frequency of 8kHz, which means there are 8000 output samples within one second. That is too much for the requirement of a fall detection system and usually causes congestion and lost data during the transmission from sensor node to the host computer. To avoid this problem, it is necessary to low down the internal sampling rate of two sensors . See the table for the digital low pass filter configuration. \clearpage
+\begin{table}[h!]
+	\begin{center}
+		\begin{tabular}{ |c|c|c|c|c|c| } 
+			\hline
+			 & \multicolumn{2}{c|}{Accelerometer} & \multicolumn{2}{c|}{Gyroscope} &  \\
+			 \cline{2-5}
+			 \verb|DLPF_CFG| & Bandwidth & Delay & Bandwidth & Delay & Sample Rate\\ 
+			 \hline
+			 0 & 260Hz & 0ms & 256Hz & 0.98ms &8kHz \\
+			 \hline
+			 1 & 184Hz & 2.0ms & 188Hz & 1.9ms & 1kHz\\
+			 \hline
+			 2 & 94Hz & 3.0ms & 98Hz & 2.8ms & 1kHz\\
+			 \hline
+			 3 & 44Hz & 4.9ms & 42Hz & 4.8ms & 1kHz\\
+			 \hline
+			 4 & 21Hz & 8.5ms & 20Hz & 8.3ms & 1kHz\\
+			 \hline
+			 5 & 10Hz & 13.8ms & 10Hz & 13.4ms & 1kHz\\
+			 \hline
+			 6 & 5Hz & 19.0ms & 5Hz & 18.6ms & 1kHz\\
+			 \hline
+		\end{tabular}
+		\caption{Sensitivity Scale Factor Table of Gyroscope}
+	\end{center}
+\end{table}
 Next, like other sensors, both gyroscope and accelerometer always have non-zero errors even when leveling and need to be calibrated with a set of offset values before being used. These offset are calculated by another program included in the MPU6050 library and set into appropriate sensor's registers with provided function from the library. See the appendix C for the register map of the MPU6050 sensor. \par
-After initializing the sensors, the sensor node establishes a wireless connection with the local network and host computer. While the host is not connected, the sensor node continuously calls for a connection and the led indicator on the micro-controller board keep brighting until receiving a success connection. After the connection is established, the sensor node 
+After initializing the sensors, the sensor node establishes a wireless connection with the local network and host computer. While the host is not connected, the sensor node continuously calls for a connection and the led indicator on the micro-controller board keep brighting until receiving a success connection. Once the connection is established, the sensor node turns off the indicator led for a while and then start blinking while transferring data. All the connection handling functions are included in the \textit{Connection Handling} library written by myself. See the Appendix B.\par 
+
+Finally, the micro-controller starts reading data from two sensors. The output data is used to calculate the normalized acceleration and angular velocity. Whenever the normalized acceleration falls below the $LFT_{Acc}$ threshold, the first flag is set true to indicate the start of a fall event and the program starts a 500ms timer. For the next 500ms, if normalized acceleration and angular velocity exceed the $UFT_{Acc}$ and $UFT_{Gyro}$ respectively, the second and third flags are also set true. When the timer is executed, all flags are checked. If three flags are all true, a fall is detected. The sensor node will send an emergency email to the caregivers while start blinking the super bright red led simultaneously, that help the caregivers find out the patients when they reach the patients' location. If one condition is not true, the system start a new detection loop. All the reading data are also converted into strings, concatenated and sent to the host computer for monitoring. See the Appendix A for the main code on the sensor node. 
 \subsection{Data Acquisition Software}
 
 \subsection{Data Analysis Software}
@@ -468,140 +519,322 @@ After initializing the sensors, the sensor node establishes a wireless connectio
 % Add a title page before the appendices and a line in the Table of Contents
 \addcontentsline{toc}{chapter}{APPENDICES}
 %======================================================================
-\chapter{C/C++ Code for Reading Data from Sensor}
-\begin{verbatim}
-#include "Arduino.h"
-#include "MPU6050.h"
-#include "Wire.h"
-#include "WiFiClient.h"
-#include "ESP8266WiFiMulti.h"
-
-ESP8266WiFiMulti WiFiMulti ;
-#if I2CDEV_IMPLEMENTATION == I2CDEV_ARDUINO_WIRE
-#include "Wire.h"
-#endif
-
-MPU6050 accelgyro;
-//MPU6050 accelgyro(0x69); // <-- use for AD0 high
-
-int16_t ax, ay, az;
-int16_t gx, gy, gz;
-float rotX, rotY, rotZ,normAcc;
-float gyroX, gyroY, gyroZ, normGyro;
-#define OUTPUT_READABLE_ACCELGYRO
-
-#define LED_PIN 2
-bool blinkState = false;
-
-void Print_IMU()
-{
-#ifdef SERIAL_DEBUG
-	Serial.println("Accelerometer:");
-	Serial.print(rotX);
-	Serial.print("\t");
-	Serial.print(rotY);
-	Serial.print("\t");
-	Serial.println(rotZ);
-	Serial.println("Gyroscope: ");
-	Serial.print(gyroX);
-	Serial.print("\t");
-	Serial.print(gyroY);
-	Serial.print("\t");
-	Serial.println(gyroZ);
+\chapter{C/C++ Code on the Sensor Node}
+\begin{lstlisting}
+	#include <Event.h>
+	#include <Timer.h>
+	#include <AsyncPrinter.h>
+	#include <async_config.h>
+	#include <ESPAsyncTCP.h>
+	#include <ESPAsyncTCPbuffer.h>
+	#include "MPU6050.h"
+	#include "Wire.h"
+	#include "WiFiClient.h"
+	#include "ESP8266WiFiMulti.h"
+	#include "ESP.h"
+	#include "Time.h"
+	#include <CSensorSender.h>
+	
+	
+	ESP8266WiFiMulti WiFiMulti ;
+	#if I2CDEV_IMPLEMENTATION == I2CDEV_ARDUINO_WIRE
+	#include "Wire.h"
 	#endif
-	Serial.print(normAcc);
-	Serial.print(" ");
-	Serial.println(normGyro);
-}
-
-void init_IMU() {
-	// join I2C bus (I2Cdev library doesn't do this automatically)
-	Wire.begin();
-	Serial.begin(115200);
+	#define OUTPUT_READABLE_ACCELGYRO
+	//#define SERIAL_DEBUG
+	#define BUZZER 13
+	#define CONN_INTERVAL     (1000)
+	#define NUMB_ELEMS_PACKET (100)
+	#define SAMPL_INTV        (CONN_INTERVAL/NUMB_ELEMS_PACKET)
+	#define dataRate 9
+	#define lowAcc 0.26
+	#define highAcc 2.75
+	#define highGyro 254.5
 	
-	// initialize device
-	Serial.println("Initializing I2C devices...");
-	accelgyro.initialize();
-	
-	// verify connection
-	Serial.println("Testing device connections...");
-	Serial.println(accelgyro.testConnection() ? "MPU6050 connection successful" 
-	: "MPU6050 connection failed");
-	
-	// use the code below to change accel/gyro offset values
-	
-	Serial.println("Updating internal sensor offsets...");
-	//reading current sensor's offset
-	Serial.print("\n");
-	accelgyro.setXGyroOffset(55);
-	accelgyro.setYGyroOffset(-28);
-	accelgyro.setZGyroOffset(-2);
-	accelgyro.setXAccelOffset(-2581);
-	accelgyro.setYAccelOffset(-3937);
-	accelgyro.setZAccelOffset(1199);
-}
-
-
-void Init_Wifi()
-{
-	// Initialize Wifi_connection
-	WiFiMulti.addAP("Connectify-me", "hazeduh5");
-	Serial.println();
-	Serial.println();
-	Serial.print("Wait for WiFi... ");
-	while(WiFiMulti.run() != WL_CONNECTED) {
-	Serial.print(".");
-	delay(500);
-	}
-	Serial.println("");
-	Serial.println("WiFi connected");
-	Serial.println("IP address: ");
-	Serial.println(WiFi.localIP());
-	delay(500);
-}
-
-void sendData()
-{
+	Timer t;
 	const uint16_t port = 8000;
-	const char * host = "192.168.85.1"; // ip or dns
+	String host = "192.168.137.1"; // ip or dns
+	
+	CSensorSender mySender(host, port, NUMB_ELEMS_PACKET, 2);
 	
 	// Use WiFiClient class to create TCP connections
-	WiFiClient client;
+	AsyncClient client;   
+	MPU6050 accelgyro;
 	
-	if (!client.connect(host, port)) {
-	Serial.println("connection failed");
-	client.stop();
-	return;
+	//MPU6050 accelgyro(0x69); // <-- use for AD0 high
+	int16_t ax, ay, az;
+	int16_t gx, gy, gz;
+	float t_time = 0,send_time;
+	float rotX, rotY, rotZ,normAcc;
+	float gyroX, gyroY, gyroZ, normGyro;
+	String packet = "",packetSend = "";
+	int8_t i=0;
+	bool blinkState = false;
+	bool firstCond = false, secCond = false, thirdCond = false;
+	
+	void Print_IMU()
+	{
+			#ifdef SERIAL_DEBUG
+			Serial.println("Accelerometer:");
+			Serial.print(ax);
+			Serial.print("\t");
+			Serial.print(ay);
+			Serial.print("\t");
+			Serial.println(az);
+			Serial.println("Gyroscope: ");
+			Serial.print(gx);
+			Serial.print("\t");
+			Serial.print(gy);
+			Serial.print("\t");
+			Serial.println(gz);
+			#endif
+			Serial.print(normAcc);
+			Serial.print(" ");
+			Serial.println(normGyro);
 	}
-	client.print(normAcc);
-	//	    client.print(" , ");
-	//        client.println(normGyro);
-	//Serial.println("closing connection");
-	client.stop();
-}
+	void alert(){
+			if (firstCond == true && secCond == true && thirdCond == true)
+			{
+				digitalWrite(BUZZER, HIGH);
+			}
+			firstCond = false;
+			secCond = false;
+			thirdCond = false;
+	}
+	void init_IMU() {
+			// join I2C bus (I2Cdev library doesn't do this automatically)
+			Wire.begin();
+			Serial.begin(115200);
+			// initialize device
+			Serial.println("Initializing I2C devices...");
+			accelgyro.initialize();
+			// verify connection
+			Serial.println("Testing device connections...");
+			Serial.println(accelgyro.testConnection() ? "MPU6050 connection successful" : "MPU6050 connection failed");
+			Serial.print("\n");
+			accelgyro.setDLPFMode(1); //set the Frequency to 1kHz
+			accelgyro.setRate(dataRate); //Set data Rate: Rate = (Freq)/(dataRate+1)
+			Serial.print("DLPF Mode: ");
+			Serial.println(accelgyro.getDLPFMode());
+			Serial.print("Data rate of sensor: ");
+			Serial.println(accelgyro.getRate());
+			// use the code below to change accel/gyro offset values
+			Serial.println("Updating internal sensor offsets...");
+			accelgyro.setXGyroOffset(55);
+			accelgyro.setYGyroOffset(-28);
+			accelgyro.setZGyroOffset(-2);
+			accelgyro.setXAccelOffset(-2581);
+			accelgyro.setYAccelOffset(-3937);
+			accelgyro.setZAccelOffset(1199);
+	}
+	void Init_Wifi()
+	{
+			// Initialize Wifi_connection
+			WiFiMulti.addAP("MinhKhang", "qwertyuiop");
+			Serial.println();
+			Serial.println();
+			Serial.print("Wait for WiFi... ");
+			while(WiFiMulti.run() != WL_CONNECTED) {
+			Serial.print(".");
+			delay(500);
+			ESP.wdtFeed();
+			}
+			Serial.println("");
+			Serial.println("WiFi connected");
+			Serial.println("IP address: ");
+			Serial.println(WiFi.localIP());
+			digitalWrite(2, LOW);
+			delay(500);
+	}
+	
+	void setup(){
+			//initialize pin mode
+			pinMode(BUZZER, OUTPUT);
+			Serial.begin(115200);
+			Wire.begin();
+			init_IMU();
+			Init_Wifi();
+	}
+	void loop() {
+			sensorData_t;
+			ESP.wdtFeed();
+			if ((millis()-t_time)>SAMPL_INTV)
+			{ 
+				//get data from sensor
+				accelgyro.getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
+				rotX = ax / 16384.0;
+				rotY = ay / 16384.0;
+				rotZ = az /16384.0;
+				normAcc = sqrt(rotX*rotX + rotY*rotY + rotZ*rotZ);
+				gyroX = gx /131.0;
+				gyroY = gy /131.0;
+				gyroZ = gz /131.0;
+				normGyro = sqrt(gyroX*gyroX + gyroY*gyroY + gyroZ*gyroZ);
+				//Start the comparator
+				if (normAcc < lowAcc)
+				{
+					firstCond = true;
+					t.after(500,alert);
+				}
+				if (firstCond == true && normAcc > highAcc)
+				{
+					secCond = true;
+				}
+				if (firstCond == true && normGyro > highGyro)
+				{
+					thirdCond =true;
+				}
+				t_time=millis();
+				currentSensorData.normAccel = normAcc;
+				currentSensorData.normGyro = normGyro;
+				mySender.queueSensorData(currentSensorData);
+			}
+			t.update();
+	}
+\end{lstlisting}%
 
-void setup(){
-	Serial.begin(115200);
-	Wire.begin();
-	init_IMU();
-	delay(10);
-	Init_Wifi();
-}
-void loop() {
-	accelgyro.getMotion6(&ax, &ay, &az, &gx, &gy, &gz);
-	rotX = ax / 16384.0;
-	rotY = ay / 16384.0;
-	rotZ = az /16384.0;
-	normAcc = sqrt(rotX*rotX + rotY*rotY + rotZ*rotZ);
-	gyroX = gx /131;
-	gyroY = gy /131;
-	gyroZ = gz /131;
-	normGyro = sqrt(gyroX*gyroX + gyroY*gyroY + gyroZ*gyroZ);
-	Print_IMU();
-	sendData();
-}
-\end{verbatim}%
+\chapter{Connection Handling Library}
 
+\begin{lstlisting}
+	#include "CSensorSender.h"
+	
+	#define DEBUG_PRINT 1
+	
+	static inline void debugPrint(String inputString)
+	{
+		#if DEBUG_PRINT
+		Serial.println(inputString);
+		#endif
+	}
+	
+	void clientConnectedHandler(void* arg, AsyncClient* aClient)
+	{
+		debugPrint("Connected");
+		String sentString = ((CSensorSender*)arg)->getSentString();
+		aClient->write(sentString.c_str());
+		((CSensorSender*)arg)->setIndicatorLed(LOW);
+	}
+	
+	void clientDisconnectedHandler(void* arg, AsyncClient* aClient)
+	{
+		debugPrint("Disconnected");
+		senderState_t senderState = ((CSensorSender*)arg)->getSenderState();
+		if ((senderState == SENDING) || (senderState == SENDING_ERROR)) {
+			((CSensorSender*)arg)->setSenderState(READY);
+		}
+		((CSensorSender*)arg)->setIndicatorLed(HIGH);
+	}
+	
+	void clientErrorHandler(void* arg, AsyncClient* aClient, unsigned char error)
+	{
+		debugPrint("Error");
+		senderState_t senderState = ((CSensorSender*)arg)->getSenderState();
+		if (senderState == SENDING) {
+		((CSensorSender*)arg)->setSenderState(SENDING_ERROR);
+		}
+		((CSensorSender*)arg)->setIndicatorLed(HIGH);
+	}
+	
+	void CSensorSender::populateSentString()
+	{
+		mSentString = "";
+		for (int i = 0; i < mNoOfSamples; i++) {
+		mSentString += String(mSensorData[i].normAccel) + "," + String(mSensorData[i].normGyro);
+			if (i < mNoOfSamples - 1) {
+				mSentString += ",";
+			}
+			else {
+				mSentString += "\n";
+			}
+		}
+	}
+	
+	// Constructor
+	CSensorSender::CSensorSender(String IPString, int16_t port, uint16_t noOfSamplesPerPacket, int ledIndicatorPin)
+	{
+		// Load the arguments onto the attributes
+		mIPString = IPString;
+		mPort = port;
+		mNoOfSamplesPerPacket = noOfSamplesPerPacket;
+		// Allocate the exact number of elements of sensorData_t
+		// this is going to be the array to store queued data
+		mSensorData = new sensorData_t[mNoOfSamplesPerPacket];
+		mSentString = "";
+		mNoOfSamples = 0;
+		// Initialize the state to READY
+		mSenderState = READY;
+		mLedIndicatorPin = ledIndicatorPin;
+		pinMode(ledIndicatorPin, OUTPUT);
+		digitalWrite(ledIndicatorPin, HIGH);
+		// Initialize the ASyncClient
+		mClient.onConnect(clientConnectedHandler, this);
+		mClient.onError(clientErrorHandler, this);
+		mClient.onDisconnect(clientDisconnectedHandler, this);
+	}
+	
+	senderErrorCode_t CSensorSender::queueSensorData(sensorData_t& sensorDataInput)
+	{
+		senderErrorCode_t returnSenderErrorCode = SENDER_ERROR_NOT_READY;
+		// If there is still space left in the buffer
+		if (mNoOfSamples < mNoOfSamplesPerPacket) {
+		mSensorData[mNoOfSamples] = sensorDataInput;
+		mNoOfSamples++;
+		returnSenderErrorCode = SENDER_ERROR_OK;
+	}
+	else if (mSenderState == READY) {
+		// Update the state
+		mSenderState = SENDING;
+		// Since this is a normal behavior
+		returnSenderErrorCode = SENDER_ERROR_OK;
+		populateSentString();
+		mNoOfSamples = 0;
+		debugPrint(mSentString);
+		//Do the sending here
+		mClient.connect(mIPString.c_str(), mPort);
+	}
+	else {
+		returnSenderErrorCode = SENDER_ERROR_NOT_READY;
+	}
+	return returnSenderErrorCode;
+	}
+	
+	// Destructor, clean up the allocated memory here
+	CSensorSender::~CSensorSender()
+	{
+		// Deallocated allocated memory
+		delete[] mSensorData;
+	}
+	
+	String CSensorSender::getSentString()
+	{
+		return mSentString;
+	}
+	
+	senderState_t CSensorSender::getSenderState()
+	{
+		return mSenderState;
+	}
+	
+	void CSensorSender::setSenderState(senderState_t senderState)
+	{
+		mSenderState = senderState;
+	}
+	
+	void CSensorSender::setIndicatorLed(uint8_t ledState)
+	{
+		digitalWrite(mLedIndicatorPin, ledState);
+	}
+\end{lstlisting}
+\chapter{Register Map of MPU6050}
+\begin{figure}[h!]
+	\includegraphics{5}
+\end{figure} 
+\begin{figure}[h!]
+	\includegraphics{6}
+\end{figure}
+\begin{figure}[h!]
+	\includegraphics{7}
+\end{figure}
 \chapter{Python Code for Data Acquisition Program}
 \begin{verbatim}
 import matplotlib.pyplot as plt
