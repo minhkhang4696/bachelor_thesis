@@ -390,4 +390,10 @@
   url = {https://www.mobilehelp.com/medical-alert-systems/mobilehelp-solo/},
 }
 
+@Manual{bl,
+  title        = {ESP8266EX Datasheet},
+  organization = {Espressif},
+  url          = {https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}
