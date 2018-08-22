@@ -1,7 +1,7 @@
 figure;
 subplot(2,1,1);
-plot(phuc_acc_1);
-title('Phuc Acceleration 1')
+plot(hieu_accel_4);
+title('S1 Acceleration 4')
 subplot(2,1,2);
-plot(phuc_gyro_1);
-title('Phuc Angular Velocity 1');
+plot(hieu_gyro_4);
+title('S1 Angular Velocity 4');

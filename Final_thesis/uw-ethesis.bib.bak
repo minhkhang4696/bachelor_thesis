@@ -390,4 +390,20 @@
   url = {https://www.mobilehelp.com/medical-alert-systems/mobilehelp-solo/},
 }
 
+@Manual{block_diagram,
+  title        = {ESP8266EX Datasheet},
+  organization = {Espressif},
+  url          = {https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf},
+}
+
+@Article{,
+}
+
+@Conference{sensor_position1,
+  author    = {Hristijan Gjoreski and Mitja Luštrek and Matjaž Gams},
+  title     = {Accelerometer Placement for Posture Recognition and Fall Detection},
+  booktitle = {Seventh International Conference on Intelligent Environments},
+  year      = {2011},
+}
+
 @Comment{jabref-meta: databaseType:bibtex;}

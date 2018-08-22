@@ -1,23 +1,24 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Medical Guardian Fall Alert System\cite {figure_guardian}}}{8}{figure.2.1}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces myHalo Medical Alert System from MobileHelp\texttrademark \cite {myHalo}}}{9}{figure.2.2}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces TEMPO 3.0 sensor node\cite {li}}}{10}{figure.2.3}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces The final design of device from group research of Binh Nguyen and Jonathan Tomkun\cite {binh}}}{10}{figure.2.4}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Medical Guardian Fall Alert System \cite {figure_guardian}}}{9}{figure.2.1}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces myHalo Medical Alert System from MobileHelp$^{TM}$ \cite {myHalo}}}{10}{figure.2.2}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces TEMPO 3.0 sensor node \cite {li}}}{11}{figure.2.3}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces The final design of device from group research of Binh Nguyen and Jonathan Tomkun \cite {binh}}}{11}{figure.2.4}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Fall detection algorithm}}{14}{figure.3.1}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Fall detection algorithm}}{15}{figure.3.1}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces MPU-6050 by Invensense \cite {mpu}}}{15}{figure.4.1}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces ESP8266 D1 Mini Board with an ESP8266EX MCU inside}}{17}{figure.4.2}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Functional Block Diagram of ESP8266EX MCU\cite {block_diagram}}}{18}{figure.4.3}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Schematic of wireless communication system}}{19}{figure.4.4}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Graphic User Interface of Data Acquisition Program}}{21}{figure.4.5}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Data plotting with MATLAB}}{22}{figure.4.6}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Principle of I$^{2}$C interface \cite {i2c}}}{23}{figure.4.7}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Wiring schematic of MPU-6050 \gls {imu} \cite {d1sche}}}{23}{figure.4.8}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Printed Circuit Board Design}}{24}{figure.4.9}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Sensor Node}}{24}{figure.4.10}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces MPU-6050 by Invensense \cite {mpu}}}{16}{figure.4.1}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces ESP8266 D1 Mini Board with an ESP8266EX MCU inside}}{18}{figure.4.2}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Functional Block Diagram of ESP8266EX MCU\cite {block_diagram}}}{19}{figure.4.3}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Schematic of wireless communication system}}{20}{figure.4.4}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Graphic User Interface of Data Acquisition Program}}{22}{figure.4.5}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Data plotting with MATLAB}}{23}{figure.4.6}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Principle of I$^{2}$C interface \cite {i2c}}}{24}{figure.4.7}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Wiring schematic of MPU-6050 \gls {imu} \cite {d1sche}}}{24}{figure.4.8}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Printed Circuit Board Design}}{25}{figure.4.9}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Sensor Node}}{25}{figure.4.10}
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {5.1}{\ignorespaces S1 fall forward}}{27}{figure.5.1}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

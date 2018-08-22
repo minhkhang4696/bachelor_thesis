@@ -34,10 +34,27 @@
   \url{https://www.mobilehelp.com/medical-alert-systems/mobilehelp-solo/}
 \BIBentrySTDinterwordspacing
 
+\bibitem{li}
+Q.~Li, J.~A. Stankovic, M.~Hanson, A.~Barth, and J.~Lach, ``Accurate, fast fall
+  detection using gyroscopes and accelerometer-derived posture information,''
+  in \emph{Wearable and Implantable Body Sensor Networks}, Berkeley, CA, USA,
+  Jun. 2009.
+
+\bibitem{binh}
+J.~Tomkun and B.~Nguyen, ``{Design of a Fall Detection and Prevention System
+  for the Elderly},'' Bachelor Thesis, McMaster University Hamilton, Ontario,
+  Canada, 2010.
+
 \bibitem{mpu}
 \BIBentryALTinterwordspacing
 ``{MPU-6050 Accelerometer + Gyro}.'' [Online]. Available:
   \url{https://playground.arduino.cc/Main/MPU-6050}
+\BIBentrySTDinterwordspacing
+
+\bibitem{block_diagram}
+\BIBentryALTinterwordspacing
+\emph{ESP8266EX Datasheet}, Espressif. [Online]. Available:
+  \url{https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf}
 \BIBentrySTDinterwordspacing
 
 \bibitem{i2c}
@@ -140,16 +157,15 @@ J.~A. Stevens, G.~Ryan, and M.~Kresnow, ``{Fatalities and Injuries from Falls
 \bibitem{other_consequence_1}
 {Consumer Safety Unit}, ``Home and leisure accident research,'' 1988.
 
-\bibitem{li}
-Q.~Li, J.~A. Stankovic, M.~Hanson, A.~Barth, and J.~Lach, ``Accurate, fast fall
-  detection using gyroscopes and accelerometer-derived posture information,''
-  in \emph{Wearable and Implantable Body Sensor Networks}, Berkeley, CA, USA,
-  Jun. 2009.
+\bibitem{sensor_position1}
+H.~Gjoreski, M.~Luštrek, and M.~Gams, ``Accelerometer placement for posture
+  recognition and fall detection,'' in \emph{Seventh International Conference
+  on Intelligent Environments}, 2011.
 
-\bibitem{binh}
-J.~Tomkun and B.~Nguyen, ``{Design of a Fall Detection and Prevention System
-  for the Elderly},'' Bachelor Thesis, McMaster University Hamilton, Ontario,
-  Canada, 2010.
+\bibitem{optimum_sensor_place}
+Q.~T. Huynh, U.~D. Nguyen, S.~V. Tran, and B.~Q. Tran, ``Optimum location for
+  sensors in fall detection,'' \emph{Proceedings of the International
+  Conference on Green and Human Information Technology}, 2013.
 
 \bibitem{only_accel_1}
 W.~Qu, F.~Lin, A.~Wang, and W.~Xu, ``Evaluation of a low-complexity fall
@@ -207,21 +223,10 @@ M.~Popescu, B.~Hotrabhavananda, M.~Moore, and M.~Skubic, ``V ampir- an
   Technologies for Healthcare}, San Diago, California, USA, May 2012, pp.
   163--166.
 
-\bibitem{block_diagram}
-\BIBentryALTinterwordspacing
-\emph{ESP8266EX Datasheet}, Espressif. [Online]. Available:
-  \url{https://www.espressif.com/sites/default/files/documentation/0a-esp8266ex_datasheet_en.pdf}
-\BIBentrySTDinterwordspacing
-
 \bibitem{mpu_lib}
 \BIBentryALTinterwordspacing
 J.~Rowberg, ``Mpu6050 library.'' [Online]. Available:
   \url{https://github.com/jrowberg/i2cdevlib/tree/master/Arduino/MPU6050}
 \BIBentrySTDinterwordspacing
-
-\bibitem{optimum_sensor_place}
-Q.~T. Huynh, U.~D. Nguyen, S.~V. Tran, and B.~Q. Tran, ``Optimum location for
-  sensors in fall detection,'' \emph{Proceedings of the International
-  Conference on Green and Human Information Technology}, 2013.
 
 \end{thebibliography}

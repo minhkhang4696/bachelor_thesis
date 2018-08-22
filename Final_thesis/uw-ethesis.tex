@@ -246,7 +246,7 @@ As mentioned in the previous section, most of patient's death is caused by the l
 Another challenge in detecting the fall is that it is difficult for a system to distinguish a real fall from other fall-liked activities such as sitting, jumping or running, which also result in high acceleration. Therefore, it is required to collect data from different subjects; and then, there should be some analyses to find out the most common pattern of every fall. From that, researchers can design an algorithm to detect the falls based on this pattern. However, it is not easy to collect data for the system from the daily life on real human bodies, since it is an accidental, dangerous action which can happen randomly at any time. Therefore, it is a overwhelming task for researchers to built a dataset for their system. 
 
 \section{Objectives}
-From the above challenges, it is necessary to study and design a wireless sensor network which can automatically detect the fall of a patient and send an alarm to the caregivers instantly to reduce their time of arrival, and hence reduce the mortality rate. The sensor node is portable and attached to the chest of the user. This sensor node contains one accelerometer and one gyroscope to provide information about the body's acceleration and angular velocity during the fall event. This sensor node can connect to the host computer via Wi-Fi with the help of a Wi-Fi module called ESP8266 from ESPRESSIF\textregistered company and send data directly to a monitoring software on the computer. Upon detecting a fall, the sensor node will wait for the safe signal from the patient within the next 10 minutes. If there is no response, an emergency email will be sent immediately to the caregiver. There is also a super bright red led on the sensor node to indicate the fall that helps the caregiver to easily find out the patient. 
+From the above challenges, it is necessary to study and design a wireless sensor network which can automatically detect the fall of a patient and send an alarm to the caregivers instantly to reduce their time of arrival, and hence reduce the mortality rate. The sensor node is portable and attached to the chest of the user. According to research of Gjoreski \textit{et al.} \cite{sensor_position1}, chest and waist are the most common places to put the sensor in fall detection system. Beside that, Huynh \textit{et al.} \cite{optimum_sensor_place} also determined chest as the optimal location for the sensor node. In addition, wearing such small device on the chest would cause no discomfort on user in their daily activities. This sensor node contains one accelerometer and one gyroscope to provide information about the body's acceleration and angular velocity during the fall event. This sensor node can connect to the host computer via Wi-Fi with the help of a Wi-Fi module called ESP8266 from ESPRESSIF\textregistered company and send data directly to a monitoring software on the computer. Upon detecting a fall, the sensor node will wait for the safe signal from the patient within the next 10 minutes. If there is no response, an emergency email will be sent immediately to the caregiver. There is also a super bright red led on the sensor node to indicate the fall that helps the caregiver to easily find out the patient. 
 \section{Thesis Organization}
 In chapter 1, basic knowledge about falls as well as the causes and consequences of them are introduced. It also provides the information about current challenges in detecting the fall and the motivation for this thesis. In chapter 2, a review of existing commercial fall detection devices on the market and researches related to this topic from  other research groups is included. Chapter 3 describes the problem of fall detection and a method to solve this problem. Also included in this chapter is the description of the algorithm used in this thesis. Chapter 4 describes the system with both hardware and software perspectives. Chapter 5 and 6 describe the data collection and analysis procedure as well as the result assessment of the experiments on a real human body. Finally, chapter 7 gives the conclusion for this thesis, the limitation of the current solution and recommendations for future works.
 %======================================================================
@@ -258,7 +258,7 @@ One popular fall detection device, which is highly evaluated by customers, is th
  \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=0.7]{medical-guardian-fall-alert-system}
-	\caption{Medical Guardian Fall Alert System\cite{figure_guardian}}
+	\caption{Medical Guardian Fall Alert System \cite{figure_guardian}}
 \end{figure}
   
 Another device on the market is myHalo$^{TM}$ from MobileHelp$^{TM}$. This device has more advantages compared to Medical Guadian one because of full body monitoring functions. It can detect a fall, mornitoring heart rate, skin temperature, sleep/wake pattern, etc. and send an alert signal to the authorized contacts. This product supports the medical alert outside the home powered by a nationwide cellular network and does not require landline phones. It also provides precise location of patients when they go outside with integrated mobile GPS system. This enable emergency call center to pinpoint patients' location and direct medical support to them. This service costs from \$41.95 per month and supports 24/7. However, because this system offers so many features, it seems to less focus on the fall detection. 
@@ -266,7 +266,7 @@ Another device on the market is myHalo$^{TM}$ from MobileHelp$^{TM}$. This devic
  \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=0.5]{mobile-help}
-	\caption{myHalo Medical Alert System from MobileHelp\texttrademark\cite{myHalo}}
+	\caption{myHalo Medical Alert System from MobileHelp$^{TM}$  \cite{myHalo}}
 \end{figure}
 
 \section{Existing Products from Other Research Groups}
@@ -275,7 +275,7 @@ Beside many commercial fall detection devices being available on the market, the
  \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=0.8]{tempo}
-	\caption{TEMPO 3.0 sensor node\cite{li}}
+	\caption{TEMPO 3.0 sensor node \cite{li}}
 \end{figure}
 
 Binh Nguyen and Jonathan Tomkun designed and created a fall detection system for the elderly as a wearable monitoring device which can distinguish between fall and non-fall events  \cite{binh}. This device can link wirelessly with a pre-programmed laptop computer or Bluetooth-compatible mobile phone. Upon detecting a fall, the device communicates wirelessly with the laptop or cellphone to call 911 or issued emergency contacts. This device can also detect abnormal tilt and warns the user to correct their posture to minimize the risk of falling. In addition to visual LED to alert the fall, there are also audio and tacticle alert options for people with hearing or seeing disabilities. Regarding the performance of the system, some actions have not been distinguished by one of four proposed algorithms to be falls or non-falls. 
@@ -283,7 +283,7 @@ Binh Nguyen and Jonathan Tomkun designed and created a fall detection system for
  \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=0.7]{binhnguyen_device}
-	\caption{The final design of device from group research of Binh Nguyen and Jonathan Tomkun\cite{binh}}
+	\caption{The final design of device from group research of Binh Nguyen and Jonathan Tomkun \cite{binh}}
 \end{figure}  
 
 \chapter{Statement of Problem and Methodology}
@@ -529,29 +529,86 @@ To suffice the compact and portable requirement of the sensor node, sensor board
 \end{figure}
 \chapter{Experimental and Procedure}
 
-\section{Data Collection}
+\section{Data Collection Method}
 To collect the data of falls and fall-liked activities for the development and optimization of the falls detection algorithm, experiments were performed on 6 young healthy subjects (male volunteers, age of 22 years old, weight from 60 to 90kg and height from 160 to 180 cm) to simulate the \gls{adl} and falls. These subjects are numbered from S1 to S6 with detail information provided below.
-\begin{table}[h!]
+\begin{table}[h]
 	\begin{center}
 		\begin{tabular}{ |c|c|c|c|c| } 
 			\hline
 			Subject & Age(years) & Height & Weight(Kg) & Gender \\
 			\hline
-			S1 & 22 & 170 & 90 & M\\
-			S2 & 22 & 170 & 90 & M\\
-			S3 & 22 & 170 & 90 & M\\
-			S4 & 22 & 170 & 90 & M\\
-			S5 & 22 & 170 & 90 & M\\
-			S6 & 22 & 170 & 90 & M\\
+			S1 & 22 & 167 & 55 & M\\ %hieu
+			S2 & 22 & 179 & 71 & M\\ %huy
+			S3 & 22 & 170 & 90 & M\\ %minh
+			S4 & 22 & 178 & 65 & M\\ %phuc
+			S5 & 22 & 170 & 90 & M\\ %trung
+			S6 & 22 & 170 & 90 & M\\ %phuyen	
 			\hline
 		\end{tabular}
-		\caption{Sensitivity Scale Factor Table of Gyroscope}
+		\caption{Detail body information of volunteers}
 		\label{table:1}
 	\end{center}
 \end{table}\par
-All the subjects were asked to perform different movements such as standing, sit down/stand up, step, run, lying on the bed, go up/down the stair and different fall test including forward, backward, right/left side way. The sensor node is attached to the center of chest, where was found to be optimal location by \cite{optimum_sensor_place}. To ensure the safety of volunteers, all the experiments were conducted on a 36-cm high cushion at the dormitory.
+All the subjects were asked to perform different movements such as standing, sit down/stand up, step, run, lying on the bed, go up/down the stair and different fall test including forward, backward, right/left side way. The sensor node is attached to the center of chest, where was determined to be the optimal place for sensor placement. To ensure the safety of volunteers, all the experiments were conducted on a 36-cm high cushion at the dormitory.
 \section{Data Analysis}
+The collected data of falls on six volunteers are represented in the table 5.2. This table demonstrate the comparison of the peak values resulted in by different subjects when they perform different fall simulations. 
+For the upper peaks of the acceleration in all kind of falls, the value is in the range of 2.31 - 3.46 g. This data helped me choose the Upper Fall Threshold for the acceleration $UFT_{Acc}$ at about 2.45, to make sure the acceleration during 90\% of all falls will exceed the upper threshold and satisfy the second condition of the fall detection algorithm. 
+\begin{table}[h]
+	\begin{center}
+		\begin{tabular}{ |c|c|c|c|c| } 
+			\hline
+			Subject & experiment & Lower Peak Acc (g) & Upper Peak Acc (g)  & Upper Peak Gyro ($^{o}/s$)\\
+			\hline
+			S1 & 1 & 0.23 & 3.24 & 282.9\\%hieu
+			& 2 & 0.26 & 2.87 & 278.9 \\
+			& 3 & 0.23 & 2.84 & 262.1 \\
+			& 4 & 0.53 &  2.91 & 264.9 \\
+			& 5 & 0.24 &  2.99 & 327.5\\
+			\hline
+			S2 & 1 & 0.22 & 2.77 & 350.9\\
+			& 2 &  0.28 &  3.23 & 321.5\\
+			& 3 &  0.08 &  2.83& 328.1\\
+			& 4 & 0.13 & 2.74 & 314.3\\
+			& 5 & 0.16 & 3.46 & 319.1\\  %huy
+			\hline
+			S3 & 1 & 0.33 &  3.22& 260.7 \\
+			& 2 &  0.39 & 3.10 & 271.7 \\
+			& 3 & 0.14 & 3.07 & 278.7\\
+			& 4 & 0.03 & 2.31 & 327.1\\
+			& 5 & 0.05 & 3.19 & 294.0\\ %minh
+			\hline
+			S4 &1 & 0.21 & 3.24 & 396.4\\ 
+			&2 &  0.09 & 2.93 & 345.4\\ 
+			&3 & 0.05 & 3.36 & 307.6\\ 
+			&4 & 0.03 & 3.11 & 356.9\\ 
+			&5 & 0.31 & 3.35 & 348.1\\ %phuc
+			\hline
+			S5 \\ %trung
+			\hline
+			S6 \\ %phuyen	
+			\hline
+		\end{tabular}
+		\caption{Collected data of falls in different directions}
+		\label{table:1}
+	\end{center}
+\end{table}
 
+    
+\begin{figure}
+	\centering
+	\hspace{-2.5cm}
+	\begin{minipage}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[scale=0.5]{hieu4}
+	\end{minipage}%
+	\hspace{1cm}
+	\begin{minipage}[b]{0.5\linewidth}
+		\centering
+		\includegraphics[scale=0.5]{phuc1}
+	\end{minipage}	
+	\caption{S1 fall forward}
+\end{figure}
+\cleardoublepage
 \section{Experiment on Real Subjects to Evaluate the Performance of The Network}
 
 \chapter{Results and Discussion}
