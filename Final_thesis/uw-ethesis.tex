@@ -553,8 +553,8 @@ All the subjects were asked to perform different movements such as standing, sit
 Figure 5.1 is the visualized data of two typical fall events collected on volunteers S1 and S4. From two data set in the figure, it is clear that when a fall happen, the normalized acceleration first falls to a certain point below the normal acceleration to indicate the start of a fall. Within the next 0.5s, the normalized acceleration from two experiments both rise up to the upper peak at around 2.8 - 3.2 g and then return to the normal level. During the fall, the normalized angular velocity of both experiments also reach the peaks at around 327 - 396$^{o}/s$. This patterns can be met in most of other fall experiments with other volunteers (see appendix E) and agree with the pattern that was stated by the algorithm in section 3.2. It is a confirmation for the accuracy of the theory founded by Huynh \textit{et al.} \cite{main_quoc}.\\
 
 \begin{figure}[h!]
+	\hspace{-2.3cm}
 	\centering
-	\hspace{-2.5cm}
 	\begin{minipage}[b]{0.5\textwidth}
 		\centering
 		\includegraphics[scale=0.5]{hieu4}
@@ -568,6 +568,56 @@ Figure 5.1 is the visualized data of two typical fall events collected on volunt
 	\end{minipage}	
 	\caption{Fall forward data}
 \end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\hspace{-2.3cm}
+	\begin{minipage}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[scale=0.5]{step_1}
+		\caption{Data for walking}
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[scale=0.5]{run_1}
+		\caption{Data for running}
+	\end{minipage}	
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\hspace{-2.3cm}
+	\begin{minipage}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[scale=0.5]{stand_up_1}
+		\caption{Data for standing up}
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[scale=0.5]{sit_1}
+		\caption{Data for sitting down}
+	\end{minipage}	
+\end{figure} 
+
+\begin{figure}[h!]
+	\centering
+	\hspace{-2.3cm}
+	\begin{minipage}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[scale=0.5]{stair_1}
+		\caption{Data for walking down stair}
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[scale=0.5]{stair_2}
+		\caption{Data for walking up stair}
+	\end{minipage}	
+\end{figure} 
+\clearpage
+
 The collected data of falls on five volunteers are represented in the table 5.2. This table demonstrates the comparison between the peak values resulted by different subjects when they performed different fall simulations. This table help me to determine three thresholds by using observation method.\par  
 First, it is important to find the optimal Lower Fall Threshold for the acceleration ($LFT_{Acc}$), because it is the first condition to start detecting a fall. Improper selection of the $LFT_{Acc}$ may lead to the miss of the fall event and cause failure of fall detection. From the given data in table, most of the lower peaks are below 0.35 g. To ensure the system can detect most of the fall, I decided to choose the Lower Fall Threshold for the acceleration at 0.35g.
 \par
