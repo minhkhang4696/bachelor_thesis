@@ -18,12 +18,12 @@ def makeFig():
     plt.plot(gyro, 'b', label='Normalized Angular Velocity')
     plt.legend(loc='upper left')
     plt.savefig('testplot.png')
-    # with open("", "w",newline='') as myfilegyro:
-    #     wr = csv.writer(myfilegyro)
-    #     wr.writerow(gyro)
-    # with open("", "w",newline='') as myfileaccel:
-    #     wr1 = csv.writer(myfileaccel)
-    #     wr1.writerow(accel)
+    with open("stick_3T_gyro", "w",newline='') as myfilegyro:
+         wr = csv.writer(myfilegyro)
+         wr.writerow(gyro)
+    with open("stick_3T_accel", "w",newline='') as myfileaccel:
+         wr1 = csv.writer(myfileaccel)
+         wr1.writerow(accel)
 
 class myTCPServer(socketserver.StreamRequestHandler):
     def handle(self):

@@ -1,7 +1,7 @@
 figure;
 subplot(2,1,1);
-plot(hieu_accel_4);
-title('S1 Acceleration 4')
+plot(stick_accel_3);
+title('S5 Acceleration 1')
 subplot(2,1,2);
-plot(hieu_gyro_4);
-title('S1 Angular Velocity 4');
+plot(stick_gyro_3);
+title('S5 Angular Velocity 1');

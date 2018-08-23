@@ -530,7 +530,7 @@ To suffice the compact and portable requirement of the sensor node, sensor board
 \chapter{Experimental and Procedure}
 
 \section{Data Collection Method}
-To collect the data of falls and fall-liked activities for the development and optimization of the falls detection algorithm, experiments were performed on 6 young healthy subjects (male volunteers, age of 22 years old, weight from 60 to 90kg and height from 160 to 180 cm) to simulate the \gls{adl} and falls. These subjects are numbered from S1 to S6 with detail information provided below.
+To collect the data of falls and fall-liked activities for the development and optimization of the falls detection algorithm, experiments were performed on 5 young healthy subjects (male volunteers, age of 22 years old, weight from 60 to 90kg and height from 160 to 180 cm) to simulate the \gls{adl} and falls. These subjects are numbered from S1 to S6 with detail information provided below.
 \begin{table}[h]
 	\begin{center}
 		\begin{tabular}{ |c|c|c|c|c| } 
@@ -541,8 +541,7 @@ To collect the data of falls and fall-liked activities for the development and o
 			S2 & 22 & 179 & 71 & M\\ %huy
 			S3 & 22 & 170 & 90 & M\\ %minh
 			S4 & 22 & 178 & 65 & M\\ %phuc
-			S5 & 22 & 170 & 90 & M\\ %trung
-			S6 & 22 & 170 & 90 & M\\ %phuyen	
+			S5 & 22 & 170 & 90 & M\\ %trung	
 			\hline
 		\end{tabular}
 		\caption{Detail body information of volunteers}
@@ -551,8 +550,30 @@ To collect the data of falls and fall-liked activities for the development and o
 \end{table}\par
 All the subjects were asked to perform different movements such as standing, sit down/stand up, step, run, lying on the bed, go up/down the stair and different fall test including forward, backward, right/left side way. The sensor node is attached to the center of chest, where was determined to be the optimal place for sensor placement. To ensure the safety of volunteers, all the experiments were conducted on a 36-cm high cushion at the dormitory.
 \section{Data Analysis}
-The collected data of falls on six volunteers are represented in the table 5.2. This table demonstrate the comparison of the peak values resulted in by different subjects when they perform different fall simulations. 
-For the upper peaks of the acceleration in all kind of falls, the value is in the range of 2.31 - 3.46 g. This data helped me choose the Upper Fall Threshold for the acceleration $UFT_{Acc}$ at about 2.45, to make sure the acceleration during 90\% of all falls will exceed the upper threshold and satisfy the second condition of the fall detection algorithm. 
+Figure 5.1 is the visualized data of two typical fall events collected on volunteers S1 and S4. From two data set in the figure, it is clear that when a fall happen, the normalized acceleration first falls to a certain point below the normal acceleration to indicate the start of a fall. Within the next 0.5s, the normalized acceleration from two experiments both rise up to the upper peak at around 2.8 - 3.2 g and then return to the normal level. During the fall, the normalized angular velocity of both experiments also reach the peaks at around 327 - 396$^{o}/s$. This patterns can be met in most of other fall experiments with other volunteers (see appendix E) and agree with the pattern that was stated by the algorithm in section 3.2. It is a confirmation for the accuracy of the theory founded by Huynh \textit{et al.} \cite{main_quoc}.\\
+
+\begin{figure}[h!]
+	\centering
+	\hspace{-2.5cm}
+	\begin{minipage}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[scale=0.5]{hieu4}
+		(a) S1 falls forward
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[scale=0.5]{phuc1}
+		(b) S4 falls right sideway
+	\end{minipage}	
+	\caption{Fall forward data}
+\end{figure}
+The collected data of falls on five volunteers are represented in the table 5.2. This table demonstrates the comparison between the peak values resulted by different subjects when they performed different fall simulations. This table help me to determine three thresholds by using observation method.\par  
+First, it is important to find the optimal Lower Fall Threshold for the acceleration ($LFT_{Acc}$), because it is the first condition to start detecting a fall. Improper selection of the $LFT_{Acc}$ may lead to the miss of the fall event and cause failure of fall detection. From the given data in table, most of the lower peaks are below 0.35 g. To ensure the system can detect most of the fall, I decided to choose the Lower Fall Threshold for the acceleration at 0.35g.
+\par
+For the upper peaks of the acceleration in all kind of falls, the value is in the range of 2.31 - 3.46 g. This data helped me choose the Upper Fall Threshold for the acceleration ($UFT_{Acc}$) at about 2.75, to make sure the acceleration during 90\% of all falls will exceed the upper threshold and satisfy the second condition of the fall detection algorithm. 
+\par 
+The final step is choosing the upper fall threshold for the angular velocity as a confirmatory threshold for the fall detection algorithm. From the data in table 5.2, it is suitable to choose the $UFT_{Gyro}$ at around 254$^{o}/s$.
 \begin{table}[h]
 	\begin{center}
 		\begin{tabular}{ |c|c|c|c|c| } 
@@ -583,33 +604,18 @@ For the upper peaks of the acceleration in all kind of falls, the value is in th
 			&4 & 0.03 & 3.11 & 356.9\\ 
 			&5 & 0.31 & 3.35 & 348.1\\ %phuc
 			\hline
-			S5 \\ %trung
-			\hline
-			S6 \\ %phuyen	
+			S5 &1 & 0.14 & 3.46 & 433.3\\ 
+			&2 &  0.07 & 3.35 & 385.3\\ 
+			&3 & 0.08 & 2.96 & 362.9\\ 
+			&4 & 0.12 & 3.21 & 343.8\\ 
+			&5 & 0.31 & 3.28 & 278.1\\ %trung
 			\hline
 		\end{tabular}
-		\caption{Collected data of falls in different directions}
+		\caption{Collected data of simulated falls in different directions}
 		\label{table:1}
 	\end{center}
 \end{table}
-
-    
-\begin{figure}
-	\centering
-	\hspace{-2.5cm}
-	\begin{minipage}[b]{0.5\linewidth}
-		\centering
-		\includegraphics[scale=0.5]{hieu4}
-	\end{minipage}%
-	\hspace{1cm}
-	\begin{minipage}[b]{0.5\linewidth}
-		\centering
-		\includegraphics[scale=0.5]{phuc1}
-	\end{minipage}	
-	\caption{S1 fall forward}
-\end{figure}
 \cleardoublepage
-\section{Experiment on Real Subjects to Evaluate the Performance of The Network}
 
 \chapter{Results and Discussion}
 

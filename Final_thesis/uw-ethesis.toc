@@ -29,7 +29,6 @@
 \contentsline {chapter}{\numberline {5}Experimental and Procedure}{26}{chapter.5}
 \contentsline {section}{\numberline {5.1}Data Collection Method}{26}{section.5.1}
 \contentsline {section}{\numberline {5.2}Data Analysis}{26}{section.5.2}
-\contentsline {section}{\numberline {5.3}Experiment on Real Subjects to Evaluate the Performance of The Network}{28}{section.5.3}
 \contentsline {chapter}{\numberline {6}Results and Discussion}{29}{chapter.6}
 \contentsline {section}{\numberline {6.1}Results Assessment}{29}{section.6.1}
 \contentsline {section}{\numberline {6.2}Comparing the performance with existing works}{29}{section.6.2}

@@ -24,9 +24,9 @@ ESP8266WiFiMulti WiFiMulti ;
 #define NUMB_ELEMS_PACKET (100)
 #define SAMPL_INTV        (CONN_INTERVAL/NUMB_ELEMS_PACKET)
 #define dataRate 9
-#define lowAcc 0.26
+#define lowAcc 0.35
 #define highAcc 2.75
-#define highGyro 254.5
+#define highGyro 254
 
 Timer t;
 const uint16_t port = 8000;
