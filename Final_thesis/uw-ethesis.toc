@@ -1,5 +1,5 @@
-\contentsline {chapter}{List of Tables}{viii}{section*.2}
-\contentsline {chapter}{List of Figures}{ix}{section*.4}
+\contentsline {chapter}{List of Tables}{viii}{section*.3}
+\contentsline {chapter}{List of Figures}{ix}{section*.5}
 \contentsline {chapter}{\numberline {1}Introduction}{2}{chapter.1}
 \contentsline {section}{\numberline {1.1}Introduction to Fall}{2}{section.1.1}
 \contentsline {section}{\numberline {1.2}Definition of a Fall}{2}{section.1.2}
@@ -41,4 +41,4 @@
 \contentsline {chapter}{\numberline {B}Connection Handling Library}{39}{appendix.B}
 \contentsline {chapter}{\numberline {C}Register Map of MPU6050}{43}{appendix.C}
 \contentsline {chapter}{\numberline {D}Python Code for Data Acquisition Program}{46}{appendix.D}
-\contentsline {chapter}{\textbf {References}}{48}{section*.9}
+\contentsline {chapter}{\textbf {References}}{48}{section*.40}

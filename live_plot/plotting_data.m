@@ -17,18 +17,18 @@ title('Run Angular Velocity 2');
 figure;
 subplot(2,1,1);
 plot(stair_accel_1);
-title('Clamb Stair Acceleration 1');
+title('Climb Stair Acceleration 1');
 subplot(2,1,2);
 plot(stair_gyro_1);
-title('Clamb Stair Angular Velocity 1');
+title('Climb Stair Angular Velocity 1');
 
 figure;
 subplot(2,1,1);
 plot(stair_accel_2);
-title('Clamb Stair Acceleration 2');
+title('Climb Stair Acceleration 2');
 subplot(2,1,2);
 plot(stair_gyro_2);
-title('Clamb Stair Angular Velocity 2');
+title('Climb Stair Angular Velocity 2');
 
 figure;
 subplot(2,1,1);

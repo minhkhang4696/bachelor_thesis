@@ -53,6 +53,7 @@
 \usepackage{setspace}
 \usepackage[paper=a4paper,margin=1in]{geometry}
 \usepackage{tikz}
+\usepackage[justification=centering]{caption}
 
 %here declear the acronym
 \newacronym{who}{WHO}{World Health Organization}
@@ -530,7 +531,7 @@ To suffice the compact and portable requirement of the sensor node, sensor board
 \chapter{Experimental and Procedure}
 
 \section{Data Collection Method}
-To collect the data of falls and fall-liked activities for the development and optimization of the falls detection algorithm, experiments were performed on 5 young healthy subjects (male volunteers, age of 22 years old, weight from 60 to 90kg and height from 160 to 180 cm) to simulate the \gls{adl} and falls. These subjects are numbered from S1 to S6 with detail information provided below.
+To collect the data of falls and fall-liked activities for the development and optimization of the fall detection algorithm, experiments were performed on 5 young healthy subjects (male volunteers, age of 22 years old, weight from 60 to 90kg and height from 160 to 180 cm) to simulate the \gls{adl} and falls. These subjects are numbered from S1 to S5 with detail information provided below.
 \begin{table}[h]
 	\begin{center}
 		\begin{tabular}{ |c|c|c|c|c| } 
@@ -541,89 +542,90 @@ To collect the data of falls and fall-liked activities for the development and o
 			S2 & 22 & 179 & 71 & M\\ %huy
 			S3 & 22 & 170 & 90 & M\\ %minh
 			S4 & 22 & 178 & 65 & M\\ %phuc
-			S5 & 22 & 170 & 90 & M\\ %trung	
+			S5 & 22 & 175 & 75 & M\\ %trung	
 			\hline
 		\end{tabular}
 		\caption{Detail body information of volunteers}
 		\label{table:1}
 	\end{center}
 \end{table}\par
-All the subjects were asked to perform different movements such as standing, sit down/stand up, step, run, lying on the bed, go up/down the stair and different fall test including forward, backward, right/left side way. The sensor node is attached to the center of chest, where was determined to be the optimal place for sensor placement. To ensure the safety of volunteers, all the experiments were conducted on a 36-cm high cushion at the dormitory.
+All the subjects were asked to perform different movements such as standing, sitting-down/standing-up, walking, running, lying on the bed, going up/down the stair and different fall tests including forward, backward, right/left side way. The sensor node is attached to the center of chest, where was determined to be the optimal place for sensor placement. To ensure the safety of the volunteers, all the experiments were conducted on a 36-cm high cushion at the dormitory.
 \section{Data Analysis}
-Figure 5.1 is the visualized data of two typical fall events collected on volunteers S1 and S4. From two data set in the figure, it is clear that when a fall happen, the normalized acceleration first falls to a certain point below the normal acceleration to indicate the start of a fall. Within the next 0.5s, the normalized acceleration from two experiments both rise up to the upper peak at around 2.8 - 3.2 g and then return to the normal level. During the fall, the normalized angular velocity of both experiments also reach the peaks at around 327 - 396$^{o}/s$. This patterns can be met in most of other fall experiments with other volunteers (see appendix E) and agree with the pattern that was stated by the algorithm in section 3.2. It is a confirmation for the accuracy of the theory founded by Huynh \textit{et al.} \cite{main_quoc}.\\
+Figure 5.1 is the visualized data of two typical fall events collected on volunteer S1 and S4. From the two datasets in the figure, it is clear that when a fall happen, the normalized acceleration first falls to a certain point below the normal acceleration to indicate the start of a fall. Within the next 0.5s, the normalized acceleration from two experiments both rise up to the upper peak at around 2.8 - 3.2 g and then return to the normal level. During the falls, the normalized angular velocity of both experiments also reach the peaks at around 264.9 - 396$^{o}/s$. This pattern can be met in most of other fall experiments with other volunteers (see appendix E) and agree with the pattern that was stated by the algorithm in section 3.2. It is a confirmation for the theory founded by Huynh \textit{et al.} \cite{main_quoc}.\\
 
 \begin{figure}[h!]
-	\hspace{-2.3cm}
+	\hspace{-1cm}
 	\centering
 	\begin{minipage}[b]{0.5\textwidth}
 		\centering
-		\includegraphics[scale=0.5]{hieu4}
+		\includegraphics[scale=0.42]{hieu4}
 		(a) S1 falls forward
 	\end{minipage}%
 	\hfill
 	\begin{minipage}[b]{0.5\textwidth}
 		\centering
-		\includegraphics[scale=0.5]{phuc1}
+		\includegraphics[scale=0.42]{phuc1}
 		(b) S4 falls right sideway
 	\end{minipage}	
 	\caption{Fall forward data}
 \end{figure}
-
+In comparison with falls, the normalized acceleration data of walking (figure 5.2) and running (figure 5.3) are more fluctuating and repeating. However, the peak values of the acceleration in these two activities are just around 1.5 - 2 g and more less than those of falls. This characteristic helps the fall detection device to differentiate the falls with walking or running - one activity that is usually supposed to be confused by most of fall detection devices because of the high resulted acceleration. With the angular velocity, the peak values of running seem to be greater than walking but still less than falls.
 \begin{figure}[h!]
 	\centering
-	\hspace{-2.3cm}
+	\hspace{-1cm}
 	\begin{minipage}[b]{0.5\textwidth}
 		\centering
-		\includegraphics[scale=0.5]{step_1}
+		\includegraphics[scale=0.42]{step_1}
 		\caption{Data for walking}
 	\end{minipage}%
 	\hfill
 	\begin{minipage}[b]{0.5\textwidth}
 		\centering
-		\includegraphics[scale=0.5]{run_1}
+		\includegraphics[scale=0.42]{run_1}
 		\caption{Data for running}
 	\end{minipage}	
 \end{figure}
-
+\clearpage
+Similarly, for the climbing up and down the stair, the normalized acceleration is just around 1.3 - 1.5 g and far more less than those acceleration values resulted by falls. The normalized angular velocity of these two activities are only around less than 50 with some abnormal peaks up to 100$^{o}/s$. This common characteristic of these two activities enables the fall detection device to completely distinguish them with falls and cause no false positive on system.  
 \begin{figure}[h!]
 	\centering
-	\hspace{-2.3cm}
+	\hspace{-1cm}
 	\begin{minipage}[b]{0.5\textwidth}
 		\centering
-		\includegraphics[scale=0.5]{stand_up_1}
-		\caption{Data for standing up}
-	\end{minipage}%
+		\includegraphics[scale=0.42]{stair_2}
+		\caption{Data for climbing up stair}
+	\end{minipage}
 	\hfill
 	\begin{minipage}[b]{0.5\textwidth}
 		\centering
-		\includegraphics[scale=0.5]{sit_1}
+		\includegraphics[scale=0.42]{stair_1}
+		\caption{Data for walking down stair}
+	\end{minipage}%	
+\end{figure} \par
+Regarding the sitting-down, the pattern of this activity is the most similar to falls. Looking in the acceleration, it first falls down to a certain lower point and then immediately go up to the highest peak. However, the peak of this activity is just around 1.7g - smaller compared to the peak of falls in previous experiments. In contrast, the acceleration of standing up is first go up to the highest peak and then fall to a lower point. This pattern is completely different compared to the one of falls . The normalized angular velocity values of both sitting-down and standing-up activities are clearly less than those of falls. Therefore, sitting-down and standing-up are distinguishable from a typical fall.
+\clearpage
+\begin{figure}
+	\centering
+	\hspace{-2cm}
+		\begin{minipage}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[scale=0.42]{sit_2}
 		\caption{Data for sitting down}
 	\end{minipage}	
-\end{figure} 
-
-\begin{figure}[h!]
-	\centering
-	\hspace{-2.3cm}
-	\begin{minipage}[b]{0.5\textwidth}
-		\centering
-		\includegraphics[scale=0.5]{stair_1}
-		\caption{Data for walking down stair}
-	\end{minipage}%
 	\hfill
 	\begin{minipage}[b]{0.5\textwidth}
 		\centering
-		\includegraphics[scale=0.5]{stair_2}
-		\caption{Data for walking up stair}
-	\end{minipage}	
-\end{figure} 
-\clearpage
+		\includegraphics[scale=0.42]{stand_up_1}
+		\caption{Data for standing up}
+	\end{minipage}%
+\end{figure}
 
-The collected data of falls on five volunteers are represented in the table 5.2. This table demonstrates the comparison between the peak values resulted by different subjects when they performed different fall simulations. This table help me to determine three thresholds by using observation method.\par  
-First, it is important to find the optimal Lower Fall Threshold for the acceleration ($LFT_{Acc}$), because it is the first condition to start detecting a fall. Improper selection of the $LFT_{Acc}$ may lead to the miss of the fall event and cause failure of fall detection. From the given data in table, most of the lower peaks are below 0.35 g. To ensure the system can detect most of the fall, I decided to choose the Lower Fall Threshold for the acceleration at 0.35g.
+From the difference between falls and those common \gls{adl} mentioned above, it is necessary to find out the optimal threshold values for the fall detection algorithm, to improve the accuracy of the system. The collected data of falls on five volunteers are represented in the table 5.2. This table demonstrates the comparison between the peak values resulted by different subjects when they performed fall simulations. This table helps me to determine three thresholds by using observation method.\par  
+First, it is important to find the optimal Lower Fall Threshold for the acceleration ($LFT_{Acc}$), because it is the first condition to start detecting a fall. Improper selection of the $LFT_{Acc}$ may lead to the miss of the fall event and cause failure of fall detection. From the given data in table, most of the lower peaks are below 0.35 g. To ensure the system can detect most of the falls, I decided to choose the Lower Fall Threshold for the acceleration at 0.35g.
 \par
 For the upper peaks of the acceleration in all kind of falls, the value is in the range of 2.31 - 3.46 g. This data helped me choose the Upper Fall Threshold for the acceleration ($UFT_{Acc}$) at about 2.75, to make sure the acceleration during 90\% of all falls will exceed the upper threshold and satisfy the second condition of the fall detection algorithm. 
 \par 
-The final step is choosing the upper fall threshold for the angular velocity as a confirmatory threshold for the fall detection algorithm. From the data in table 5.2, it is suitable to choose the $UFT_{Gyro}$ at around 254$^{o}/s$.
+The final step is choosing the upper fall threshold for the angular velocity as a confirmatory threshold for the fall detection algorithm. From the data in table 5.2, it is suitable to choose the $UFT_{Gyro}$ at around 254$^{o}/s$. 
 \begin{table}[h]
 	\begin{center}
 		\begin{tabular}{ |c|c|c|c|c| } 
@@ -668,8 +670,33 @@ The final step is choosing the upper fall threshold for the angular velocity as 
 \cleardoublepage
 
 \chapter{Results and Discussion}
-
+From the threshold values which were determined in previous chapter, a set of tests were established to evaluate the accuracy and robustness of the system. For the consistency, all the tests were performed on only one tester because of the replication in the gait and style of fall/non-fall activities. Volunteer S3 was chosen for these experiments. Due to the dangerous of the falls on human, I decided to limit the number of tests to 20 for both fall and non-fall activities. Volunteer S3 was asked to perform 10 true falls on the cushion and 10 \gls{adl}. All the test results were recorded.      
 \section{Results Assessment}
+The experimental results can be seen in the table 6.1. From the table, we can see that the device can correctly recognize 10/10 of non-fall activities and 6/10 of real falls. The accuracy of system is 70\% with 14/20 true detections. This results are expected and reasonable. 
+\begin{table}[h]
+	\begin{center}
+		\begin{tabular}{ |c|c|c|c|c| } 
+			\hline
+			True Positive & False Positive & True Negative & False Negative & Total\\
+			\hline
+			\textbf{6} & 2 & \textbf{8}& 4& \textbf{16/20}\\
+			\hline
+		\end{tabular}
+		\caption{Experimental Results}
+		\label{table:1}
+	\end{center}
+with
+\begin{itemize}
+	\textit{(i)True Positive}: fall occurs, device detects it\\
+	\textit{(ii)False Positive}: device detect falls, fall did not occur\\
+	\textit{(iii)True Negative}: normal movement, device does not declare a fall\\
+	\textit{(iv)False Negative}: fall occurs, device does not detect it	\\
+\end{itemize}
+\par
+For the non-falls activities, the failure in detection happened only when volunteer S3 performed the jumping with strong force on the ground. 
+
+
+\end{table}\par
 
 \section{Comparing the performance with existing works}
 
