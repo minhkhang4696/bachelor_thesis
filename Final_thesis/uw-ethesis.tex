@@ -670,7 +670,7 @@ The final step is choosing the upper fall threshold for the angular velocity as 
 \cleardoublepage
 
 \chapter{Results and Discussion}
-From the threshold values which were determined in previous chapter, a set of tests were established to evaluate the accuracy and robustness of the system. For the consistency, all the tests were performed on only one tester because of the repetition in the gait and style of fall/non-fall activities. Volunteer S3 was chosen for these experiments. Due to the dangerous of the falls on human, I decided to limit the number of tests to 20 for both fall and non-fall activities. Volunteer S3 was asked to perform 10 true falls on the cushion and 10 \gls{adl}. All the test results were recorded.      
+From the threshold values which were determined in previous chapter, a set of tests were established to evaluate the accuracy and robustness of the system. For the consistency, all the tests were performed on only one tester because of the repetition in the gait and style of fall/non-fall activities. Volunteer S3 was chosen for these experiments. Due to the dangerous of the falls on human, I decided to limit the number of tests to 20 for both fall and non-fall activities. Volunteer S3 was asked to perform 10 true falls on the cushion and 10 non-fall activities. All the test results were recorded.      
 \section{Results Assessment}
 The experimental results can be seen in the table 6.1. From the table, we can see that the device can correctly recognize 8/10 of non-fall activities and 6/10 of real falls. The accuracy of system is 70\% with 14/20 true detections. This result is expected and reasonable. 
 \begin{table}[h]
@@ -679,7 +679,7 @@ The experimental results can be seen in the table 6.1. From the table, we can se
 			\hline
 			True Positive & False Positive & True Negative & False Negative & Total\\
 			\hline
-			\textbf{6} & 2 & \textbf{8}& 4& \textbf{16/20}\\
+			\textbf{6} & 2 & \textbf{8}& 4& \textbf{14/20}\\
 			\hline
 		\end{tabular}
 		\caption{Experimental Results}
@@ -693,26 +693,38 @@ with\\
 	\textit{(iv)False Negative}: fall occurs, device does not detect it	\\
 \end{table}\par
 
-For the non-fall experiments, the failure in detection happened only when volunteer S3 performed the jumping with strong force on the ground (Figure 6.1). However, the important target user of this system is the elderly with the age of 65+ and jumping is just an assumed activity for the testing, not usually happened with this group of people. Therefore, it does not effect much on the accuracy of the system.
+For the non-fall experiments, the failure in detection happened only when volunteer S3 performed the jumping with strong force on the ground (Figure 6.1). However, the important target user of this system is the elderly with the age of 65+ who really need assistance when living alone. Jumping is just an assumed activity for the testing, not usually happened with this group of people in daily life. Therefore, this failure does not effect much on the accuracy of the system.
 \clearpage
 \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=0.5]{jump_strong}
 	\caption{Jumping with strong force on the ground}
 \end{figure}
-In contrast, for the real fall experiments, 
-
+In contrast, for the real fall experiments, there are 4/10 times that device cannot detect the falls. By examining the recorded data with visual graph, there are different reasons that cause these false negatives. The first reason is that when performing a fall simulation, the fear of vulnerability prevents the volunteer from falling as fast as a real fall. This thing causes the delay in the resulted acceleration and make the device not detect the fall. In detail, within 0.5s after the normalized acceleration falling below the $LFT_{Acc}$, it must reach the $UFT_{Acc}$. However, because of the delay, the peak happened after the fall window and make the second condition of the algorithm is not satisfied. See the figure 6.2 for this situation. 
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.5]{delay_accel}
+	\caption{The delay of normalized acceleration causes failure in fall detection}
+\end{figure}\par
+The second reason is that when a fall happen, the normalized acceleration does not fall below the $UFT_{Acc}$ and the first condition of the algorithm is not satisfied. This situation causes false negatives and affects the accuracy of the system. See the figure 6.3.
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.5]{no_lower_peak}
+	\caption{Fall happens, normalized acceleration does not fall below the $UFT_{Acc}$ }
+\end{figure}\par
 \section{Comparing the performance with existing works}
-
+In section 2.2, I have mentioned about two fall detection systems designed by Li \textit{et al.} \cite{li} and Binh \textit{et al.} \cite{binh}. 
+In comparison between the system in this thesis with the first system, both of them use one accelerometer and one gyroscope simultaneously to detect a fall. However, the 
 \chapter{Conclusion and Future Works}
 
 \section{Summary}
-
+Fall detection is one of the most important areas in the health-care system for the elderly. The objective of this thesis is to design and implement a wireless fall detection network prototype that can automatically detect the fall of user and send an emergency alert email to the caregivers. The system uses data from both accelerometer and gyroscope with the help of an optimized algorithm founded by Huynh \textit{et al.} \cite{main_quoc} to detect a fall. Looking at the testing results, the system can detect correctly up to 14/20 experiments (70\%) for both fall and non-fall activities. This result is acceptable for a bachelor thesis but not for a commercial device. Therefore, to realize this system, there must be further developments to optimize the accuracy and robustness of it.
 \section{Limitations}
-
+Despite the system working well, one such limitation of this thesis is that the thresholds finding and testing experiments were performed on young healthy subjects, for the safety reasons, on a thick cushion. The collected data of falls maybe different from a real fall for both acceleration and angular velocity. However, I expect that the real fall on user would experience higher peak accelerations and potentially higher angular velocity. Therefore, I believe that the thresholds founded in this thesis can be applied to a real-world device. \par 
+Another limitation of this thesis is that when detecting a fall, an email will be sent to the caregiver for informing them about the accident. However, an email is not suited for the instant assistance requirement because the caregiver may not check for a new mail continuously. Therefore, in the near future, there will be a SIM module implemented on the system to solve this problem. Whenever detecting a fall, beside sending an email, the micro-controller also sends an SMS message to a certain issued number with the help of a SIM module. Nowadays, most of the SIM modules on the market support UART protocol for the communication with the micro-controller. Hence, when adding the SIM module, it is not necessary to have many modifications but plug-and-play. 
 \section{Future works}
 %======================================================================
-
+The system proposed in this thesis is using a simple threshold method to detect a fall. Even the result is acceptable 
 
 \appendix
 % Add a title page before the appendices and a line in the Table of Contents

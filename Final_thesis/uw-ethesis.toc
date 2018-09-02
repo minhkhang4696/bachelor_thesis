@@ -31,14 +31,14 @@
 \contentsline {section}{\numberline {5.2}Data Analysis}{26}{section.5.2}
 \contentsline {chapter}{\numberline {6}Results and Discussion}{31}{chapter.6}
 \contentsline {section}{\numberline {6.1}Results Assessment}{31}{section.6.1}
-\contentsline {section}{\numberline {6.2}Comparing the performance with existing works}{32}{section.6.2}
-\contentsline {chapter}{\numberline {7}Conclusion and Future Works}{33}{chapter.7}
-\contentsline {section}{\numberline {7.1}Summary}{33}{section.7.1}
-\contentsline {section}{\numberline {7.2}Limitations}{33}{section.7.2}
-\contentsline {section}{\numberline {7.3}Future works}{33}{section.7.3}
-\contentsline {chapter}{APPENDICES}{33}{section.7.3}
-\contentsline {chapter}{\numberline {A}C/C++ Code on the Sensor Node}{34}{appendix.A}
-\contentsline {chapter}{\numberline {B}Connection Handling Library}{40}{appendix.B}
-\contentsline {chapter}{\numberline {C}Register Map of MPU6050}{44}{appendix.C}
-\contentsline {chapter}{\numberline {D}Python Code for Data Acquisition Program}{47}{appendix.D}
-\contentsline {chapter}{\textbf {References}}{49}{section*.41}
+\contentsline {section}{\numberline {6.2}Comparing the performance with existing works}{33}{section.6.2}
+\contentsline {chapter}{\numberline {7}Conclusion and Future Works}{34}{chapter.7}
+\contentsline {section}{\numberline {7.1}Summary}{34}{section.7.1}
+\contentsline {section}{\numberline {7.2}Limitations}{34}{section.7.2}
+\contentsline {section}{\numberline {7.3}Future works}{35}{section.7.3}
+\contentsline {chapter}{APPENDICES}{35}{section.7.3}
+\contentsline {chapter}{\numberline {A}C/C++ Code on the Sensor Node}{36}{appendix.A}
+\contentsline {chapter}{\numberline {B}Connection Handling Library}{42}{appendix.B}
+\contentsline {chapter}{\numberline {C}Register Map of MPU6050}{46}{appendix.C}
+\contentsline {chapter}{\numberline {D}Python Code for Data Acquisition Program}{49}{appendix.D}
+\contentsline {chapter}{\textbf {References}}{51}{section*.43}

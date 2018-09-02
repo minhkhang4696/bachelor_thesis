@@ -1,2 +1,2 @@
-minh_accel_4_NOT = csvread('Minh_4T_accel_NOT')
-minh_gyro_4_NOT = csvread('Minh_4T_gyro_NOT')
+minh_accel_10_NOT = csvread('Minh_T10_accel_firstlowNOT_secondfastCAN.dat')
+minh_gyro_10_NOT = csvread('Minh_T10_gyro.dat')
