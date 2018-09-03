@@ -485,7 +485,7 @@ On the sensor node, the micro-controller board is programmed to read the data fr
 Next, like other sensors, both gyroscope and accelerometer always have non-zero errors even when leveling and need to be calibrated with a set of offset values before being used. These offsets are calculated by another program included in the MPU6050 library and set into appropriate sensor's registers with the provided function from the library. See the appendix C for the register map of the MPU6050 sensor. \par
 After initializing the sensors, the sensor node establishes a wireless connection with the local network and host computer. While the host computer is not connected, the sensor node continuously calls for a connection and the LED indicator on the micro-controller board keeps brighting until receiving a successful connection. Once the connection is established, the sensor node turns off the indicator LED for a while and then starts blinking while transferring data. All the connection handling functions are included in the \textit{Connection Handling} library written by myself. See the Appendix B.\par 
 
-Finally, the micro-controller starts reading data from the two sensors with the function \textit{getMotion6}. The output data is used to calculate the normalized acceleration and angular velocity. Whenever the normalized acceleration falls below the $LFT_{Acc}$ threshold, the first flag is set true to indicate the start of a fall event and a 500ms timer starts counting. For the next 500ms, if normalized acceleration and angular velocity exceed the $UFT_{Acc}$ and $UFT_{Gyro}$ respectively, the second and third flags are also set true. When the timer is executed, all flags are checked. If three flags are all true, a fall is detected. The sensor node will send an emergency email to the caregivers while it starts blinking the super bright red led simultaneously. That red led helps the caregivers to find the patient when they reach the patients' location. If one condition is not true, the system would reset all flags and start a new detection loop. All the reading data are also converted into strings, concatenated in comma-separated form and sent to the host computer for monitoring. Each message is ended with a new line character to separate them on the PC side. See Appendix A for the main code on the sensor node. 
+Finally, the micro-controller starts reading data from the two sensors with the function \textit{getMotion6}. The output data is used to calculate the normalized acceleration and angular velocity. Whenever the normalized acceleration falls below the $LFT_{Acc}$ threshold, the first flag is set true to indicate the start of a fall event and a 500ms timer starts counting. For the next 500ms, if normalized acceleration and angular velocity exceed the $UFT_{Acc}$ and $UFT_{Gyro}$ respectively, the second and third flags are also set true. When the timer is executed, all flags are checked. If three flags are all true, a fall is detected. The sensor node will send an emergency email to the caregivers while it starts blinking the super bright red led simultaneously. That red led helps the caregivers to find the patient when they reach the patients' location. If one condition is not true, the system would reset all flags and start a new detection loop. All the reading data are also converted into strings, concatenated into comma-separated form and sent to the host computer for monitoring. Each message is ended with a new line character to separate them on the PC side. See Appendix A for the main code on the sensor node. 
 \subsection{Data Acquisition Software}
 Data acquisition software is written in Python programming language with Pycharm environment because of its convenience and full support. This software starts an always-run server on the host computer and waits for the requests from the client. When receiving a message from the client, the software de-concatenates this message into two arrays which contain acceleration and angular velocity values separately.  Data from two arrays are then converted back to float form and visualized on the graph. These values are also written to text files in comma-separated (.CSV) form and stored for future analysis with MATLAB. Figure 4.5 shows the graphic user interface of this software. See the Appendix D for the code. 
  
@@ -551,7 +551,7 @@ To collect the data of falls and fall-liked activities for the development and o
 \end{table}\par
 All the subjects were asked to perform different movements such as standing, sitting-down/standing-up, walking, running, lying on the bed, going up/down the stair, jumping and different fall tests including forward, backward, right/left side way. The sensor node was attached to the center of chest, where was determined to be the optimal place for sensor placement. To ensure the safety of the volunteers, all the experiments were conducted on a 36-cm high cushion at the dormitory.
 \section{Data Analysis}
-Figure 5.1 is the visualized data of two typical fall events collected on volunteer S1 and S4. From the two datasets in the figure, it is clear that when a fall happen, the normalized acceleration first falls to a certain point below the normal acceleration to indicate the start of a fall. Within the next 0.5s, the normalized acceleration from two experiments both rise up to the upper peak at around 2.8 - 3.2 g and then return to the normal level. During the falls, the normalized angular velocity of both experiments also reach the peaks at around 264.9 - 396$^{o}/s$. This pattern can be met in most of other fall experiments with other volunteers (see appendix E) and agree with the pattern that was stated by the algorithm in section 3.2. It is a confirmation for the theory founded by Huynh \textit{et al.} \cite{main_quoc}.\\
+Figure 5.1 is the visualized data of two typical fall events collected on volunteer S1 and S4. From the two datasets in the figure, it is clear that when a fall happens, the normalized acceleration first falls to a certain point below the normal acceleration to indicate the start of a fall. Within the next 0.5s, the normalized acceleration from two experiments both rise up to the upper peak at around 2.8 - 3.2 g and then return to the normal level. During the falls, the normalized angular velocity of both experiments also reach the peaks at around 264.9 - 396$^{o}/s$. This pattern can be met in most of other fall experiments with other volunteers (see appendix E) and agree with the pattern that was stated by the algorithm in section 3.2. It is a confirmation for the theory founded by Huynh \textit{et al.} \cite{main_quoc}.\\
 
 \begin{figure}[h!]
 	\hspace{-1cm}
@@ -606,7 +606,7 @@ Regarding the sitting-down, the pattern of this activity is the most similar to 
 \clearpage
 \begin{figure}
 	\centering
-	\hspace{-2cm}
+	\hspace{-1cm}
 		\begin{minipage}[b]{0.5\textwidth}
 		\centering
 		\includegraphics[scale=0.42]{sit_2}
@@ -700,7 +700,7 @@ For the non-fall experiments, the failure in detection happened only when volunt
 	\includegraphics[scale=0.5]{jump_strong}
 	\caption{Jumping with strong force on the ground}
 \end{figure}
-In contrast, for the real fall experiments, there are 4/10 times that device cannot detect the falls. By examining the recorded data with visual graph, there are different reasons that cause these false negatives. The first reason is that when performing a fall simulation, the fear of vulnerability prevents the volunteer from falling as fast as a real fall. This thing causes the delay in the resulted acceleration and make the device not detect the fall. In detail, within 0.5s after the normalized acceleration falling below the $LFT_{Acc}$, it must reach the $UFT_{Acc}$. However, because of the delay, the peak happened after the fall window and make the second condition of the algorithm is not satisfied. See the figure 6.2 for this situation. 
+In contrast, for the real fall experiments, there are 4/10 times that device cannot detect the falls. By examining the recorded data with visual graph, there are different reasons that cause these false negatives. The first reason is that when performing a fall simulation, the fear of vulnerability prevents the volunteer from falling as fast as a real fall. This thing causes the delay in the resulted acceleration and make the device cannot detect the fall. In detail, within 0.5s after the normalized acceleration falling below the $LFT_{Acc}$, it must reach the $UFT_{Acc}$. However, because of the delay, the upper peak happened after the fall window and make the second condition of the algorithm is not satisfied. See the figure 6.2 for this situation. 
 \begin{figure}[h!]
 	\centering
 	\includegraphics[scale=0.5]{delay_accel}
@@ -1086,6 +1086,157 @@ drawnow(makeFig)
 serv = socketserver.TCPServer(("",8000),myTCPServer)
 serv.serve_forever()
 \end{verbatim}%
+\chapter{Data of falls}
+\begin{figure}[h!]
+	\centering
+	\hspace{-1cm}
+	\begin{minipage}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[scale=0.42]{S1_1}
+		\caption{S1's fall experiment 1}
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[scale=0.42]{S1_2}
+		\caption{S1's fall experiment 2}
+	\end{minipage}	
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\hspace{-1cm}
+	\begin{minipage}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[scale=0.42]{S1_3}
+		\caption{S1's fall experiment 3}
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[scale=0.42]{S1_4}
+		\caption{S1's fall experiment 4}
+	\end{minipage}	
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\hspace{-1cm}
+	\begin{minipage}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[scale=0.42]{S1_5}
+		\caption{S1's fall experiment 5}
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[scale=0.42]{S2_1}
+		\caption{S2's fall experiment 1}
+	\end{minipage}	
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\hspace{-1cm}
+	\begin{minipage}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[scale=0.42]{S2_2}
+		\caption{S2's fall experiment 2}
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[scale=0.42]{S2_3}
+		\caption{S2's fall experiment 3}
+	\end{minipage}	
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\hspace{-1cm}
+	\begin{minipage}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[scale=0.42]{S2_4}
+		\caption{S2's fall experiment 4}
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[scale=0.42]{S2_5}
+		\caption{S2's fall experiment 5}
+	\end{minipage}	
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\hspace{-1cm}
+	\begin{minipage}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[scale=0.42]{S3_1}
+		\caption{S3's fall experiment 1}
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[scale=0.42]{S3_2}
+		\caption{S3's fall experiment 2}
+	\end{minipage}	
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\hspace{-1cm}
+	\begin{minipage}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[scale=0.42]{S3_3}
+		\caption{S3's fall experiment 3}
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[scale=0.42]{S3_4}
+		\caption{S3's fall experiment 4}
+	\end{minipage}	
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\hspace{-1cm}
+	\begin{minipage}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[scale=0.42]{S3_5}
+		\caption{S3's fall experiment 5}
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[scale=0.42]{S4_1}
+		\caption{S4's fall experiment 1}
+	\end{minipage}	
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\hspace{-1cm}
+	\begin{minipage}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[scale=0.42]{S4_2}
+		\caption{S4's fall experiment 2}
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[scale=0.42]{S4_3}
+		\caption{S4's fall experiment 3}
+	\end{minipage}	
+\end{figure}
+\begin{figure}[h!]
+	\centering
+	\hspace{-1cm}
+	\begin{minipage}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[scale=0.42]{S4_4}
+		\caption{S4's fall experiment 4}
+	\end{minipage}%
+	\hfill
+	\begin{minipage}[b]{0.5\textwidth}
+		\centering
+		\includegraphics[scale=0.42]{S4_5}
+		\caption{S4's fall experiment 5}
+	\end{minipage}	
+\end{figure}
 %----------------------------------------------------------------------
 % END MATERIAL
 %----------------------------------------------------------------------

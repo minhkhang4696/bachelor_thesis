@@ -41,4 +41,5 @@
 \contentsline {chapter}{\numberline {B}Connection Handling Library}{42}{appendix.B}
 \contentsline {chapter}{\numberline {C}Register Map of MPU6050}{46}{appendix.C}
 \contentsline {chapter}{\numberline {D}Python Code for Data Acquisition Program}{49}{appendix.D}
-\contentsline {chapter}{\textbf {References}}{51}{section*.43}
+\contentsline {chapter}{\numberline {E}Data of falls}{51}{appendix.E}
+\contentsline {chapter}{\textbf {References}}{55}{section*.53}

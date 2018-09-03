@@ -10,6 +10,7 @@
 #include "ESP8266WiFiMulti.h"
 #include "ESP.h"
 #include "Time.h"
+#include "Gsender.h"
 #include <CSensorSender.h>
 
 
@@ -74,6 +75,15 @@ void alert(){
   if (firstCond == true && secCond == true && thirdCond == true)
     {
       digitalWrite(BUZZER, HIGH);
+      //sending email
+       Gsender *gsender = Gsender::Instance();    // Getting pointer to class instance
+    String subject = "Fall Detection System";
+    if(gsender->Subject(subject)->Send("fall.aleart9154@gmail.com", "Fall Detected")) {
+        Serial.println("Message send.");
+    } else {
+        Serial.print("Error sending message: ");
+        Serial.println(gsender->getError());
+    }
     }
     firstCond = false;
     secCond = false;
@@ -175,4 +185,3 @@ void loop() {
     }
     t.update();
 }
-
