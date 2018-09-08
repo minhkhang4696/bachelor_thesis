@@ -3,13 +3,13 @@
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Medical Guardian Fall Alert System \cite {figure_guardian}\relax }}{9}{figure.caption.10}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces myHalo Medical Alert System from MobileHelp$^{TM}$ \cite {myHalo}\relax }}{10}{figure.caption.11}
 \contentsline {figure}{\numberline {2.3}{\ignorespaces TEMPO 3.0 sensor node \cite {li}\relax }}{11}{figure.caption.12}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces The final design of device from group research of Binh Nguyen and Jonathan Tomkun \cite {binh}\relax }}{11}{figure.caption.13}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces The final design of device from research group of Binh Nguyen and Jonathan Tomkun \cite {binh}\relax }}{11}{figure.caption.13}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Fall detection algorithm\relax }}{15}{figure.caption.14}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {4.1}{\ignorespaces MPU-6050 by Invensense \cite {mpu}\relax }}{16}{figure.caption.15}
 \contentsline {figure}{\numberline {4.2}{\ignorespaces ESP8266 D1 Mini Board with an ESP8266EX MCU inside\relax }}{18}{figure.caption.20}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Functional Block Diagram of ESP8266EX MCU\cite {block_diagram}\relax }}{19}{figure.caption.21}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Functional Block Diagram of ESP8266EX MCU \cite {block_diagram}\relax }}{19}{figure.caption.21}
 \contentsline {figure}{\numberline {4.4}{\ignorespaces Schematic of wireless communication system\relax }}{20}{figure.caption.22}
 \contentsline {figure}{\numberline {4.5}{\ignorespaces Graphic User Interface of Data Acquisition Program\relax }}{22}{figure.caption.24}
 \contentsline {figure}{\numberline {4.6}{\ignorespaces Data plotting with MATLAB\relax }}{23}{figure.caption.25}
@@ -18,7 +18,7 @@
 \contentsline {figure}{\numberline {4.9}{\ignorespaces Printed Circuit Board Design\relax }}{25}{figure.caption.28}
 \contentsline {figure}{\numberline {4.10}{\ignorespaces Sensor Node\relax }}{25}{figure.caption.29}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Fall forward data\relax }}{27}{figure.caption.31}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Fall data\relax }}{27}{figure.caption.31}
 \contentsline {figure}{\numberline {5.2}{\ignorespaces Data for walking\relax }}{27}{figure.caption.32}
 \contentsline {figure}{\numberline {5.3}{\ignorespaces Data for running\relax }}{27}{figure.caption.32}
 \contentsline {figure}{\numberline {5.4}{\ignorespaces Data for climbing up stair\relax }}{28}{figure.caption.33}
@@ -35,23 +35,23 @@
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {E.1}{\ignorespaces S1's fall experiment 1\relax }}{51}{figure.caption.43}
-\contentsline {figure}{\numberline {E.2}{\ignorespaces S1's fall experiment 2\relax }}{51}{figure.caption.43}
-\contentsline {figure}{\numberline {E.3}{\ignorespaces S1's fall experiment 3\relax }}{51}{figure.caption.44}
-\contentsline {figure}{\numberline {E.4}{\ignorespaces S1's fall experiment 4\relax }}{51}{figure.caption.44}
-\contentsline {figure}{\numberline {E.5}{\ignorespaces S1's fall experiment 5\relax }}{51}{figure.caption.45}
-\contentsline {figure}{\numberline {E.6}{\ignorespaces S2's fall experiment 1\relax }}{51}{figure.caption.45}
-\contentsline {figure}{\numberline {E.7}{\ignorespaces S2's fall experiment 2\relax }}{52}{figure.caption.46}
-\contentsline {figure}{\numberline {E.8}{\ignorespaces S2's fall experiment 3\relax }}{52}{figure.caption.46}
-\contentsline {figure}{\numberline {E.9}{\ignorespaces S2's fall experiment 4\relax }}{52}{figure.caption.47}
-\contentsline {figure}{\numberline {E.10}{\ignorespaces S2's fall experiment 5\relax }}{52}{figure.caption.47}
-\contentsline {figure}{\numberline {E.11}{\ignorespaces S3's fall experiment 1\relax }}{52}{figure.caption.48}
-\contentsline {figure}{\numberline {E.12}{\ignorespaces S3's fall experiment 2\relax }}{52}{figure.caption.48}
-\contentsline {figure}{\numberline {E.13}{\ignorespaces S3's fall experiment 3\relax }}{53}{figure.caption.49}
-\contentsline {figure}{\numberline {E.14}{\ignorespaces S3's fall experiment 4\relax }}{53}{figure.caption.49}
-\contentsline {figure}{\numberline {E.15}{\ignorespaces S3's fall experiment 5\relax }}{53}{figure.caption.50}
-\contentsline {figure}{\numberline {E.16}{\ignorespaces S4's fall experiment 1\relax }}{53}{figure.caption.50}
-\contentsline {figure}{\numberline {E.17}{\ignorespaces S4's fall experiment 2\relax }}{53}{figure.caption.51}
-\contentsline {figure}{\numberline {E.18}{\ignorespaces S4's fall experiment 3\relax }}{53}{figure.caption.51}
-\contentsline {figure}{\numberline {E.19}{\ignorespaces S4's fall experiment 4\relax }}{54}{figure.caption.52}
-\contentsline {figure}{\numberline {E.20}{\ignorespaces S4's fall experiment 5\relax }}{54}{figure.caption.52}
+\contentsline {figure}{\numberline {E.1}{\ignorespaces S1's fall experiment 1\relax }}{52}{figure.caption.43}
+\contentsline {figure}{\numberline {E.2}{\ignorespaces S1's fall experiment 2\relax }}{52}{figure.caption.43}
+\contentsline {figure}{\numberline {E.3}{\ignorespaces S1's fall experiment 3\relax }}{52}{figure.caption.44}
+\contentsline {figure}{\numberline {E.4}{\ignorespaces S1's fall experiment 4\relax }}{52}{figure.caption.44}
+\contentsline {figure}{\numberline {E.5}{\ignorespaces S1's fall experiment 5\relax }}{52}{figure.caption.45}
+\contentsline {figure}{\numberline {E.6}{\ignorespaces S2's fall experiment 1\relax }}{52}{figure.caption.45}
+\contentsline {figure}{\numberline {E.7}{\ignorespaces S2's fall experiment 2\relax }}{53}{figure.caption.46}
+\contentsline {figure}{\numberline {E.8}{\ignorespaces S2's fall experiment 3\relax }}{53}{figure.caption.46}
+\contentsline {figure}{\numberline {E.9}{\ignorespaces S2's fall experiment 4\relax }}{53}{figure.caption.47}
+\contentsline {figure}{\numberline {E.10}{\ignorespaces S2's fall experiment 5\relax }}{53}{figure.caption.47}
+\contentsline {figure}{\numberline {E.11}{\ignorespaces S3's fall experiment 1\relax }}{53}{figure.caption.48}
+\contentsline {figure}{\numberline {E.12}{\ignorespaces S3's fall experiment 2\relax }}{53}{figure.caption.48}
+\contentsline {figure}{\numberline {E.13}{\ignorespaces S3's fall experiment 3\relax }}{54}{figure.caption.49}
+\contentsline {figure}{\numberline {E.14}{\ignorespaces S3's fall experiment 4\relax }}{54}{figure.caption.49}
+\contentsline {figure}{\numberline {E.15}{\ignorespaces S3's fall experiment 5\relax }}{54}{figure.caption.50}
+\contentsline {figure}{\numberline {E.16}{\ignorespaces S4's fall experiment 1\relax }}{54}{figure.caption.50}
+\contentsline {figure}{\numberline {E.17}{\ignorespaces S4's fall experiment 2\relax }}{54}{figure.caption.51}
+\contentsline {figure}{\numberline {E.18}{\ignorespaces S4's fall experiment 3\relax }}{54}{figure.caption.51}
+\contentsline {figure}{\numberline {E.19}{\ignorespaces S4's fall experiment 4\relax }}{55}{figure.caption.52}
+\contentsline {figure}{\numberline {E.20}{\ignorespaces S4's fall experiment 5\relax }}{55}{figure.caption.52}
